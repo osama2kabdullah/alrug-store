@@ -4,10 +4,23 @@
       height: {{ block.settings.desktop_logo_height }}px;
     }
   {%- endstyle -%}
-  {%- assign footer_logo_size = block.settings.desktop_logo_height | prepend: 'x' -%}
   <div class="footer__logo">
     <a href="{{ routes.root_url }}">
-      <img src="{{ block.settings.logo | img_url: footer_logo_size, scale: 2 }}" alt="{{ block.settings.logo.alt | default: shop.name }}">
+      {%- assign width = block.settings.desktop_logo_height | times: block.settings.logo.aspect_ratio | times: 2 -%}
+      {%- assign height = block.settings.desktop_logo_height -%}
+      {%- capture sizes -%}{{ block.settings.desktop_logo_height | times: block.settings.logo.aspect_ratio }}px{%- endcapture -%}
+      {%- capture widths -%}{{ block.settings.desktop_logo_height | times: block.settings.logo.aspect_ratio }}, {{ block.settings.desktop_logo_height | times: block.settings.logo.aspect_ratio | times: 2 }}{%- endcapture -%}
+      {%- capture style -%}max-width: {{ block.settings.desktop_logo_height | times: block.settings.logo.aspect_ratio }}px;max-height: {{ block.settings.desktop_logo_height }}px;{%- endcapture -%}
+
+      {%- render 'image-element',
+        img: block.settings.logo,
+        img_width: width,
+        img_height: height,
+        sizes: sizes,
+        widths: widths,
+        style: style,
+        alt: block.settings.logo.alt | default: shop.name,
+      -%}
     </a>
   </div>
 {%- endif -%}

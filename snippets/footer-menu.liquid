@@ -1,8 +1,8 @@
 {%- if linklists[block.settings.menu].links.size > 0 -%}
   {%- if block.settings.show_footer_title -%}
-    <p class="h4 footer__title small--hide">
+    <h2 class="h4 footer__title small--hide">
       {{ linklists[block.settings.menu].title }}
-    </p>
+    </h2>
     <button type="button" class="h4 footer__title collapsible-trigger collapsible-trigger-btn medium-up--hide" aria-controls="Footer-{{ block.id }}">
       {{ linklists[block.settings.menu].title }}
       {%- render 'collapsible-icons' -%}

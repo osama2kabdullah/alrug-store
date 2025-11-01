@@ -1,59 +1,57 @@
-{%- unless grid_item_width -%}
-  {%- assign grid_item_width = 'small--one-half medium-up--one-third' -%}
-{%- endunless -%}
+{%- liquid
 
-{%- unless background_position -%}
-  {%- assign background_position = 'center center' -%}
-{%- endunless -%}
+  unless background_position
+    assign background_position = 'center center'
+  endunless
 
-{%- if block.settings.title != blank -%}
-  {%- assign title_output = block.settings.title -%}
-{%- else -%}
-  {%- if collection.empty? -%}
-    {%- assign title_output = 'home_page.onboarding.collection_title' | t -%}
-  {% elsif collection_title %}
-    {%- assign title_output = collection_title -%}
-  {%- else -%}
-    {%- assign title_output = collection.title | escape -%}
-  {%- endif -%}
-{%- endif -%}
+  if settings.collection_grid_image == 'collection' and collection.image
+    assign collection_image = collection.image
+  else
+    assign collection_image = collection.products.first.featured_media.preview_image
+  endif
 
-{%- if block.settings.subtitle != blank -%}
-  {%- assign subtitle_output = block.settings.subtitle -%}
+  if block.settings.title != blank
+    assign title_output = block.settings.title
+  else
+    if collection == blank
+      assign title_output = 'home_page.onboarding.collection_title' | t
+    elsif collection_title
+      assign title_output = collection_title
+    else
+      assign title_output = collection.title | escape
+    endif
+  endif
+-%}
 
-{%- endif -%}
-
-<div class="grid__item custom {{ grid_item_width }}">
+<div class="grid__item {{ gridView }}" {{ block.shopify_attributes }}>
   <a href="{{ collection.url }}" class="collection-item collection-item--{{ settings.collection_grid_style }}" data-aos="row-of-{{ per_row }}">
 
-    {%- if settings.collection_grid_image == 'collection' and collection.image -%}
-      {%- assign collection_image = collection.image -%}
-    {%- else -%}
-      {%- assign collection_image = collection.products.first.featured_image -%}
-    {%- endif -%}
-    {%- if  block.settings.image -%}
-    {%- assign collection_image = block.settings.image -%}
-        {%- endif -%}
-
-    
-    {%- if collection.empty? -%}
-      {% capture placeholder %}collection-{% cycle 1,2,3,4,5,6 %}{% endcapture %}
+    {%- if collection == blank or collection_image == blank -%}
+      {%- capture placeholder -%}collection-{% cycle 1, 2, 3, 4, 5, 6 %}{%- endcapture -%}
       <div class="collection-image collection-image--{{ settings.collection_grid_shape }} collection-image--placeholder">{{ placeholder | placeholder_svg_tag: 'placeholder-svg' }}</div>
     {%- else -%}
-      <div class="image-wrap">
-        <div
-          class="collection-image collection-image--{{ settings.collection_grid_shape }} lazyload"
-          data-bgset="{% include 'bgset', image: collection_image %}"
-          data-sizes="auto"
-          style="background-position: {{ background_position }};">
-        </div>
+      <div class="collection-image collection-image--{{ settings.collection_grid_shape }} image-wrap">
+        {% assign indicator = block.id %}
+        {% if block == blank %}
+          {% assign indicator = collection.id %}
+        {% endif %}
+
+        {% style %}
+          .collection-image--{{ indicator }} {
+            object-position: {{ background_position }};
+          }
+        {% endstyle %}
+
+        {% assign classes = 'collection-image--' | append: indicator %}
+        {%- render 'image-element',
+          img: collection_image,
+          widths: '360, 540, 720, 900, 1080',
+          classes: classes,
+          sizes: sizes,
+          sizeVariable: sizeVariable,
+          fallback: fallback,
+        -%}
       </div>
-      <noscript>
-        <div
-          class="collection-image collection-image--{{ settings.collection_grid_shape }}"
-          style="background-image: url({{ collection_image | img_url: '400x' }}); background-position: {{ background_position }};">
-        </div>
-      </noscript>
     {%- endif -%}
 
     <span
@@ -62,9 +60,6 @@
         {{ title_output }}
       </span>
     </span>
-    {%- if subtitle_output != blank -%}
-    <p class="collection-item__title--center"> {{subtitle_output}} </p>
-    {%- endif -%}
 
   </a>
 </div>
