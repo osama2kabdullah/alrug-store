@@ -1,0 +1,122 @@
+{%- assign blockId = block.id -%}
+{% if product %}
+  {%- assign blockId = block.id | append: product.id -%}
+{% endif %}
+
+<div class="index-section">
+  <div class="page-width">
+
+    <div class="grid">
+      <div class="container">
+        
+		<div class="column main">
+		<div class="dr-contactsd">
+<div class="dr-contact-inner">
+<h1>Get In Touch</h1>
+</div>
+</div>
+<section class="contact_detail">
+<div class="">
+<div class="row">
+
+<div class="col-md-7 col-sm-12 col-xs-12">
+ <div class="form-vertical">
+          {% form 'contact' , id: 'contact-form' %}
+<fieldset class="fieldset">
+<legend class="legend text-left"><span>Write Us</span></legend>
+<br>
+            {% if form.posted_successfully? %}
+              <p class="note note--success">
+                {{ 'contact.form.post_success' | t }}
+              </p>
+            {% endif %}
+
+            {{ form.errors | default_errors }}
+
+            <div class="grid grid--small">
+              <div class="grid__item medium-up--one-half field">
+                <label class="label" for="ContactFormName-{{ blockId }}">{{ 'contact.form.name' | t }}</label>
+				<div class="control">
+                <input type="text" id="ContactFormName-{{ blockId }}"  class="input-full" name="contact[name]" autocapitalize="words" value="{% if form.name %}{{ form.name }}{% elsif customer %}{{ customer.name }}{% endif %}">
+              </div>
+              </div>
+
+              <div class="grid__item medium-up--one-half field">
+			  <div class="control">
+                <label class="label" for="ContactFormEmail-{{ blockId }}">{{ 'contact.form.email' | t }}</label>
+                <input type="email" id="ContactFormEmail-{{ blockId }}" class="input-full" name="contact[email]" autocorrect="off" autocapitalize="off" value="{% if form.email %}{{ form.email }}{% elsif customer %}{{ customer.email }}{% endif %}">
+              </div>
+              </div>
+            </div>
+
+            {% if block.settings.show_phone %}
+			<div class="field">
+			<div class="control">
+              <label class="label" for="ContactFormPhone-{{ blockId }}">Phone Number</label>
+              <input type="tel" id="ContactFormPhone-{{ blockId }}" class="input-full" name="contact[phone]" pattern="[0-9\-]*" value="{% if form.phone %}{{ form.phone }}{% elsif customer %}{{ customer.phone }}{% endif %}">
+			  </div>
+			  </div>
+            {% endif %}
+<div class="field">
+			<div class="control">
+            <label class="label" for="ContactFormMessage-{{ blockId }}">{{ 'contact.form.message' | t }}</label>
+            <textarea rows="5" id="ContactFormMessage-{{ blockId }}"  class="input-full" name="contact[body]">{% if form.body %}{{ form.body }}{% endif %}</textarea>
+			 </div>
+			  </div>
+			  </fieldset>
+<div class="actions-toolbar">
+<div class="primary">
+            <button type="submit" class="btn action submit primary">
+              {{ 'contact.form.send' | t }}
+            </button>
+			</div>
+			</div>
+
+          {% endform %}
+        </div>
+</div>
+<div class="col-md-5">
+<div class="detail_section">
+<div class="row">
+<div class="col-md-12 col-sm-12 col-xs-12 mb-2">
+<div class="get_in_touch">
+
+</div>
+</div>
+<div class="col-md-12 col-sm-12 col-xs-12 mb-2">
+<div class="adress">
+<p><i class="fa fa-compass"></i>3658 San Fernando Rd. Glendale, CA 91204, United States</p>
+</div>
+</div>
+<div class="col-md-12 col-sm-12 col-xs-12 mb-2">
+<div class="contact_number"><a href="tel:+1.800.994.8440"><i class="fa fa-phone"></i>+1 (800) 994-8440</a></div>
+</div>
+<div class="col-md-12 col-sm-12 col-xs-12 mb-2">
+<div class="contact_number"><a href="mailto:info@alrug.com"><i class="fa fa-envelope-open"></i>info@alrug.com</a></div>
+</div>
+<div class="col-md-12">
+<div class="follow_us">
+<h5>Follow us:</h5>
+<ul>
+<li><a href="https://www.facebook.com/alrugcom" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook-f"></i></a></li>
+<li><a href="https://twitter.com/alrugcom" target="_blank" rel="noopener noreferrer"><i class="fab fa-twitter"></i></a></li>
+<li><a href="https://www.instagram.com/alrugcom/" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a></li>
+<li><a href="https://pinterest.com/alrugcom" target="_blank" rel="noopener noreferrer"><i class="fab fa-pinterest"></i></a></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+</div>
+<div class="contact_map"><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3302.935004854611!2d-118.25509078529869!3d34.12241362147746!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80c2c12671f212e9%3A0x3ffc8f04f0fd7706!2sALRUG!5e0!3m2!1sen!2s!4v1583304395305!5m2!1sen!2s" width="100%" height="100%" frameborder="0" style="border:0;" allowfullscreen=""></iframe></div>
+       
+      </div>
+    </div>
+	
+  </div>
+</div>
+

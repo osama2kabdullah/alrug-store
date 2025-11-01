@@ -1,0 +1,61 @@
+.faq-heading.active h2 {
+  color: #3e3e3e;
+}
+
+
+.faq-content {
+  display: none;
+}
+
+  .faq-content p{
+    padding:0 0 20px;
+  }
+.faq-heading {
+  cursor: pointer;
+
+}
+
+.faq-heading h2 {
+  font-size: 18px;
+  padding:20px 0 20px 30px;
+  position: relative;
+  margin:0;
+}
+
+.faq-item {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.faq-item:not(:last-of-type) {
+  border-bottom: 1px solid #eee;
+}
+
+.faq-heading h2::before {
+  content: "+";
+  position: absolute;
+  left: 0;
+}
+
+.faq-heading.active h2::before {
+  content: "-";
+}
+
+.faq-item .faq-content {
+  text-align: justify;
+}
+
+section.faq-page {
+  padding: 0 15px;
+  padding-bottom: 80px;
+}
+
+
+.recent-price{
+  display: none;
+}
+
+.navbar .navbar-brand:hover {
+    color: #ffcd28;
+}
+

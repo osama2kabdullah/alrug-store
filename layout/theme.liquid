@@ -1,0 +1,160 @@
+<!doctype html>
+<html class="no-js" lang="{{ shop.locale }}" fontify-lang="{{ shop.locale }}">
+<head> 
+
+  
+  {% render 'orbislabs_sitemap_noindex' %}                
+  {% include 'booster-seo' %}
+  <meta name="ahrefs-site-verification" content="b2440a3d8c64aa679a0c050bd5b3b126cb916382da7100173610fc45d38d9146"><meta name="ahrefs-site-verification" content="8a154cb594d139103ada44eeb8fa8f16837f1108c900da287f1993cc285cd874">
+  <meta name="google-site-verification" content="MQfhfbvafgknMp5eUlv4vplN5py-Qexlftaq1SYag4U" />
+  {% if template == '404' %} <script>window.location.href = '{{ shop.url }}';</script> {% endif %}
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="{{ settings.color_button }}">
+  <link rel="canonical" href="{{ canonical_url }}">  
+  <title>{{ page_title  }}</title>
+  <meta name="format-detection" content="telephone=no">
+  {{ 'theme.scss.css' | asset_url | stylesheet_tag }} 
+  {{ 'bootstrap.min.css' | asset_url | stylesheet_tag }} 
+  {{ 'bootstrap-theme.min.css' | asset_url | stylesheet_tag }} 
+  {{ 'theme-custom.css' | asset_url | stylesheet_tag }}
+  {{ 'styles-l.min.css' | asset_url | stylesheet_tag }}
+  {{ 'style-min.css' | asset_url | stylesheet_tag }}
+  {%- if settings.favicon -%}
+    <link rel="shortcut icon" href="{{ settings.favicon | img_url: '32x32' }}" type="image/png" />
+  {%- endif -%}
+
+  {% include 'seo-title' %}
+  {% comment %} {% endcomment %}
+
+  {%- if page_description -%}
+  {% comment %} {% endcomment %}
+  {%- endif -%}
+
+  {% include 'social-meta-tags' %}
+
+ {% if template == "product" %} 
+   <script>
+    document.documentElement.className = document.documentElement.className.replace('no-js', 'js');
+
+    window.theme = window.theme || {};
+    theme.strings = {
+      addToCart: {{ 'products.product.add_to_cart' | t | json }},
+      soldOut: {{ 'products.product.sold_out' | t | json }},
+      unavailable: {{ 'products.product.unavailable' | t | json }},
+      stockLabel: {{ 'products.product.stock_label' | t: count: '[count]' | json }},
+      willNotShipUntil: {{ 'products.product.will_not_ship_until' | t: date: '[date]' | json }},
+      willBeInStockAfter: {{ 'products.product.will_be_in_stock_after' | t: date: '[date]' | json }},
+      waitingForStock: {{ 'products.product.waiting_for_stock' | t | json }},
+      savePrice: {{ 'products.general.save_html' | t: saved_amount: '[saved_amount]' | json }},
+      cartEmpty: {{ 'cart.general.empty' | t | json }},
+      cartTermsConfirmation: {{ 'cart.general.terms_confirm' | t | json }}
+    };
+    theme.settings = {
+      dynamicVariantsEnable: true,
+      dynamicVariantType: {{ settings.variant_type | json }},
+      cartType: {{ settings.cart_type | json }},
+      currenciesEnabled: {{ settings.enable_currencies | json }},
+      nativeMultiCurrency: {{ shop.enabled_currencies.size }} > 1 ? true : false,
+      moneyFormat: {{ shop.money_format | json }},
+      saveType: {{ settings.product_save_type | json }},
+      recentlyViewedEnabled: false,
+      predictiveSearch: {{ settings.predictive_search_enabled }},
+      predictiveSearchType: {{ settings.search_type | json }},
+      inventoryThreshold: {{ settings.inventory_threshold }},
+      quickView: {{ settings.quick_shop_enable }},
+      themeName: 'Impulse',
+      themeVersion: "4.1.1"
+    };
+  </script>
+  {% endif %}
+  {% style %}
+    .collection-item__title {
+      font-size: {{ settings.type_collection_size | times: 0.8 }}px;
+    }
+    @media screen and (min-width: 769px) {
+      .collection-item__title {
+        font-size: {{ settings.type_collection_size }}px;
+      }
+    }
+  {% endstyle %}
+ {{ content_for_header }} 
+ {{ shop.metafields.fontify.stylesheets }} 
+</head>
+<body class="template-{{ template | replace: '.', ' ' | truncatewords: 1, '' | handle }}{% if settings.enable_currencies %} currencies-enabled{% endif %}" data-transitions="false">
+  <a class="in-page-link visually-hidden skip-link" href="#MainContent">{{ 'general.accessibility.skip_to_content' | t }}</a>
+  <div id="PageContainer" class="page-container">
+    {% section 'header' %}
+      <main class="main-content" id="MainContent">
+        {{ content_for_layout }}
+      </main>
+      {% section 'footer-promotions' %}
+      {% section 'footer' %}
+  </div>
+  {% section 'newsletter-popup' %}
+  {%- if settings.cart_type == 'drawer' -%}
+    {%- include 'ajax-cart-template' -%}
+  {%- endif -%}
+
+  {%- if settings.enable_currencies -%}
+    {%- include 'currency-modal' -%}
+  {%- endif -%}
+
+
+  {%- if settings.predictive_search_enabled -%}
+    {%- include 'predictive-template' -%}
+  {%- endif -%}
+
+  {% include 'photoswipe-template' %}
+  {% if template contains 'product' %}
+    {% include 'recently-viewed-product-template' %}
+  {% endif %}
+
+  {% if template != "product" %} 
+   <script>
+    document.documentElement.className = document.documentElement.className.replace('no-js', 'js');
+
+    window.theme = window.theme || {};
+    theme.strings = {
+      addToCart: {{ 'products.product.add_to_cart' | t | json }},
+      soldOut: {{ 'products.product.sold_out' | t | json }},
+      unavailable: {{ 'products.product.unavailable' | t | json }},
+      stockLabel: {{ 'products.product.stock_label' | t: count: '[count]' | json }},
+      willNotShipUntil: {{ 'products.product.will_not_ship_until' | t: date: '[date]' | json }},
+      willBeInStockAfter: {{ 'products.product.will_be_in_stock_after' | t: date: '[date]' | json }},
+      waitingForStock: {{ 'products.product.waiting_for_stock' | t | json }},
+      savePrice: {{ 'products.general.save_html' | t: saved_amount: '[saved_amount]' | json }},
+      cartEmpty: {{ 'cart.general.empty' | t | json }},
+      cartTermsConfirmation: {{ 'cart.general.terms_confirm' | t | json }}
+    };
+    theme.settings = {
+      dynamicVariantsEnable: true,
+      dynamicVariantType: {{ settings.variant_type | json }},
+      cartType: {{ settings.cart_type | json }},
+      currenciesEnabled: {{ settings.enable_currencies | json }},
+      nativeMultiCurrency: {{ shop.enabled_currencies.size }} > 1 ? true : false,
+      moneyFormat: {{ shop.money_format | json }},
+      saveType: {{ settings.product_save_type | json }},
+      recentlyViewedEnabled: false,
+      predictiveSearch: {{ settings.predictive_search_enabled }},
+      predictiveSearchType: {{ settings.search_type | json }},
+      inventoryThreshold: {{ settings.inventory_threshold }},
+      quickView: {{ settings.quick_shop_enable }},
+      themeName: 'Impulse',
+      themeVersion: "4.1.1"
+    };
+  </script>
+  {% endif %}
+  {%- if request.page_type contains 'customers/' -%}
+    <script src="{{ 'shopify_common.js' | shopify_asset_url }}" defer="defer"></script>
+  {%- endif -%}
+  <script src="{{ 'vendor-scripts-v5.js' | asset_url | split: '?' | first }}" defer="defer"></script>
+  <script src="{{ 'theme.js' | asset_url }}" defer="defer"></script>
+  {{ 'jquery-3.4.1.js' | asset_url | script_tag }}
+  {{ 'bootstrap.min.js' | asset_url | script_tag }}
+  {{ 'custom.js' | asset_url | script_tag }}
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" defer="defer">
+  <link rel="stylesheet" href="https://use.typekit.net/xqv4clx.css" defer="defer">
+</body>
+</html>

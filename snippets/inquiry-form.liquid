@@ -1,0 +1,55 @@
+<section class="further_query" id="further_query">
+		<div class="container">
+			<h2>For Further Query</h2>
+			<p>Send us a note and we'll get back to you as quickly as possible.</p>
+			<hr class="divider">
+			<div class="row">
+			{% form 'contact' , id: 'contact-form' , class: 'further_query_form' %}
+				
+				 {% if form.posted_successfully? %}
+              <p class="note note--success">
+                {{ 'contact.form.post_success' | t }}
+              </p>
+            {% endif %}
+
+            {{ form.errors | default_errors }}
+			
+                    <input type="hidden" name="contact[product id]" value="{{ product.id }}">
+                    <input type="hidden" name="contact[product title]" value="{{ product.title }}">
+                    <input type="hidden" name="contact[Product Url]" value="{{ shop.secure_url }}{{ product.url }}">
+                    <input type="hidden" name="contact[Sku]" value="{{ product.metafields.global.SKU }}">
+					<div class="col-md-12">
+						<div class="row">
+                                                        							<div class="col-md-4">
+								<div class="form-group query_form">
+									<input type="text" name="contact[name]" value="" class="form-control" placeholder="name" id="txt" required >
+                                    								</div>
+							</div>
+							<div class="col-md-4">
+								<div class="form-group query_form">
+									<input type="email" name="contact[email]" value="" class="form-control" placeholder="email" id="email" required>
+                                    								</div>
+							</div>
+							<div class="col-md-4">
+								<div class="form-group query_form">
+									<input type="tel" name="contact[phone]" value="" class="form-control" placeholder="phone" id="tel" required>
+                                    								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-12">
+						<div class="form-group">
+                              	 <textarea rows="5" id="ContactFormMessage-{{ section.id }}" class="input-full" name="contact[body]" placeholder="What's on your  mind?" required>{% if form.body %}{{ form.body }}{% endif %}</textarea>
+
+                                                    </div>
+					</div>
+					 
+					 
+					<div class="col-md-12">
+						<input type="submit" value="submit">
+					</div>
+               
+          {% endform %}
+			</div>
+		</div>
+	</section>

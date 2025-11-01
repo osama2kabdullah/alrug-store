@@ -1,0 +1,326 @@
+{%- unless thumbnail_position -%}
+  {%- assign thumbnail_position = 'beside' -%}
+{%- endunless -%}
+
+{%- unless description_style -%}
+  {%- assign description_style = 'full' -%}
+{%- endunless -%}
+
+{%- assign product_img_structure = product.featured_image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
+<div id="ProductSection-{{ section_id }}"
+  class="product-section catalog-product-view page-layout-1column"
+  data-section-id="{{ section_id }}"
+  data-section-type="product-template"
+  data-product-handle="{{ product.handle }}"
+  data-product-url="{{ product.url | within: collection }}"
+  data-aspect-ratio="{{ 100 | divided_by: product.featured_image.aspect_ratio }}"
+  data-img-url="{{ product_img_structure }}"
+  {% if settings.product_zoom_enable %}
+    data-image-zoom="true"
+  {% endif %}
+  {% if settings.inventory_enable %}
+    data-inventory="true"
+  {% endif %}
+  {% if settings.inventory_transfers_enable %}
+    data-incoming-inventory="true"
+  {% endif %}
+  {% unless isModal %}
+    data-enable-history-state="true"
+  {% endunless %}
+  {% if isModal %}
+    data-lazyload-content="true"
+  {% endif %}>
+
+  {%- include 'product-template-variables' -%}
+
+  <div class="page-content page-content--product">
+    <div class="page-main">
+
+      <div class="grid{% unless image_position == 'left' %} grid--product-images-right{% endunless %} column main">
+     
+        {%- if image_position == 'left' -%}
+          <div class="product media">
+            {% include 'product-images', section_id: section_id, isModal: isModal, thumbnail_position: thumbnail_position, thumbnail_arrows: thumbnail_arrows %}
+          </div>
+        {%- endif -%}
+
+        <div class="product-info-main">
+
+            {%- if settings.vendor_enable -%}
+              <div class="product-single__vendor">
+                {{ product.vendor }}
+              </div>
+            {%- endif -%}
+			<div class="page-title-wrapper product">
+				<h1 class="page-title">
+					<span class="base" data-ui-id="page-title-wrapper" itemprop="name">{{ product.title }}</span>
+				</h1>
+			</div>
+    
+
+              {%- if isModal -%}
+                <div
+                  data-section-id="{{ section_id }}"
+                  class="hide js-product-inventory-data"
+                  aria-hidden="true"
+                  >
+                  {%- for variant in variants_with_inventory_tracking -%}
+                    <div
+                      class="js-variant-inventory-data"
+                      data-id="{{ variant.id }}"
+                      data-quantity="{{ variant.inventory_quantity | default: 0 }}"
+                      data-incoming="{{ variant.incoming | default: false | json }}"
+                      data-date="{{ variant.next_incoming_date | date: format: 'date' | json }}"
+                    >
+                    </div>
+                  {%- endfor -%}
+                </div>
+          
+            {%- endif -%}
+
+		
+              <div class="product-info-price popup">
+				<div class="price-box price-final_price" data-role="priceBox" data-product-id="56648">
+					
+					
+					<span class="special-price">
+						<span class="price-container price-final_price tax weee">
+							<span class="price-label">Special Price</span>
+							<span data-price-type="finalPrice" class="price-wrapper "><span class="price">{{ current_variant.price | money_without_trailing_zeros  }}</span></span>
+						</span>
+					</span>
+					{%- unless isModal -%}
+              {% include 'product-form', section_id: section_id %}
+            {%- else -%}
+              <div id="ProductFormHolder-{{ section_id }}" class="product-form-holder product-add-form" data-url="{{ product.url }}"></div>
+            {%- endunless -%}
+					<div class="sale-discount-wrapper">
+					 {% assign days = 5 | times: 86400 %}
+                       {% assign days2 = 12 | times: 86400 %}
+						<span class="delivery-estimation">Estimated Delivery: {{ "now" | date: "%s" | plus: days | date: "%b %d" }} - {{ "now" | date: "%s" | plus: days2 | date: "%b %d" }}</span>
+						<span class="free-delivery"><strong>FREE Shipping via DHL or FedEx</strong></span><br>
+						<span class="remaining">{% if current_variant.available %}
+      {{ 'products.product.stock_label' | t: count: current_variant.inventory_quantity }}
+    {% endif %}</span>
+					</div>
+					
+				</div>
+				
+			</div>
+             {%- unless isModal -%}
+			<div class="product info detailed">
+	  <div class="product data items">
+	  <nav>
+  <div class="nav nav-tabs item title" id="nav-tab" role="tablist">
+    <a class="nav-item nav-link active switch" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Specifications</a>
+    <a class="nav-item nav-link switch" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Description</a>
+        <a class="nav-item nav-link switch" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">Shipping</a>
+    <a href="javascript:void(0)" onclick="goToByScroll('further_query')" class="nav-item nav-link switch" >For Further Query</a>
+  </div>
+</nav>
+<div class="tab-content item content" id="nav-tabContent">
+  <div class="tab-pane fade  active in" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab"><div class="additional-attributes-wrapper">
+						<table class="data table additional-attributes table-striped" id="product-attribute-specs-table">
+							<caption class="table-caption">More Information</caption>
+							<tbody class="col-md-6 col-sm-12" style="border-top: none;">
+				{% assign count = 0 %}
+                {% for field in product.metafields.global %}
+                 {% assign count = count | plus: 1 %}
+                              <tr>
+                                {% assign field_new = field | first | capitalize  %} 
+                                 {% if field_new == 'Sku' %}
+                                 <th class="col label" scope="row">{{ field_new  | upcase  }}</th>
+                                 {% else %}
+                                 <th class="col label" scope="row">{{ field_new  | replace: '_', ' ' }}</th>
+                                  {% endif %} 
+                                
+                                
+									
+									<td class="col data" data-th="{{ field_new | first }}">{{ field | last }}</td>
+								</tr>
+                {% if count == 7 %}
+                  </tbody>
+                  <tbody class="col-md-6 col-sm-12" style="border-top: none;">
+                             {% endif %}    
+ 							  {% endfor %}
+                         
+								
+							</tbody>
+						</table>
+					</div>
+					
+					</div>
+  <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+	<div class="product attribute description">
+						 {{ product.description }}
+					</div>
+					
+  </div>
+<div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
+	<div class="product attribute reviews cust">
+						<ul>
+							<li>* We provide FREE Local and International Shipping via DHL / UPS with a delivery time of 3 to 5 days from our California, US warehouse or from Lahore, Pakistan subject to availability.</li>
+							<!--li>* Rugs are shipped from the US warehouse in California or directly from Lahore, Pakistan depending upon the location of the ordered rug. </li-->
+							<li>* Customers are liable to any import or customs duties on arrival of the rug in their country. Please refer to our <a href="faq/">FAQ section</a> for further details.</li>
+							<li>* You may return your unused rug(s) in its original condition and packaging within 14 days of receipt. &nbsp;</li>
+							<li>* You will be responsible for all return shipping costs with the same courier you received the rug(s) with.&nbsp;</li>
+							<li>* US and Canadian customers can send return rug(s) to our US address in California.&nbsp;</li>
+							<li>* In case of a return, you are liable to pay 10% re-stocking fee for internal company expenses such as handling, accounting, banking and other associated expenses.&nbsp;</li>
+							<li>* We operate on very low margins, hence we do not encourage customers to adopt a "buy to try" approach.&nbsp;</li>
+							<li>* If you receive a damaged item, ALRUG will assist you in receiving a replacement or refund as quickly as possible - at no cost to you.&nbsp;</li>
+						</ul>
+					</div>
+					
+  </div>
+</div>
+	  
+    </div>
+    </div>
+	{%- else -%}
+	<div class="product info detailed">
+	  <div class="product data items">
+	  <nav>
+  <div class="nav nav-tabs item title" id="nav-tab" role="tablist">
+    <a class="nav-item nav-link active switch" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Specifications</a>
+    
+  </div>
+</nav>
+<div class="tab-content item content" id="nav-tabContent">
+  <div class="tab-pane fade  active in" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab"><div class="additional-attributes-wrapper">
+						<table class="data table additional-attributes table-striped" id="product-attribute-specs-table">
+							<caption class="table-caption">More Information</caption>
+							<tbody>
+                              
+                              {% for field in product.metafields.global %}
+                              <tr>
+                                {% assign field_new = field | first | capitalize  %} 
+                                {% if field_new == 'base_color' %}
+                                <th class="col label" scope="row">Color</th>                                
+                                {% else %}
+                                <th class="col label" scope="row">{{ field_new  | replace: '_', ' ' }}</th>
+                                {% endif %}
+									
+									<td class="col data" data-th="{{ field_new | first }}">{{ field | last }}</td>
+								</tr>
+                             
+ 							  {% endfor %}
+                              
+								
+							</tbody>
+						</table>
+					</div>
+					
+					</div>
+  
+</div>
+	  
+    </div>
+    </div>
+              
+            {%- endunless -%}
+            
+
+            {%- if settings.trust_image != blank -%}
+              <div class="aos-animate trust-image" style="max-width: {{ settings.trust_image.width }}px;">
+                <div class="image-wrap " style="height: 0; padding-bottom: {{ 100 | divided_by: settings.trust_image.aspect_ratio }}%;">
+                  {%- assign img_url = settings.trust_image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
+                  <img class="lazyload"
+                      data-src="{{ img_url }}"
+                      data-widths="[360, 540]"
+                      data-aspectratio="{{ settings.trust_image.aspect_ratio }}"
+                      data-sizes="auto"
+                      alt="{{ settings.trust_image.alt }}">
+                  <noscript>
+                    <img class="lazyloaded" src="{{ settings.trust_image | img_url: '540x' }}" alt="{{ settings.trust_image.alt }}">
+                  </noscript>
+                </div>
+              </div>
+            {%- endif -%}
+
+            {%- unless description_style == 'full' -%}
+              {% comment %}<div class="product-single__description rte">
+                {{ product.description }}
+              </div>{% endcomment %}
+              {% if product.type == 'Bridal' %}
+                {% include 'product-additional-content', section_id: section_id %}
+              {% endif %}
+            {%- endunless -%}
+			<div class="product-social-links">
+				<div class="extra-copy">
+					<span class="left-question">Questions<span class="no-cart">? (SKU# {{ current_variant.sku }})</span></span>
+					<span class="right-number"><a href="tel:+18009948440"><i class="fas fa-phone-volume"></i> +1 (800) 994-8440</a></span>
+				</div>
+            {%- if social -%}
+              {% include 'social-sharing', share_title: product.title, share_permalink: product.url, share_image: product %}
+            {%- endif -%}
+          </div>
+		  {%- unless isModal -%}
+<!-- 						<div class="social-custom">
+                                        
+										<ul class="customise">
+											<li><a href="javascript:void(0)" onclick="goToByScroll('further_query')"><span class="fa fa-pen"></span>Customize this rug</a></li>
+											<li><a href="javascript:void(0)" onclick="goToByScroll('further_query')">For Further Query</a></li>
+										</ul>
+									</div> -->
+									 {%- else -%}
+              
+            {%- endunless -%}
+        </div>
+
+        {%- unless image_position == 'left' -%}
+          <div class="grid__item {{ product_image_width }}">
+            {% include 'product-images', section_id: section_id, isModal: isModal, thumbnail_position: thumbnail_position, thumbnail_arrows: thumbnail_arrows %}
+          </div>
+        {%- endunless -%}
+      </div>
+
+      {%- if description_style == 'full' -%}
+        <div class="product-single__description-full rte">
+          {{ product.description }}
+        </div>
+        {% if product.type == 'Bridal' %}
+          {% include 'product-additional-content', section_id: section_id %}
+        {% endif %}
+      {%- endif -%}
+	  {%- unless isModal -%}
+	<div class="product info detailed-custom">
+
+	
+	<div class="product info items">
+	  <nav>
+  <div class="nav nav-tabs item title all-tabs" id="nav-tab" role="tablist">
+    <a class="nav-item nav-link data item title active " id="nav-home-tabs" data-toggle="tab" href="#nav-homes" role="tab" aria-controls="nav-homes" aria-selected="true">CARE</a>
+    <a class="nav-item nav-link data item title" id="nav-profile-tabs" data-toggle="tab" href="#nav-profiles" role="tab" aria-controls="nav-profiles" aria-selected="false">HISTORY</a>
+   
+  </div>
+</nav>
+<div class="tab-content item content data" id="nav-tabContent">
+  <div class="tab-pane fade  active in" id="nav-homes" role="tabpanel" aria-labelledby="nav-home-tab"><p><strong>Rotate</strong>&nbsp;your rugs frequently to equalize the damaging effects of the sunlight. Continual direct exposure to sunlight will damage a rug over time, use window shades, shutters, or heavy curtains to safeguard your investment.</p>
+<p>Protect your rugs from&nbsp;<strong>Fumes</strong>&nbsp;and&nbsp;<strong>Dampness</strong>&nbsp;from furnaces, stoves, chimneys and auto exhaust can mix with humidity in the atmosphere to form an acid that fades and deteriorates the appearance of wool. Over time, dampness will rot the threads and destroy the fibers of a rug. Keep them in a dry environment.</p>
+<p><strong>Wear and tear</strong>&nbsp;If a rug is cut or torn, have a competent person repair the damage as soon as possible. Holes can expand very quickly and ruin an otherwise repairable carpet. With ordinary use, the selvage edges tend to fray as they are not as compressed as the rug pile. Worn edges can easily be re-darned. Fringes can be replaced. Worn or damaged areas in the middle of a rug can be re-knotted. Even large holes can be restored.</p>
+<p><strong>Moths</strong>&nbsp;can cause extensive damage to Oriental rugs; however, a carpet in normal use is rarely in danger from moths. Frequent rotation and regular exposure to light and air usually keeps moths at bay. Eliminate these pests and safeguard against their return by spraying the front and back of a carpet every six months with moth spray.</p>
+<p><strong>Padding</strong>&nbsp;an Oriental rug the life can be doubled with the use of good-quality padding. Padding protects the rug, especially in heavily-trafficked areas. The best padding is made of hair or fiber with a rubberized surface to prevent moving and wrinkling. Avoid synthetic pad that takes on the appearance of rubber as it turns to an abrasive powder after several years.</p>
+<p><strong>Cleaning</strong>&nbsp;The beauty and life of Oriental rugs are vitally dependent on their cleanliness. Lack of maintenance will contribute to loss in the potential investment.</p>
+<p><strong>Sweeping</strong>&nbsp;the rug with a broom at least once a week removes loose soil and brings out it's natural sheen</p>
+<p><strong>Beating</strong>&nbsp;is one of the best methods for cleaning a rug. It should be beaten several times on each side, always in dry weather.</p>
+<p><strong>Vacuuming</strong>&nbsp;Try to use a low suction level and a new bag. Never vacuum against the nap, as this presses dirt back into the rug. (Run your hand across the pile from fringe to fringe to determine the direction of the nap.) Do not vacuum the fringes. The suction of a powerful vacuum cleaner can tear the fringe.</p>
+<p><strong>Washing</strong>&nbsp;Oriental rugs should be washed every three to five years, depending on their use and the amount of traffic they endure. Using steam-cleaning or chemicals on an Oriental rug removes the natural oils from the wool. The pile becomes brittle, and the carpet wears out sooner. Do not, unless absolutely necessary, submerge an Oriental rug in water. Surface cleaning is usually all that is required.</p>
+<p><strong>Crushed pile</strong>&nbsp;Revive carpet pile that has been crushed by heavy furniture by brushing the indented area with a soft brush. Moisten with a spray bottle, and brush again.</p>
+<p><strong>Storage</strong>&nbsp;If a rug must be stored, it must be inspected regularly. To store a rug, wrap it in fabric. An Oriental rug needs to breathe. It can rot or mildew in plastic. A rug can be rolled up and stored in a chest with some paradichlorobenzene crystals, which make the wool inedible to moths. DO NOT lay carpets flat on top of one another for any length of time. A rug stored in a damp or humid area will mildew, which discolors and weakens the fibers. A hot or poorly ventilated storage area will dry out the base of the rug, making it brittle, destroying strength and durability. If you act immediately, you can prevent virtually any spill from becoming a stain.</p>
+					</div>
+  <div class="tab-pane fade" id="nav-profiles" role="tabpanel" aria-labelledby="nav-profile-tabs">
+	<p>Among the finest handmade oriental rugs ever made, Isfahan rugs are the summum of the Persian carpet. In an enchanted city, renowned for its taste and finesse, these carpets are of great delicacy and utmost intricacy. The city of Isfahan holds place of pride in the Persian rug industry because of its rich history and reputation dating back to the 16th century. Most Isfahan carpets are finely detailed in wool and silk, often on a base of pure silk. Patterns include pictorial and tree-of-life schemes, as well as the Shah Abbas field with its floral vines.</p>
+  </div>
+
+</div>
+	  
+    </div>
+	
+</div>
+            {%- else -%}
+              
+            {%- endunless -%}
+    </div>
+  </div>
+</div>
+

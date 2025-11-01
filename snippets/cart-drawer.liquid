@@ -1,0 +1,148 @@
+{%comment%}
+{%- if settings.cart_type == 'drawer' -%}
+  <div id="CartDrawer" class="drawer drawer--right">
+    <form id="CartDrawerForm" action="{{ routes.cart_url }}" method="post" novalidate class="drawer__contents">
+      <div class="drawer__fixed-header">
+        <div class="drawer__header appear-animation appear-delay-1">
+          <div class="h2 drawer__title">{{ 'cart.general.title' | t }}</div>
+          <div class="drawer__close">
+            <button type="button" class="drawer__close-button js-drawer-close">
+              <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon-close" viewBox="0 0 64 64"><path d="M19 17.61l27.12 27.13m0-27.12L19 44.74"/></svg>
+              <span class="icon__fallback-text">{{ 'cart.general.close_cart' | t }}</span>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="drawer__inner">
+        <div class="drawer__scrollable" >
+          <div data-products class="appear-animation appear-delay-2"></div>
+          {% if settings.cart_notes_enable %}
+            <div class="appear-animation appear-delay-3">
+              <label for="CartNoteDrawer">{{ 'cart.general.note' | t }}</label>
+              <textarea name="note" class="input-full cart-notes" id="CartNoteDrawer">{{ cart.note }}</textarea>
+            </div>
+          {% endif %}
+        </div>
+        <div class="drawer__footer appear-animation appear-delay-4">
+          <div data-discounts>
+            {% if cart.cart_level_discount_applications != blank %}
+              <div class="cart__discounts cart__item-sub cart__item-row">
+                <div>{{ 'cart.general.discounts' | t }}</div>
+                <div class="text-right">
+                  {% for cart_discount in cart.cart_level_discount_applications %}
+                    <div class="cart__discount">
+                      {{ cart_discount.title }} (-{{ cart_discount.total_allocated_amount | money }})
+                    </div>
+                  {% endfor %}
+                </div>
+              </div>
+            {% endif %}
+          </div>
+
+<!--           <div class="cart__item-sub cart__item-row">
+            <div class="ajaxcart__subtotal">{{ 'cart.general.subtotal' | t }}</div>
+            <div data-subtotal><span class="wh-original-cart-total"><span class='wh-original-price'>{{ cart.total_price | money }}</span></span><span class="wh-cart-total"></span><div class="additional-notes"><span class="wh-minimums-note"></span><span class="wh-extra-note"></span></div></div>
+            </div> -->
+         <div style="margin-left:-5.5%;margin-right:-3.5%;">
+          <div class="grid grid--full no-padding">
+            <div class="cartdisub">
+                <div class="grid__item one-half">
+                    <p class="ajaxcart__subtotal">{{ 'cart.general.subtotal' | t }}</p>
+                </div>
+                <div class="grid__item one-half text-right">
+                    <p class="ajaxcart__price" data-subtotal><span class="wh-original-cart-total"><span class='wh-original-price'>{{ cart.total_price | money }}</span></span><span class="wh-cart-total"></span><div class="additional-notes"><span class="wh-minimums-note"></span><span class="wh-extra-note"></span></div></p>
+                </div>
+              </div>
+          </div>
+          <div class="grid grid--full no-padding" data-tbnadhide='NO_DISCOUNT' style="display:none">
+            <div class="cartdisub">
+              <div class="grid__item one-half">
+                  <p class="ajaxcart__subtotal">Discount:</p>
+              </div>
+              <div class="grid__item one-half text-right">
+                  <p class="ajaxcart__price">-<span data-tbnadfield='CART_DISCOUNT' data-tbnadhide='NO_DISCOUNT'></span></p>
+              </div>
+            </div>
+          </div>
+          <div class="grid grid--full no-padding" data-tbnadhide='NO_DISCOUNT' style="display:none">
+            <div class="cartdisub">
+              <div class="grid__item one-half">
+                  <p class="ajaxcart__subtotal">Total:</p>
+              </div>
+              <div class="grid__item one-half text-right">
+                  <p class="ajaxcart__price"><span  data-tbnadfield='CART_TOTAL'></span></p>
+              </div>
+             </div>
+          </div>
+        </div> 
+         <div style="margin: 0 0 10px 0;">
+  <quadpay-widget amount=<span class="wh-original-cart-total"><span class='wh-original-price'>{{ cart.total_price | divided_by: 100.00 }}</span></span><span class="wh-cart-total"></span><div class="additional-notes"><span class="wh-minimums-note"></span><span class="wh-extra-note"></span></div> ></quadpay-widget>
+  </div>
+
+<!--           <div class="cart__item-row text-center">
+            <small>
+              {{ 'cart.general.shipping_at_checkout' | t }}<br />
+            </small>
+          </div> -->
+
+          {% if settings.cart_terms_conditions_enable %}
+            <div class="cart__item-row cart__terms">
+              <input type="checkbox" id="CartTermsDrawer" class="cart__terms-checkbox">
+              <label for="CartTermsDrawer">
+                {% if settings.cart_terms_conditions_link != blank %}
+                  {{ 'cart.general.terms_html' | t: url: settings.cart_terms_conditions_link }}
+                {% else %}
+                  {{ 'cart.general.terms' | t }}
+                {% endif %}
+              </label>
+            </div>
+          {% endif %}
+          <div class="cart__checkout-wrapper">
+            <button type="submit" name="checkout" data-terms-required="{{ settings.cart_terms_conditions_enable }}" class="btn cart__checkout">
+              {{ 'cart.general.checkout' | t }}
+            </button>
+            {% if additional_checkout_buttons and settings.cart_additional_buttons %}
+              <div class="additional-checkout-buttons additional-checkout-buttons--vertical">{{ content_for_additional_checkout_buttons }}</div>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+
+      <div class="drawer__cart-empty appear-animation appear-delay-2">
+             <div style="background:#fff; margin-top:15px;" class="discount-bar">
+      <p style="font-size: 13px; font-weight: bold; margin-top: -11px; color: red;">Add <span class="CartItem">{{ 2 | minus: cart.item_count }}</span> more item to get 30% OFF!<a class="drawer__close-button js-drawer-close" style="font-size: 11px; font-weight: normal; margin-top: -11px; color: #b09b4c;"><u>KEEP SHOPPING</u></a></p>
+
+    </div>
+    <p style="font-size: 14px; margin-bottom: 10px;margin-top: 10px; color: #00C202;" class="cart_discount"><b>You get 30% OFF!    </b><a class="drawer__close-button js-drawer-close" style="font-size: 11px; font-weight: normal; margin-top: -11px; color: #b09b4c;"><u>KEEP SHOPPING</u></a></p>
+           <div class="drawer__scrollable">
+          {{ 'cart.general.empty' | t }}
+        </div>
+      </div>
+    </form>
+  </div>
+{%- endif -%}
+<style>
+	.startShoppingMiniCart.appear-animation.appear-delay-3 {
+    display: none;
+}
+</style>
+{%endcomment%}
+{% if settings.cart_type == 'drawer' %}
+  <div id="CartDrawer" class="drawer drawer--right drawer--has-fixed-footer">
+    <div class="drawer__fixed-header">
+      <div class="drawer__header appear-animation appear-delay-1">
+        <div class="h2 drawer__title">{{ 'cart.general.title' | t }}</div>
+        <div class="drawer__close">
+          <button type="button" class="drawer__close-button js-drawer-close">
+            <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon-close" viewBox="0 0 64 64"><path d="M19 17.61l27.12 27.13m0-27.12L19 44.74"/></svg>
+            <span class="icon__fallback-text">{{ 'cart.general.close_cart' | t }}</span>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="drawer__inner">
+      <div id="CartContainer" class="drawer__cart"></div>
+    </div>
+  </div>
+{% endif %}
+
