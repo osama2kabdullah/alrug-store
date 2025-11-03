@@ -4227,6 +4227,42 @@ form{
   margin-bottom:15px;
 }
 
+.contact-page-wrapper .social-icons {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.contact-page-wrapper {
+  display: grid;
+  grid-template-columns: 1fr; /* Mobile: all full width */
+  gap: 20px;
+  column-gap: 40px;
+}
+
+/* Desktop layout */
+@media (min-width: 992px) {
+  .contact-page-wrapper {
+    grid-template-columns: repeat(6, 1fr);
+    align-items: start;
+  }
+
+  /* First child: full width */
+  .section-header {
+    grid-column: span 6;
+  }
+
+  /* Second child: 4 of 6 columns */
+  .form-vertical {
+    grid-column: span 4;
+  }
+
+  /* Last child: remaining 2 of 6 columns */
+  .detail_section {
+    grid-column: span 2;
+  }
+}
+
 .form-vertical label{
     text-align:left;
   }
@@ -4387,6 +4423,10 @@ label[for]{
 .form-vertical .btn:not(:last-child){
     margin-bottom:30px;
   }
+
+.contact-info-table {
+  background: none;
+}
 
 small{
   display:block;

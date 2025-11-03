@@ -1,5 +1,5 @@
-<div class="index-section">
-  <div class="page-width{% if section.settings.narrow_column %} page-width--narrow{% endif %}">
+<div class="index-section page-width">
+  <div class="contact-page-wrapper page-width{% if section.settings.narrow_column %} page-width--narrow{% endif %}">
     {%- if section.settings.title != blank -%}
       <div class="section-header">
         <h2 class="section-header__title">
@@ -14,7 +14,6 @@
     <div class="form-vertical">
       {%- assign form_id = 'contact-' | append: section.id -%}
       {%- form 'contact', id: form_id -%}
-
         {%- if form.posted_successfully? -%}
           <p class="note note--success">
             {{ 'contact.form.post_success' | t }}
@@ -26,22 +25,49 @@
         <div class="grid grid--small">
           <div class="grid__item medium-up--one-half">
             <label for="ContactFormName-{{ section.id }}">{{ 'contact.form.name' | t }}</label>
-            <input type="text" id="ContactFormName-{{ section.id }}" class="input-full" name="contact[name]" autocapitalize="words" value="{% if form.name %}{{ form.name }}{% elsif customer %}{{ customer.name }}{% endif %}">
+            <input
+              type="text"
+              id="ContactFormName-{{ section.id }}"
+              class="input-full"
+              name="contact[name]"
+              autocapitalize="words"
+              value="{% if form.name %}{{ form.name }}{% elsif customer %}{{ customer.name }}{% endif %}"
+            >
           </div>
 
           <div class="grid__item medium-up--one-half">
             <label for="ContactFormEmail-{{ section.id }}">{{ 'contact.form.email' | t }}</label>
-            <input type="email" id="ContactFormEmail-{{ section.id }}" class="input-full" name="contact[email]" autocorrect="off" autocapitalize="off" value="{% if form.email %}{{ form.email }}{% elsif customer %}{{ customer.email }}{% endif %}">
+            <input
+              type="email"
+              id="ContactFormEmail-{{ section.id }}"
+              class="input-full"
+              name="contact[email]"
+              autocorrect="off"
+              autocapitalize="off"
+              value="{% if form.email %}{{ form.email }}{% elsif customer %}{{ customer.email }}{% endif %}"
+            >
           </div>
         </div>
 
         {%- if section.settings.show_phone -%}
           <label for="ContactFormPhone-{{ section.id }}">{{ 'contact.form.phone' | t }}</label>
-          <input type="tel" id="ContactFormPhone-{{ section.id }}" class="input-full" name="contact[phone]" pattern="[0-9\-]*" value="{% if form.phone %}{{ form.phone }}{% elsif customer %}{{ customer.phone }}{% endif %}">
+          <input
+            type="tel"
+            id="ContactFormPhone-{{ section.id }}"
+            class="input-full"
+            name="contact[phone]"
+            pattern="[0-9\-]*"
+            value="{% if form.phone %}{{ form.phone }}{% elsif customer %}{{ customer.phone }}{% endif %}"
+          >
         {%- endif -%}
 
         <label for="ContactFormMessage-{{ section.id }}">{{ 'contact.form.message' | t }}</label>
-        <textarea rows="5" id="ContactFormMessage-{{ section.id }}" class="input-full" name="contact[body]">{% if form.body %}{{ form.body }}{% endif %}</textarea>
+        <textarea
+          rows="5"
+          id="ContactFormMessage-{{ section.id }}"
+          class="input-full"
+          name="contact[body]"
+        >{% if form.body %}{{ form.body }}{% endif %}</textarea>
 
         <label for="contact-form-submit-{{ section.id }}" class="hidden-label">{{ 'contact.form.send' | t }}</label>
         <button type="submit" id="contact-form-submit-{{ section.id }}" class="btn">
@@ -54,9 +80,61 @@
           By removing it, the small reCAPTCHA widget will appear in the
           bottom right corner of the page.
         {% endcomment %}
-        {{ 'shopify.online_store.spam_detection.disclaimer_html' | t }}
-
+        {% comment %} {{ 'shopify.online_store.spam_detection.disclaimer_html' | t }} {% endcomment %}
       {%- endform -%}
+    </div>
+
+    <div class="detail_section">
+      
+      <table class="contact-info-table">
+        <tbody>
+
+          <tr>
+            <td class="icon">
+              {{- 'icon.location.svg' | inline_asset_content -}}
+            </td>
+            <td class="text">
+              3658 San Fernando Rd. Glendale, CA 91204, United States
+            </td>
+          </tr>
+
+          <tr>
+            <td class="icon">
+              {{- 'icon.custom-phone.svg' | inline_asset_content -}}
+            </td>
+            <td class="text">
+              <a href="tel:+1.800.994.8440">
+                +1 (800) 994-8440
+              </a>
+            </td>
+          </tr>
+
+          <tr>
+            <td class="icon">
+              {{- 'icon.custom-mail.svg' | inline_asset_content -}}
+            </td>
+            <td class="text">
+              <a href="mailto:info@alrug.com">
+                info@alrug.com
+              </a>
+            </td>
+          </tr>
+
+          <tr>
+            <td></td>
+          </tr>
+
+          <tr>
+            <td colspan="2"><h3>Follow us:</h3></td>
+          </tr>
+          <tr>
+            <td colspan="2">
+              {% render 'social-icons' %}
+            </td>
+          </tr>
+
+        </tbody>
+      </table>
     </div>
   </div>
 </div>
