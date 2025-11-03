@@ -42,7 +42,7 @@
 
     {%- if template == 'index' -%}
       <h1 class="site-header__logo" itemscope itemtype="http://schema.org/Organization" {{ block.shopify_attributes }}>
-        <span class="visually-hidden">{{ shop.name }}</span>
+        <span class="visually-hidden">{{ shop.name | split: ' ' | first | capitalize | escape }}</span>
     {%- else -%}
       <div class="h1 site-header__logo" itemscope itemtype="http://schema.org/Organization" {{ block.shopify_attributes }}>
     {%- endif -%}
@@ -138,7 +138,7 @@
         </a>
       {%- endif -%}
     {%- else -%}
-      <a href="{{ routes.root_url }}" itemprop="url">{{ shop.name }}</a>
+      <a href="{{ routes.root_url }}" itemprop="url">{{ shop.name | split: ' ' | first | capitalize | escape }}</a>
     {%- endif -%}
     {%- if template == 'index' -%}
       </h1>
@@ -162,7 +162,7 @@
     <div class="h1 site-header__logo" itemscope itemtype="http://schema.org/Organization">
   {%- endif -%}
   <a href="{{ routes.root_url }}" itemprop="url" class="site-header__logo-link">
-    {{ shop.name }}
+    {{ shop.name | split: ' ' | first | capitalize | escape }}
   </a>
   {%- if template == 'index' -%}
     </h1>

@@ -114,6 +114,7 @@
           </div>
         {%- elsif has_dropdown -%}
           <ul class="site-nav__dropdown text-left">
+            <li></li>
             {%- for childlink in link.links -%}
               {%- liquid
                 assign has_sub_dropdown = false
@@ -140,6 +141,7 @@
                 {%- endif -%}
               </li>
             {%- endfor -%}
+            <li></li>
           </ul>
         {%- endif -%}
       {% if is_megamenu or has_dropdown %}
