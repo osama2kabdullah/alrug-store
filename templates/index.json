@@ -3,293 +3,366 @@
     "slideshow": {
       "type": "slideshow",
       "blocks": {
-        "image-1": {
-          "type": "image",
-          "settings": {
-            "top_subheading": "",
-            "title": "Fall\nessentials",
-            "title_size": 64,
-            "subheading": "Celebrate joyful moments with the House's emblematic pieces.",
-            "link_text": "Shop all",
-            "color_accent": "#321004"
-          }
-        },
         "image-2": {
           "type": "image",
           "settings": {
             "top_subheading": "",
-            "title": "Inspired\nby Nature",
-            "title_size": 69,
+            "title": "",
+            "title_size": 40,
             "subheading": "",
-            "link_text": "Shop Now",
-            "color_accent": "#6b3f21"
-          }
-        },
-        "image-3": {
-          "type": "image",
-          "settings": {
-            "top_subheading": "",
-            "title": "Luxette's STYLE",
-            "title_size": 63,
-            "subheading": "Fresh looks for sunny days.",
-            "link_text_2": "Shop all",
-            "color_accent": "#8b4e40"
+            "link": "shopify:\/\/collections\/all-rugs",
+            "link_text": "Shop All Rugs",
+            "link_2": "shopify:\/\/collections\/all-rugs",
+            "link_text_2": "Shop New Arrivals",
+            "color_accent": "#ffce29",
+            "text_align": "vertical-center horizontal-center",
+            "image": "shopify:\/\/shop_images\/Amir_Chachu_1.jpg",
+            "parallax_direction": "top",
+            "overlay_opacity": 0
           }
         }
       },
       "block_order": [
-        "image-1",
-        "image-2",
-        "image-3"
+        "image-2"
       ],
       "settings": {
-        "section_height": "100vh",
-        "mobile_height": "100vh",
-        "autoplay_speed": 5
+        "section_height": "natural",
+        "mobile_height": "auto",
+        "parallax": false,
+        "style": "dots",
+        "autoplay": true,
+        "autoplay_speed": 5,
+        "lazyload_images": true
       }
     },
-    "featured-collection": {
-      "type": "featured-collection",
-      "settings": {
-        "title": "Popular picks",
-        "home_featured_products": "spring",
-        "per_row": 5,
-        "rows": 2
-      }
-    },
-    "countdown": {
-      "type": "countdown",
+    "advanced_content_4pGbMW": {
+      "type": "advanced-content",
       "blocks": {
-        "content": {
-          "type": "content",
+        "liquid_iDXkHP": {
+          "type": "liquid",
           "settings": {
-            "heading": "BLACK FRIDAY",
-            "heading_size": "h1",
-            "text": "<p>get 20% off if you spend 120$ or more!<\/p>",
-            "content_alignment": "center"
-          }
-        },
-        "timer": {
-          "type": "timer",
-          "settings": {
-            "year": "2023",
-            "month": "04",
-            "text": ""
+            "code": "<div class=\"alrug-policies\">\n<div class=\"page-width\">\n<ul>\n<li>\n<svg viewbox=\"0 0 24 22\" role=\"presentation\">\n      <g transform=\"translate(1 1)\" stroke-width=\"1.5\" fill=\"none\" fill-rule=\"evenodd\">\n        <path d=\"M5 10H2M5 15H4\" stroke=\"#76003a\" stroke-linecap=\"square\"><\/path>\n        <path stroke=\"#3a2a2f\" d=\"M16.829 16H22v-6l-4-2-1-4H9v12h2.171\"><\/path>\n        <path d=\"M0 5h5\" stroke=\"#76003a\" stroke-linecap=\"square\"><\/path>\n        <path stroke=\"#3a2a2f\" stroke-linecap=\"square\" d=\"M0 0h9v4\"><\/path>\n        <circle stroke=\"#3a2a2f\" stroke-linecap=\"square\" cx=\"14\" cy=\"17\" r=\"3\"><\/circle>\n        <path stroke=\"#3a2a2f\" stroke-linecap=\"square\" d=\"M13 7v2h2\"><\/path>\n      <\/g>\n    <\/svg>Free shipping\n<\/li>\n<li>\n<svg viewbox=\"0 0 23 24\" role=\"presentation\">\n      <g transform=\"translate(1 1)\" stroke-width=\"1.5\" fill=\"none\" fill-rule=\"evenodd\">\n        <path stroke=\"#76003a\" d=\"M8 4h8v7\"><\/path>\n        <path stroke=\"#76003a\" stroke-linecap=\"square\" d=\"M11 7L8 4l3-3\"><\/path>\n        <circle stroke=\"#3a2a2f\" stroke-linecap=\"square\" cx=\"6\" cy=\"20\" r=\"2\"><\/circle>\n        <circle stroke=\"#3a2a2f\" stroke-linecap=\"square\" cx=\"18\" cy=\"20\" r=\"2\"><\/circle>\n        <path stroke=\"#3a2a2f\" stroke-linecap=\"square\" d=\"M21 5l-2 10H5L3 0H0\"><\/path>\n      <\/g>\n    <\/svg> Easy Returns\n<\/li>\n<li>\n<svg viewbox=\"0 0 24 24\" role=\"presentation\">\n      <g transform=\"translate(1 1)\" fill=\"none\" fill-rule=\"evenodd\">\n        <circle fill=\"#3a2a2f\" fill-rule=\"nonzero\" cx=\"6.5\" cy=\"17.5\" r=\"1.5\"><\/circle>\n        <path d=\"M13 16v4c0 1.1-.9 2-2 2H2c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h4\" stroke=\"#3a2a2f\" stroke-width=\"1.5\" stroke-linecap=\"square\"><\/path>\n        <path stroke=\"#76003a\" stroke-width=\"1.5\" stroke-linecap=\"square\" d=\"M22 12H6V0h16zM6 4h16M12 8h-2\"><\/path>\n      <\/g>\n    <\/svg> 24\/7 Customer Support\n<\/li>\n<\/ul>\n<\/div>\n<\/div>",
+            "width": "100%",
+            "alignment": "center"
           }
         }
       },
       "block_order": [
-        "content",
-        "timer"
+        "liquid_iDXkHP"
       ],
-      "settings": {
-        "layout": "hero",
-        "text_color": "#ffffff",
-        "background_color": "#512c13",
-        "overlay_color": "#1c1d1d",
-        "overlay_opacity": 30
-      }
-    },
-    "promo-grid-1": {
-      "type": "promo-grid",
-      "blocks": {
-        "advanced-1": {
-          "type": "advanced",
-          "settings": {
-            "subheading": "New arrival",
-            "heading": "Denim",
-            "textarea": "",
-            "cta_text1": "Explore collection",
-            "cta_text2": "",
-            "width": "50",
-            "height": 700,
-            "text_size": 140,
-            "color_accent": "#424d4e"
-          }
-        },
-        "advanced-2": {
-          "type": "advanced",
-          "settings": {
-            "subheading": "",
-            "heading": "Gift cards",
-            "textarea": "Help support local business by buying a gift card. \nLocal pickup available!",
-            "cta_text1": "Shop gift cards",
-            "cta_text2": "",
-            "width": "50",
-            "height": 600,
-            "text_size": 95,
-            "color_accent": "#ffffff"
-          }
-        }
-      },
-      "block_order": [
-        "advanced-1",
-        "advanced-2"
-      ],
+      "custom_css": [],
+      "name": "t:sections.advanced-content.presets.custom_content.name",
       "settings": {
         "full_width": true,
-        "space_above": false,
-        "space_below": false
+        "space_around": false,
+        "lazyload_images": false
       }
     },
-    "rich-text": {
+    "custom_tabs_collection_g3VbEK": {
+      "type": "custom-tabs-collection",
+      "blocks": {
+        "collection_QbFLQj": {
+          "type": "collection",
+          "settings": {
+            "collection": "",
+            "title": "",
+            "subtitle": "We’ve got the look you’re looking for — from monochrome",
+            "focal_point": "center center"
+          }
+        },
+        "collection_qBdC4r": {
+          "type": "collection",
+          "settings": {
+            "collection": "",
+            "title": "",
+            "subtitle": "We’ve got the look you’re looking for — from monochrome",
+            "focal_point": "center center"
+          }
+        },
+        "collection_xJWtjx": {
+          "type": "collection",
+          "settings": {
+            "collection": "",
+            "title": "",
+            "subtitle": "We’ve got the look you’re looking for — from monochrome",
+            "focal_point": "center center"
+          }
+        },
+        "collection_zanVDR": {
+          "type": "collection",
+          "settings": {
+            "collection": "",
+            "title": "",
+            "subtitle": "We’ve got the look you’re looking for — from monochrome",
+            "focal_point": "center center"
+          }
+        },
+        "collection_44KtzN": {
+          "type": "collection",
+          "settings": {
+            "collection": "",
+            "title": "",
+            "subtitle": "We’ve got the look you’re looking for — from monochrome",
+            "focal_point": "center center"
+          }
+        },
+        "collection_jBcaRU": {
+          "type": "collection",
+          "settings": {
+            "collection": "",
+            "title": "",
+            "subtitle": "We’ve got the look you’re looking for — from monochrome",
+            "focal_point": "center center"
+          }
+        }
+      },
+      "block_order": [
+        "collection_QbFLQj",
+        "collection_qBdC4r",
+        "collection_xJWtjx",
+        "collection_zanVDR",
+        "collection_44KtzN",
+        "collection_jBcaRU"
+      ],
+      "name": "Cutom Collection tabs",
+      "settings": {
+        "title": "Collection list",
+        "subtitle": "We’ve got the look you’re looking for — from monochrome",
+        "divider": false,
+        "per_row": 4,
+        "button_label": "",
+        "button_link": "",
+        "enable_gutter": true,
+        "custom_class": ""
+      }
+    },
+    "featured_collection_z66fxj": {
+      "type": "featured-collection",
+      "name": "t:sections.featured-collection.presets.featured_collection.name",
+      "settings": {
+        "title": "shop by design",
+        "home_featured_products": "all-rugs",
+        "per_row": 4,
+        "rows": 1,
+        "mobile_scrollable": true,
+        "view_all": true,
+        "divider": false
+      }
+    },
+    "testimonials_a94P9J": {
+      "type": "testimonials",
+      "blocks": {
+        "testimonial_jaHQP9": {
+          "type": "testimonial",
+          "settings": {
+            "icon": "5-stars",
+            "testimonial": "<p>This is the second rug that my family has ordered from Alrug. Both of them have been Bokharas, and their quality is much greater than what I had previously bought at rug stores here in the States. They are both beautiful and jewel-like, of the quality of antique rugs that I have searched out in the past.<\/p>",
+            "author": "ED SCHWARTZREICH",
+            "author_info": ""
+          }
+        },
+        "testimonial_C8DdiB": {
+          "type": "testimonial",
+          "settings": {
+            "icon": "5-stars",
+            "testimonial": "<p>I am overwhelmed by the rug I recently purchased from Alrug Australia. The quality of the weave is so detailed, the wool so soft and colours amazing. Delivery from Alrug's Pakistan warehouse to Western Australia where I live only took 5 days with detailed tracking.<\/p>",
+            "author": "JEANETTE WOLSTANHOLME",
+            "author_info": ""
+          }
+        },
+        "testimonial_diiXwx": {
+          "type": "testimonial",
+          "settings": {
+            "icon": "5-stars",
+            "testimonial": "<p>This morning our beautiful Kilim arrived. The rug is finely woven and replicates the colors on your website perfectly. I am also very pleased with the suppleness and texture, and it fits into our eclectic décor with ease. Throughout the transaction, your communications have been outstanding, prompt and informative and it was a pleasure to do business with you. Many thanks for a beautiful product.<\/p>",
+            "author": "LYNNE, BALMAIN",
+            "author_info": ""
+          }
+        },
+        "testimonial_Dwtigq": {
+          "type": "testimonial",
+          "settings": {
+            "icon": "5-stars",
+            "testimonial": "<p>Thanks so much for your note. The rug arrived a couple of days ago. I'm extremely happy with it, and I'm looking over your Catalog in order to order one or two more of them. Thanks so much for your concern.<\/p>",
+            "author": "SOMTOW SUCHARITKUL",
+            "author_info": ""
+          }
+        }
+      },
+      "block_order": [
+        "testimonial_jaHQP9",
+        "testimonial_C8DdiB",
+        "testimonial_diiXwx",
+        "testimonial_Dwtigq"
+      ],
+      "name": "t:sections.testimonials.presets.testimonials.name",
+      "settings": {
+        "title": "what our clients say about us",
+        "align_text": "center",
+        "round_images": true,
+        "color_background": "#f9f9f9",
+        "color_text": "#1c1d1d"
+      }
+    },
+    "logo_list_7U4Lwf": {
+      "type": "logo-list",
+      "blocks": {
+        "logo_image_gPAKCY": {
+          "type": "logo_image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/logo1.png",
+            "link": ""
+          }
+        },
+        "logo_image_QQDBtC": {
+          "type": "logo_image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Whitewall-Logo-Final-2.png",
+            "link": ""
+          }
+        },
+        "logo_image_CHNdgz": {
+          "type": "logo_image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/fort-mason-center-logo.png",
+            "link": ""
+          }
+        },
+        "logo_image_69yU6t": {
+          "type": "logo_image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/surface_logo.png",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "logo_image_gPAKCY",
+        "logo_image_QQDBtC",
+        "logo_image_CHNdgz",
+        "logo_image_69yU6t"
+      ],
+      "name": "t:sections.logo-list.presets.logo_list.name",
+      "settings": {
+        "title": "",
+        "logo_opacity": 100,
+        "divider": true
+      }
+    },
+    "advanced_content_CkMaWg": {
+      "type": "advanced-content",
+      "blocks": {
+        "liquid_kFbdna": {
+          "type": "liquid",
+          "settings": {
+            "code": "<h3><strong>Alrug (A brand in hand-made rugs\/carpets)<\/strong><\/h3>\n   <p>Handmade rugs and carpets have a special quality that is much better than machine-made rugs\/carpets. Traditionally, the process of making hand-made rugs is a bit tough and complicated as compared to machine-made ones. Hand-made carpets are expensive as compared to the ones made with a machine. We, as a brand, provide 100% best quality hand-made rugs\/carpets of different types. We believe in quality. No compromise on the quality of hand-made rugs\/carpets. A lot of manpower is required to make one single carpet, but the quality and the finishing product are perfect for your indoors. Different designs and types of rugs are available here. One can easily choose the color and design of their own choice. We categorized carpets into different sections, including carpets for drawing room, living space, dining, etc. A good quality carpet can make your room look more beautiful.\n <\/p>\n\t<p><strong>Alrug (A brand in hand-made rugs\/carpets)<\/strong><\/p>\n   <p>Handmade rugs are complex to make but fascinated with unique artwork. Rugs and carpets with different colors are quite appealing. Handmade rugs are more comfortable as compared to machine ones. Many traditional rugs and <a href=\"https:\/\/alrug.com\/blogs\/rug-anatomy\/all-about-area-rugs-types-buying-guide\"> area rugs <\/a> are available as per your needs. One of the most important factors for handmade carpets\/rugs is that one can choose the color scheme the quality of thread of their own choice. Different types of patterns and designs can be easily made. A room-size handmade rug needs more time to make as compared to a small area rug\/carpet. The cost of the handmade rug is more because of the use of manpower. A single rug\/carpet can be made in 25 days. Alrug believes in providing quality to their customers. You can not only get carpets\/rugs, but we also provide different ideas to décor those beautiful art pieces that can make your room look more beautiful.\n <\/p>\n \n\t<p><strong>Our Offers<\/strong><\/p>\n   \n   <p>We offer multiple options to our customers at our store. You can choose your favorite style, color, size, material, and price, which is a challenging task to be done at a retail store. There are plenteous benefits of buying an area rug online. When it comes to buying a rug that is the best fit for your room and complements your décor, you could never go wrong with <a href=\"https:\/\/alrug.com\/\">Alrug<\/a>. To buy top-quality rugs and carpets online, it's crucial that you know these hand-knotted goodies. These days, handmade rugs are the most demanded because they exhibit the classic combo of tradition and personalization. Their economical price makes them more tempting. The rugs and carpets we offer at Alrug are affordable, adorable, and amiable. They deliver the warmth and coziness you expect from a carpet. Handmade Bokhara rugs and wool rugs at Alrug can be your best friend on chilly winter nights. They bring you comfort and life to your living room. They can be the most brilliant style-setter for your dining room, bedroom, entrance, living room, hallway, or outdoor sitting area. <a class=\"read-more\">Read more<\/a><\/p>\n   <div class=\"more-content\">\n   \n   <p><em><strong>Good Price Perfect Service<\/strong><\/em><\/p>\n   \n   <p>Our design team offers you valuable advice for the products as your requirement. So the quality and service are reliable and reasonable. <\/p>\n   \n   <p><em><strong>Customer Service<\/strong><\/em><\/p>\n   \n   <p>Increasing customer satisfaction with quality to our customers’ needs and to meet the changing expectations is our basic policy. <\/p>\n   \n   <p><em><strong>Alrug Offers 10 Different Types of Rugs & Carpets<\/strong><\/em><\/p>\n   \n   \n   <p>Woven by highly skilled and creative weavers throughout the world, we have had the craft passed them for generations. We at Alrug offer our clients various designs and styles of rugs and carpets. Some of our top demanded rugs styles are listed below:<\/p>\n\t<h4> 1. BOKHARA RUGS <\/h4>\n\t<p> <a href=\"https:\/\/alrug.com\/collections\/bokhara\">Bokhara rugs<\/a> from Alrug exhibit a beautiful design. They are loved and admired for their symmetrical patterns involving oval and diamond-shaped motifs in a repetitive pattern. They vary in shapes, size, and styles depending on the tribe that makes them. The difference in pattern and motifs highlights the source of these rugs.<\/p>\n\t<h4> 2. RECTANGLE RUGS <\/h4>\n\t<p>The rectangle-shaped rugs are called rectangle rugs. They can be a fantastic addition to any area of the house. Whether they are bought for beauty, warmth, or aesthetics, they serve their purpose, add depth and offer personality to a specific area. We offer an extensive range of rugs in various shapes, sizes, and styles to be an ideal floor covering for any home's interior. They are loved as a great option to fill a space with various styles, colors, and materials available at Alrug.<\/p>\n\t<h4> 3. WOOL RUGS <\/h4>\n\t<p>Wool rugs are made of 100% wool fibers. They are environmentally friendly and sustainable. They are produced by wool from sheep and help protect us from the cold winters. Wool coats from sheep are removed to avoid painful tangles and overheating.<\/p>\n\t<h4> 4. BEIGE RUGS <\/h4>\n\t<p>Beige rugs are another best style we offer. They have un-intrusive and neutral tones that complement most decors. You can easily incorporate a beige rug in your home to keep a calming and serene space. Tufted beige rugs offer soft silk feel both underfoot and in look. A natural fibre beige rug provides an eco-friendly feel. If you seek a luxurious, rich rug to lay on your hallway or have in your bedroom, beige rugs are an incredible choice.<\/p>\n\t<h4> 5. GABBEH RUGS <\/h4>\n\t<p> Gabbeh rugs are used as a sleeping rugs. They are made of hand-woven piles exhibiting coarse quality, and they are designed as medium-sized rugs, usually 90x150cm or larger. Their abstract design, playful geometry, and open fields of colors make them special.<\/p>\n\t<h4> 6. ENTRYWAY RUGS <\/h4>\n\t<p>Entryway rugs are used for high-traffic areas with a lot of moisture and dirt. We offer entryway rugs made of material that can handle everything. Sisal and jute rugs are purchased for the entryways as they both are made of durable material. They can catch moisture and dirt and be cleaned easily with frequent vacuuming or by giving a good shake.<\/p>\n\t<h4> 7. HAND-KNOTTED RUGS <\/h4>\n\t<p>Hand-knotted rugs are made by hand on a particular loom. The procedure involved in making is incredibly taxing. The whole process requires the weaver to insert knots into the carpet or rug and tie every knot by hand. Hand-knotted rugs by Alrug are specially designed by only highly skilled, creative, and master weavers and artisans.<\/p>\n\t<h4> 8. 7X10 RUGS <\/h4>\n\t<p>7x10 rugs are the area rugs. They are limited in dimensions and have a wide variety of designs and variations. Customers looking for something original and fresh that can keep up with modern-day styles and décor always choose 7x10 rugs. Their shape adds glamor to your place and helps morph your living room or bedroom into a uniform environment. You have the freedom to look for specifics in your choice when you hunt for something enchanting with flamboyant designs for personal interior settings.<\/p>\n\t<h4> 9. BEST SELLING RUGS <\/h4>\n\t<p>At Alrug, we have all best-selling rugs for interior design enthusiasts who are super concerned about the design schemes. Whether you want a faux fur rug or a low-pile patterned style rug, we have all forms of rugs to out-fit a crowded area, add warmth and coziness to your living room or add personality to your sitting area. We have curated a huge selection of best-selling rugs that include an impressive assortment of patterns, styles, and shapes for every interior design style. <\/p>\n\t<h4> 10. ENTRYWAY RUGS <\/h4>\n\t<p>A rug in your entryway must be able to handle stains, moisture, and high traffic. We use high-quality and durable material that is easy to clean and resilient to keep your beautiful rug lasting for a long time. Sisal and Jute are famous as entryway rugs for their beautiful design and durability. Wool is the top choice for our weavers and artisans to design rugs. For an entryway rug or carpet, we use olefin, nylon, and polyester as well.<\/p>   \n   <p><strong>Common Questions<\/strong><\/p>\n   \n    What Service we use to deliver Rugs in USA?\n\t<p> We use DHL and UPS to deliver in the US and worldwide. <\/p>\n\t<h4> Delivery Charges? Or Free Delivery for all products. <\/h4>\n\t<p> Free shipping on all orders. No minimum order value required. <\/p>\n\t<h4> Which Payment method we offers?<\/h4>\n\t<p>We accept all major credit cards, PayPal and bank transfers as well.<\/p>\n\t<h4> How can you buy a rug from Alrug? <\/h4>\n\t<p>The process of selecting the perfect rug for your home or workplace can be tiring and overwhelming. It can take hours to do research and choose the right rug. We've made the whole process of choosing the best rug easy for you by offering New Arrivals, Best Sellers, and personalized rug options. In our featured products and new arrivals, you will see what kind of rugs are famous among the buyers, trendy shades, and the ideal material for you. At Alrug, we experiment with patterns, designs, sizes, shades, and fabric to make great and innovative floor coverings. In the new arrival section, we keep on adding new items. You can find what's new in the rug and carpet industry and the modern styles, latest updates in our wide collection of machine-made and handmade area rugs. Our hand-knotted rugs display beautiful colors, designs, and patterns. You can scroll through the featured products and choose a design that fits the interior of your home or workplace.<\/p>\n\t<h4>How to select a color for your rug with Alrug?<\/h4>\n\t<p>In the interior designing and décor world, few things can be as crucial as choosing the right rug. At Alrug, there are plenteous colors, designs, shapes, and patterns to pick from. What steps should you follow? Keep on reading to grab some great tips. Rugs are a brilliant way to add style, warmth, and life to any area. They help you make a place feel like home. They add personality to a place and affect people's mood and a space's looks. What colors can be ideal for your home or workspace? We have vital and resilient color options like Aqua rugs, tan rugs, Beige rugs, white rugs, coral rugs, silver rugs, rust rugs, taupe rugs, and peach rugs, and more variety you can see in the featured section & new arrival section. <\/p>\n\t<h4>What styles can you find at Alrug?<\/h4>\n\t<p>The astonishing thing about wool rugs and Bokhara rugs at Alrug is that they can completely change a room's interior. We present rugs to our customers in various styles, designs, and shades. You might feel overwhelmed with the unusual designs we offer to help make your place more beautiful and unique. Alrug offers its customers a spectacular selection that will please every eye. You can choose modern, contemporary, <a href=\"https:\/\/alrug.com\/collections\/persian\">Persian<\/a>, or traditional designs according to your preference.  Besides our traditional Bokhara rugs, we provide coastal rugs, Gabbeh rugs, Rectangle rugs, wool rugs, and many more lavish classy styles.<\/p>\n\t<h4> What construction techniques are used to make unique rugs at Alrug? <\/h4>\n\t<p>The making process of every rug is always unique. Every technique used to make a rug has its distinctive pros and cons, from machine-made to hand-knotted rugs; we have everything to help you make a wise choice about spending your money and choosing a great rug for your home. We let you explore different types of rugs that can see in today's rug market. We understand that rugs are more than just floor coverings. They are a piece of art for your workplace and home, so they must be an investment in quality. We always make sure that you're investing in a product valuable and according to your priorities. We offer handmade rug construction techniques to make valuable hand-woven rugs.<a class=\"read-less\">read less<\/a> <\/p>\n<\/div>",
+            "width": "100%",
+            "alignment": "center"
+          }
+        }
+      },
+      "block_order": [
+        "liquid_kFbdna"
+      ],
+      "name": "t:sections.advanced-content.presets.custom_content.name",
+      "settings": {
+        "full_width": false,
+        "space_around": true,
+        "lazyload_images": true
+      }
+    },
+    "rich_text_VUDxgL": {
       "type": "rich-text",
       "blocks": {
-        "heading": {
+        "heading_LAqA8W": {
           "type": "heading",
-          "disabled": true,
-          "settings": {}
+          "settings": {
+            "title": "Rich text"
+          }
         },
-        "text": {
+        "text_pMBNc7": {
           "type": "text",
           "settings": {
-            "text": "<p>Fashion inspired by where we're from — the sunny shores of California.<br\/>Products provided by <a href=\"https:\/\/www.piko.com\/\" title=\"https:\/\/www.piko.com\/\">PIKO<\/a><\/p>"
+            "enlarge_text": true,
+            "text": "<p><em><strong>PRESENTING HAND-KNOTTED CARPETS WITH SOFT LUSTRES WOOL IN EXOTIC TRADITION DESIGN WITH A SILKIER FEEL!<\/strong><\/em><\/p><p>Alrug proudly showcases \"classic\" handmade rugs to serve our customers in the best possible way by surpassing their expectations. We are the trendsetters in the carpet industry, offering top-notch rugs and carpets that add aesthetics and perfection to your home and office. We are experts in oriental and modern area rug styles. We have been in the business for a decade, and our rugs speak for our commitment and promise to provide top-tier super-quality rugs in several forms.<br\/><\/p><p>We offer handmade rugs for different home areas, including your living room, bedroom, and other areas. If you are a perfectionist and love handmade rugs, we can be the best match for you. We provide different rugs, including 7x10 rugs, Rectangle rugs, Entryway rugs, Bokhara rugs, Gabbeh rugs, eige rugs, Wool rugs, Hand-knotted rugs, and all other Best-selling rugs at Alrug. Floor coverings are the main area we serve in. You can scroll through our page and products to choose a new year rug for your home or workspace. <\/p><p>Our stylish and trendy handmade rugs are ideal for everybody who is unsure about the budget. We offer rugs in floral designs, simple geometric patterns, and classic modern patterns at an extremely affordable price. We also make carpets in modish colors like beige and gray if you are more into soft and sleek shades. They are super easy to wash, and you don't have to follow a manual for washing them. You can hand wash all of our floor coverings with a mild detergent in warm\/cold settings. You can use the two tabs above, \"Persian & oriental\" and \"Contemporary & modern,\" for more information about the styles of rugs and carpets we offer. <\/p><p>We have showcased all of our handmade pieces for you to choose according to your priorities, style, and size you want. All of our handmade rugs and carpets are made with natural material so that you can get the bang of your buck with comfort and coziness. We are a quality-sensitive, commitment-oriented business that has been a part of the carpet industry for the last 10 years. We feel proud to deliver the vast collection of oriental, modern, Persian, and contemporary handmade styles knotted by local artisans to present you with the best of both worlds!<\/p><p>At Alrug, you can have everything from contemporary rugs to Bokhara rugs, wool rugs to Gabbeh rugs, and 7x10 rugs with many sizes, colors, and styles. Offering a huge variety of hand-knotted rugs with various shapes, sizes, and styles, we have something for you all. Every carpet and rug at Alrug is hand-tufted and finely made with supreme quality fabric yarns by creative and extremely talented artisans from all over the planet. A reliable online rug & carpet store, Alrug can be an ideal place for everybody to choose quality, comfort, and aesthetics at the same place. We have simplified the buying process for all of our clients by offering all of our services online. You can scroll through the stores and choose your favorite rug from the list and place your order. It not only saves your time but energy and effort as well. Our store is full of top-quality and budget-friendly carpets and rugs. <\/p><p>Click now to choose the best-selling carpets and rugs for your home and workplace. <\/p><p>We offer multiple options to our customers at our store. You can choose your favorite style, color, size, material, and price, which is a challenging task to be done at a retail store. There are plenteous benefits of buying an area rug online. When it comes to buying a rug that is the best fit for your room an complements your décor, you could never go wrong with Alrug. To buy top-quality rugs and carpets online, it's crucial that you know these hand-knotted goodies. These days, handmade rugs are the most demanded because they exhibit the classic combo of tradition and personalization. Their economical price makes them more tempting. The rugs and carpets we offer at Alrug are affordable, adorable, and amiable. They deliver the warmth and coziness you expect from a carpet.<br\/><\/p><p>Handmade Bokhara rugs and wool rugs at Alrug can be your best friend on chilly winter nights. They bring you comfort and life to your living room. They can be the most brilliant style-setter for your dining room, bedroom, entrance, living room, hallway, or outdoor sitting area. <\/p><p><strong>Types of Rugs and Carpets we offer at Alrug<\/strong><\/p><p>Woven by highly skilled and creative weavers throughout the world, we have had the craft passed<br\/>them for generations. We at Alrug offer our clients various designs and styles<br\/>of rugs and carpets. Some of our top demanded rugs styles are listed below:<\/p><p>Bokhara rugs<br\/>from Alrug exhibit a beautiful design. They are loved and admired for their<br\/>symmetrical patterns involving oval and diamond-shaped motifs in a repetitive<br\/>pattern. They vary in shapes, size, and styles depending on the tribe that<br\/>makes them. The difference in pattern and motifs highlights the source of these<br\/>rugs. <\/p><p>The<br\/>rectangle-shaped rugs are called rectangle rugs. They can be a fantastic addition<br\/>to any area of the house. Whether they are bought for beauty, warmth, or<br\/>aesthetics, they serve their purpose, add depth and offer personality to a<br\/>specific area. We offer an extensive range of rugs in various shapes, sizes,<br\/>and styles to be an ideal floor covering for any home's interior. They are<br\/>loved as a great option to fill a space with various styles, colors, and<br\/>materials available at Alrug. <\/p><p>Wool rugs are<br\/>made of 100% wool fibers. They are environmentally friendly and sustainable.<br\/>They are produced by wool from sheep and help protect us from the cold winters.<br\/>Wool coats from sheep are removed to avoid painful tangles and overheating. <\/p><p>Beige rugs are<br\/>another best style we offer. They have un-intrusive and neutral tones that<br\/>complement most decors. You can easily incorporate a beige rug in your home to<br\/>keep a calming and serene space. Tufted beige rugs offer soft silk feel both<br\/>underfoot and in look. A natural fibre beige rug provides an eco-friendly feel.<br\/>If you seek a luxurious, rich rug to lay on your hallway or have in your<br\/>bedroom, beige rugs are an incredible choice.<\/p><p>Gabbeh rugs are<br\/>used as a sleeping rugs. They are made of hand-woven piles exhibiting coarse<br\/>quality, and they are designed as medium-sized rugs, usually 90x150cm or<br\/>larger. Their abstract design, playful geometry, and open fields of colors make<br\/>them special.<\/p><p>Entryway rugs<br\/>are used for high-traffic areas with a lot of moisture and dirt. We offer<br\/>entryway rugs made of material that can handle everything. Sisal and jute rugs<br\/>are purchased for the entryways as they both are made of durable material. They<br\/>can catch moisture and dirt and be cleaned easily with frequent vacuuming or by<br\/>giving a good shake. <\/p><p>Hand-knotted<br\/>rugs are made by hand on a particular loom. The procedure involved in making is<br\/>incredibly taxing. The whole process requires the weaver to insert knots into<br\/>the carpet or rug and tie every knot by hand. Hand-knotted rugs by Alrug are<br\/>specially designed by only highly skilled, creative, and master weavers and<br\/>artisans.<\/p><p>7x10 rugs are<br\/>the area rugs. They are limited in dimensions and have a wide variety of<br\/>designs and variations. Customers looking for something original and fresh that<br\/>can keep up with modern-day styles and décor always choose 7x10 rugs. Their<br\/>shape adds glamor to your place and helps morph your living room or bedroom<br\/>into a uniform environment. You have the freedom to look for specifics in your<br\/>choice when you hunt for something enchanting with flamboyant designs for<br\/>personal interior settings.<\/p><p>At Alrug, we<br\/>have all best-selling rugs for interior design enthusiasts who are super<br\/>concerned about the design schemes. Whether you want a faux fur rug or a low-pile<br\/>patterned style rug, we have all forms of rugs to out-fit a crowded area, add<br\/>warmth and coziness to your living room or add personality to your sitting<br\/>area. We have curated a huge selection of best-selling rugs that include an<br\/>impressive assortment of patterns, styles, and shapes for every interior design<br\/>style.<\/p><p>A rug in your<br\/>entryway must be able to handle stains, moisture, and high traffic. We use<br\/>high-quality and durable material that is easy to clean and resilient to keep<br\/>your beautiful rug lasting for a long time. Sisal and Jute are famous as<br\/>entryway rugs for their beautiful design and durability. Wool is the top choice<br\/>for our weavers and artisans to design rugs. For an entryway rug or carpet, we<br\/>use olefin, nylon, and polyester as well.<\/p><p><strong>How can you buy a rug from Alrug?<\/strong><\/p><p>The process of<br\/>selecting the perfect rug for your home or workplace can be tiring and<br\/>overwhelming. It can take hours to do research and choose the right rug. We've<br\/>made the whole process of choosing the best rug easy for you by offering New<br\/>Arrivals, Best Sellers, and personalized rug options. In our featured products<br\/>and new arrivals, you will see what kind of rugs are famous among the buyers,<br\/>trendy shades, and the ideal material for you. At Alrug, we experiment with<br\/>patterns, designs, sizes, shades, and fabric to make great and innovative floor<br\/>coverings. In the new arrival section, we keep on adding new items. You can<br\/>find what's new in the rug and carpet industry and the modern styles, latest<br\/>updates in our wide collection of machine-made and handmade area rugs. Our<br\/>hand-knotted rugs display beautiful colors, designs, and patterns. You can<br\/>scroll through the featured products and choose a design that fits the interior<br\/>of your home or workplace. <\/p><p><strong>How to<br\/>select a color for your rug with Alrug?<\/strong><\/p><p>In the interior<br\/>designing and décor world, few things can be as crucial as choosing the right<br\/>rug. At Alrug, there are plenteous colors, designs, shapes, and patterns to<br\/>pick from. What steps should you follow? Keep on reading to grab some great<br\/>tips. Rugs are a brilliant way to add style, warmth, and life to any area. They<br\/>help you make a place feel like home. They add personality to a place and<br\/>affect people's mood and a space's looks. What colors can be ideal for your<br\/>home or workspace? We have vital and resilient color options like Aqua rugs, tan<br\/>rugs, Beige rugs, white rugs, coral rugs, silver rugs, rust rugs, taupe rugs,<br\/>and peach rugs, and more variety you can see in the featured section & new<br\/>arrival section. <\/p><p><strong>What styles can<br\/>you find at Alrug?<\/strong><\/p><p>The astonishing<br\/>thing about wool rugs and Bokhara rugs at Alrug is that they can completely<br\/>change a room's interior. We present rugs to our customers in various styles,<br\/>designs, and shades. You might feel overwhelmed with the unusual designs we<br\/>offer to help make your place more beautiful and unique. Alrug offers its<br\/>customers a spectacular selection that will please every eye. You can choose<br\/>modern, contemporary, Persian, or traditional designs according to your<br\/>preference.  Besides our traditional<br\/>Bokhara rugs, we provide coastal rugs, Gabbeh rugs, Rectangle rugs, wool rugs,<br\/>and many more lavish classy styles. <\/p><p><strong>What construction techniques are used to make<br\/>unique rugs at Alrug?<\/strong><\/p><p>The making<br\/>process of every rug is always unique. Every technique used to make a rug has<br\/>its distinctive pros and cons, from machine-made to hand-knotted rugs; we have<br\/>everything to help you make a wise choice about spending your money and<br\/>choosing a great rug for your home. We let you explore different types of rugs<br\/>that can see in today's rug market. We understand that rugs are more than just<br\/>floor coverings. They are a piece of art for your workplace and home, so they<br\/>must be an investment in quality. We always make sure that you're investing in<br\/>a product valuable and according to your priorities. We offer handmade rug<br\/>construction techniques to make valuable hand-woven rugs. <\/p>"
           }
         }
       },
       "block_order": [
-        "heading",
-        "text"
+        "heading_LAqA8W",
+        "text_pMBNc7"
       ],
-      "settings": {}
+      "disabled": true,
+      "name": "t:sections.rich-text.presets.rich_text.name",
+      "settings": {
+        "align_text": "left",
+        "narrow_column": false,
+        "divider": false
+      }
     },
-    "promo-grid-2": {
-      "type": "promo-grid",
+    "text_columns_yq3njB": {
+      "type": "text-columns",
       "blocks": {
-        "advanced": {
-          "type": "advanced",
+        "text_block_GD6Nqz": {
+          "type": "text_block",
           "settings": {
-            "subheading": "essentials",
-            "heading": "b&w Capsule",
-            "textarea": "Get the perfect look for your fall classic wardrobe.",
-            "cta_text1": "",
-            "height": 660,
-            "text_size": 90,
-            "color_accent": "#333541"
+            "enable_image": true,
+            "image_mask": "none",
+            "image_width": 650,
+            "title": "Example title",
+            "text": "<p>Use this section to explain a set of product features, to link to a series of pages, or to answer common questions about your products. Add images for emphasis.<\/p>",
+            "button_label": "Optional button",
+            "button_link": ""
           }
         },
-        "sale_collection-1": {
-          "type": "sale_collection",
+        "text_block_m4eLNc": {
+          "type": "text_block",
           "settings": {
-            "sale_collection": "dresses-maxi-dresses",
-            "width": "50",
-            "color_tint": "#ffffff",
-            "color_tint_opacity": 10,
-            "boxed": true
+            "enable_image": true,
+            "image_mask": "none",
+            "image_width": 650,
+            "title": "Example title",
+            "text": "<p>Use this section to explain a set of product features, to link to a series of pages, or to answer common questions about your products. Add images for emphasis.<\/p>",
+            "button_label": "Optional button",
+            "button_link": ""
           }
         },
-        "sale_collection-2": {
-          "type": "sale_collection",
+        "text_block_d34c8y": {
+          "type": "text_block",
           "settings": {
-            "sale_collection": "tops",
-            "middle_text": "25% off",
-            "bottom_text": "summer tops",
-            "width": "50",
-            "color_tint": "#ffffff",
-            "color_tint_opacity": 6,
-            "boxed": true
+            "enable_image": true,
+            "image_mask": "none",
+            "image_width": 650,
+            "title": "Example title",
+            "text": "<p>Use this section to explain a set of product features, to link to a series of pages, or to answer common questions about your products. Add images for emphasis.<\/p>",
+            "button_label": "Optional button",
+            "button_link": ""
           }
         }
       },
       "block_order": [
-        "advanced",
-        "sale_collection-1",
-        "sale_collection-2"
+        "text_block_GD6Nqz",
+        "text_block_m4eLNc",
+        "text_block_d34c8y"
       ],
+      "disabled": true,
+      "name": "t:sections.text-columns.presets.text_columns_with_images.name",
       "settings": {
-        "gutter_size": 15,
-        "space_above": false,
-        "space_below": false
-      }
-    },
-    "hotspots": {
-      "type": "hotspots",
-      "blocks": {
-        "product": {
-          "type": "product",
-          "settings": {
-            "featured_product": "rosewood-dlmn-knotted-high-low-top",
-            "vertical": 25,
-            "horizontal": 25
-          }
-        }
-      },
-      "block_order": [
-        "product"
-      ],
-      "settings": {
-        "hotspot_style": "tag",
-        "hotspot_color": "#321004"
-      }
-    },
-    "map": {
-      "type": "map",
-      "settings": {
-        "map_title": "Local pickup available",
-        "address": "<p>301 Front St W<br\/>Toronto, Canada<\/p><p>Mon - Fri, 8:30am - 10:30pm<br\/>Saturday, 8:30am - 10:30pm<br\/>Sunday, 8:30am - 10:30pm<\/p>",
-        "api_key": ""
-      }
-    },
-    "featured-collections": {
-      "type": "featured-collections",
-      "blocks": {
-        "collection-1": {
-          "type": "collection",
-          "settings": {
-            "title": ""
-          }
-        },
-        "collection-2": {
-          "type": "collection",
-          "settings": {
-            "title": ""
-          }
-        },
-        "collection-3": {
-          "type": "collection",
-          "settings": {
-            "title": ""
-          }
-        },
-        "collection-4": {
-          "type": "collection",
-          "settings": {
-            "title": ""
-          }
-        }
-      },
-      "block_order": [
-        "collection-1",
-        "collection-2",
-        "collection-3",
-        "collection-4"
-      ],
-      "settings": {
-        "title": "Shop by category"
-      }
-    },
-    "blog-posts": {
-      "type": "blog-posts",
-      "settings": {
-        "title": "From the journal",
-        "blog": "news",
-        "blog_show_tags": false,
-        "blog_show_comments": false,
-        "blog_show_author": false,
-        "blog_image_size": "landscape"
+        "title": "Don’t Just Take Our Word for It",
+        "align_text": "center",
+        "divider": false
       }
     }
   },
   "order": [
     "slideshow",
-    "featured-collection",
-    "countdown",
-    "promo-grid-1",
-    "rich-text",
-    "promo-grid-2",
-    "hotspots",
-    "map",
-    "featured-collections",
-    "blog-posts"
+    "advanced_content_4pGbMW",
+    "custom_tabs_collection_g3VbEK",
+    "featured_collection_z66fxj",
+    "testimonials_a94P9J",
+    "logo_list_7U4Lwf",
+    "advanced_content_CkMaWg",
+    "rich_text_VUDxgL",
+    "text_columns_yq3njB"
   ]
 }

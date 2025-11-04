@@ -1,45 +1,22 @@
 {
   "sections": {
-    "promo-grid": {
-      "type": "promo-grid",
-      "blocks": {
-        "banner": {
-          "type": "banner",
-          "settings": {
-            "heading": "Summer Savings",
-            "text": "Save an additional 10% on all clearance items",
-            "color_tint": "#e95454",
-            "color_tint_opacity": 12
-          }
-        },
-        "advanced": {
-          "type": "advanced",
-          "settings": {
-            "subheading": "Just released",
-            "heading": "PASTEL MATCHING SETS",
-            "textarea": "",
-            "cta_text1": "View the collection",
-            "cta_text2": "",
-            "text_size": 140,
-            "color_accent": "#000000",
-            "framed": true
-          }
-        }
-      },
-      "block_order": [
-        "banner",
-        "advanced"
-      ],
-      "settings": {
-        "gutter_size": 24,
-        "space_above": false,
-        "space_below": false
-      }
-    },
     "collection-header": {
       "type": "collection-header",
       "settings": {
-        "enable": false
+        "enable": false,
+        "collection_image_enable": true,
+        "parallax": true,
+        "parallax_direction": "top"
+      }
+    },
+    "promo-grid": {
+      "type": "promo-grid",
+      "settings": {
+        "full_width": true,
+        "gutter_size": 17,
+        "space_above": false,
+        "space_below": false,
+        "lazyload_images": false
       }
     },
     "main-collection": {
@@ -51,12 +28,17 @@
         },
         "subcollections": {
           "type": "subcollections",
-          "settings": {}
+          "settings": {
+            "subcollections_per_row": 2
+          }
         },
         "product_grid": {
           "type": "product_grid",
           "settings": {
-            "mobile_flush_grid": true
+            "enable_collection_count": true,
+            "per_row": 4,
+            "rows_per_page": 10,
+            "mobile_flush_grid": false
           }
         }
       },
@@ -66,62 +48,18 @@
         "product_grid"
       ],
       "settings": {
-        "collapsed": false,
-        "enable_color_swatches": true
-      }
-    },
-    "countdown": {
-      "type": "countdown",
-      "blocks": {
-        "content": {
-          "type": "content",
-          "settings": {
-            "heading": "Black friday sale",
-            "heading_size": "h1",
-            "text": "<p>30% off all summer dresses<\/p>"
-          }
-        },
-        "button": {
-          "type": "button",
-          "settings": {
-            "button": "Shop Now"
-          }
-        },
-        "timer": {
-          "type": "timer",
-          "settings": {
-            "year": "2022",
-            "month": "11",
-            "text": ""
-          }
-        }
-      },
-      "block_order": [
-        "content",
-        "button",
-        "timer"
-      ],
-      "settings": {
-        "text_color": "#000000",
-        "background_color": "#f1d7d1",
-        "overlay_color": "#000000"
-      }
-    },
-    "blog-posts": {
-      "type": "blog-posts",
-      "settings": {
-        "blog": "news",
-        "blog_show_tags": false,
-        "blog_show_comments": false,
-        "blog_show_author": false
+        "enable_sidebar": true,
+        "collapsed": true,
+        "filter_style": "drawer",
+        "enable_color_swatches": true,
+        "enable_swatch_labels": true,
+        "enable_sort": true
       }
     }
   },
   "order": [
-    "promo-grid",
     "collection-header",
-    "main-collection",
-    "countdown",
-    "blog-posts"
+    "promo-grid",
+    "main-collection"
   ]
 }

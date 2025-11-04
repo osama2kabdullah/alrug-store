@@ -1,0 +1,33 @@
+{%- unless grid_item_width -%}
+  {%- assign grid_item_width = 'small--one-half medium-up--one-third' -%}
+{%- endunless -%}
+
+{%- unless background_position -%}
+  {%- assign background_position = 'center center' -%}
+{%- endunless -%}
+
+{%- if block.settings.title != blank -%}
+  {%- assign title_output = block.settings.title -%}
+{%- else -%}
+  {%- if collection.empty? -%}
+    {%- assign title_output = 'home_page.onboarding.collection_title' | t -%}
+  {% elsif collection_title %}
+    {%- assign title_output = collection_title -%}
+  {%- else -%}
+    {%- assign title_output = collection.title | escape -%}
+  {%- endif -%}
+{%- endif -%}
+
+{%- if block.settings.subtitle != blank -%}
+  {%- assign subtitle_output = block.settings.subtitle -%}
+
+{%- endif -%}
+
+{% assign titleid = title_output | split: " " | first %}
+  <div role="tabpanel" class="tab-pane{{ }} {%- if index == 1 -%} fade in active {%- endif -%} " id="{{titleid}}">
+   <div class="product-list">
+ {% for product in collection.products limit: 4 %}
+            {% include 'product-grid-item' %}
+          {% endfor %}
+</div>
+   </div>

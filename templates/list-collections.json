@@ -2,51 +2,61 @@
   "sections": {
     "main": {
       "type": "list-collections-template",
-      "settings": {}
-    },
-    "logo-list": {
-      "type": "logo-list",
       "blocks": {
-        "logo1": {
-          "type": "logo_image",
-          "settings": {}
+        "collection_CDddrp": {
+          "type": "collection",
+          "settings": {
+            "collection": "green"
+          }
         },
-        "logo2": {
-          "type": "logo_image",
-          "settings": {}
+        "collection_TUkNrP": {
+          "type": "collection",
+          "settings": {
+            "collection": "brown"
+          }
         },
-        "logo3": {
-          "type": "logo_image",
-          "settings": {}
+        "collection_7KV6KW": {
+          "type": "collection",
+          "settings": {
+            "collection": "golden"
+          }
         },
-        "logo4": {
-          "type": "logo_image",
-          "settings": {}
+        "collection_rnFPCJ": {
+          "type": "collection",
+          "settings": {
+            "collection": "gray"
+          }
         },
-        "logo5": {
-          "type": "logo_image",
-          "settings": {}
+        "collection_VDGEx8": {
+          "type": "collection",
+          "settings": {
+            "collection": "black"
+          }
         },
-        "logo6": {
-          "type": "logo_image",
-          "settings": {}
+        "collection_htRhNC": {
+          "type": "collection",
+          "settings": {
+            "collection": "all-rugs"
+          }
         }
       },
       "block_order": [
-        "logo1",
-        "logo2",
-        "logo3",
-        "logo4",
-        "logo5",
-        "logo6"
+        "collection_CDddrp",
+        "collection_TUkNrP",
+        "collection_7KV6KW",
+        "collection_rnFPCJ",
+        "collection_VDGEx8",
+        "collection_htRhNC"
       ],
       "settings": {
-        "title": "Our brands"
+        "title_enable": true,
+        "display_type": "selected",
+        "sort": "alphabetical",
+        "grid": "3"
       }
     }
   },
   "order": [
-    "main",
-    "logo-list"
+    "main"
   ]
 }

@@ -3,12 +3,16 @@
     "main": {
       "type": "main-product",
       "blocks": {
-        "price": {
-          "type": "price",
+        "judge_me_reviews_preview_badge_73Ni4P": {
+          "type": "shopify:\/\/apps\/judge-me-reviews\/blocks\/preview_badge\/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
           "settings": {}
         },
-        "separator": {
+        "separator_JJfAyL": {
           "type": "separator",
+          "settings": {}
+        },
+        "price": {
+          "type": "price",
           "settings": {}
         },
         "size_chart": {
@@ -23,14 +27,14 @@
             "variant_labels": true,
             "picker_type": "button",
             "product_dynamic_variants_enable": true,
-            "color_swatches": false
+            "color_swatches": true
           }
         },
         "sales_point": {
           "type": "sales_point",
           "settings": {
-            "icon": "globe",
-            "text": "Free worldwide shipping"
+            "icon": "truck",
+            "text": "FREE Shipping via DHL or FedEx"
           }
         },
         "inventory_status": {
@@ -43,23 +47,45 @@
         "buy_buttons": {
           "type": "buy_buttons",
           "settings": {
-            "show_dynamic_checkout": true,
+            "show_dynamic_checkout": false,
             "surface_pickup_enable": true,
             "show_gift_card_recipient": false
           }
         },
-        "description": {
-          "type": "description",
+        "separator_AgDV64": {
+          "type": "separator",
+          "settings": {}
+        },
+        "tab_phfD4c": {
+          "type": "tab",
           "settings": {
-            "is_tab": false
+            "title": "Specifications",
+            "content": "<p>More Information<\/p><p><strong>Carpet id<\/strong>- G24143.\t<strong>Pattern<\/strong>- Rifle + Tank.<br\/><strong>Color<\/strong>- Green.\t\t<strong>Shape<\/strong>-Rectangle.<br\/><strong>Condition<\/strong>- Perfect.\t<strong>Size(cm)<\/strong>- 61 x 86 cm.<br\/><strong>Design<\/strong>- War.\t\t\t<strong>Size(ft)<\/strong>- 2' 0\" x 2' 10\" ft.<br\/><strong>Origin<\/strong>- Afghanistan.\t<strong>Standard<\/strong> <strong>size<\/strong>- 2 x 3 ft.<br\/>\t\t\t\t        <strong>Style<\/strong>- Tribal &                        Traditional.<br\/>\t\t\t\t       <strong>Thickness<\/strong>- Approx 0.35 inch \/ 8 mm.<br\/>\t\t\t\t       <strong>Weave<\/strong>- Hand Knotted. <br\/><strong>Known as<\/strong>-Military Rugs, Historical Area Rugs, Afghan Story Rugs, Artisan War Rugs.<br\/><strong>Material<\/strong>- Wool on Cotton.<\/p>",
+            "page": ""
+          }
+        },
+        "tab_Xire8k": {
+          "type": "tab",
+          "settings": {
+            "title": "Description",
+            "content": "<p><strong>A Beautiful and versatile Oriental rug to decorate your home. This War rug is durable and a good investment. It is in perfect condition. The traditional hand-knotted rug is made up of Wool on Cotton, and measures 2' 0\" x 2' 10\". It is a rectangle shape rug. The primary color is green. The collection has the variety of War carpets and runners. It is currently in stock. Available in geometric pattern and floral design. Free delivery from 4-6 business days.<br\/><br\/><\/strong><\/p>",
+            "page": ""
           }
         },
         "tab": {
           "type": "tab",
           "settings": {
             "title": "Shipping information",
-            "content": "<p>Use collapsible tabs for more detailed information that will help customers make a purchasing decision.<\/p><p>Ex: Shipping and return policies, size guides, and other common questions.<\/p>",
+            "content": "<ul><li><strong>* We provide FREE Local and International Shipping via DHL \/ UPS with a delivery time of 3 to 5 days from our California, US warehouse or from Lahore, Pakistan subject to availability.<\/strong><\/li><li><strong>* Customers are liable to any import or customs duties on arrival of the rug in their country. Please refer to our <\/strong><a href=\"https:\/\/alrug.myshopify.com\/products\/faq\/\"><strong>FAQ section<\/strong><\/a><strong> for further details.<\/strong><\/li><li><strong>* You may return your unused rug(s) in its original condition and packaging within 14 days of receipt.  <\/strong><\/li><li><strong>* You will be responsible for all return shipping costs with the same courier you received the rug(s) with. <\/strong><\/li><li><strong>* US and Canadian customers can send return rug(s) to our US address in California. <\/strong><\/li><li><strong>* In case of a return, you are liable to pay 10% re-stocking fee for internal company expenses such as handling, accounting, banking and other associated expenses. <\/strong><\/li><li><strong>* We operate on very low margins, hence we do not encourage customers to adopt a \"buy to try\" approach. <\/strong><\/li><li><strong>* If you receive a damaged item, ALRUG will assist you in receiving a replacement or refund as quickly as possible - at no cost to you. <\/strong><\/li><\/ul>",
             "page": ""
+          }
+        },
+        "tab_p6crhJ": {
+          "type": "tab",
+          "settings": {
+            "title": "For Further Query",
+            "content": "<p><\/p><p><\/p>",
+            "page": "faq"
           }
         },
         "share": {
@@ -68,25 +94,29 @@
         }
       },
       "block_order": [
+        "judge_me_reviews_preview_badge_73Ni4P",
+        "separator_JJfAyL",
         "price",
-        "separator",
         "size_chart",
         "variant_picker",
         "sales_point",
         "inventory_status",
         "buy_buttons",
-        "description",
+        "separator_AgDV64",
+        "tab_phfD4c",
+        "tab_Xire8k",
         "tab",
+        "tab_p6crhJ",
         "share"
       ],
       "settings": {
         "sku_enable": false,
         "image_position": "left",
-        "image_size": "large",
+        "image_size": "medium",
         "product_zoom_enable": true,
         "thumbnail_position": "beside",
         "thumbnail_height": "flexible",
-        "thumbnail_arrows": false,
+        "thumbnail_arrows": true,
         "mobile_layout": "partial",
         "enable_video_looping": true,
         "product_video_style": "muted"
@@ -94,151 +124,58 @@
     },
     "sub": {
       "type": "product-full-width",
-      "disabled": true,
-      "settings": {}
-    },
-    "background-image-text": {
-      "type": "background-image-text",
       "settings": {
-        "subtitle": "locally crafted",
-        "title": "Made in California",
-        "text": "<p>We've always believed in the power of locally made goods. The quality of the craftsmanship and the local artisans we employ are what make Luxette our mission in life.<\/p>",
-        "button_label": "",
-        "layout": "right"
+        "max_width": true
       }
     },
-    "text-and-image": {
-      "type": "text-and-image",
-      "settings": {
-        "subtitle": "Every time",
-        "title": "Perfectly tailored",
-        "text": "<p>Tailored to fit right every time. Use our handy size guide to choose the right size and if it ever doesn't fit, just return it and we'll pay the postage.<\/p>",
-        "button_label": "",
-        "image_width": "66"
-      }
-    },
-    "testimonials": {
-      "type": "testimonials",
+    "advanced_content_3FJbdp": {
+      "type": "advanced-content",
       "blocks": {
-        "testimonial-1": {
-          "type": "testimonial",
+        "liquid_i8m3ND": {
+          "type": "liquid",
           "settings": {
-            "testimonial": "<p>Couldn't be happier with the service I received from this company.<\/p>",
-            "author": "Leslie M.",
-            "author_info": "Toronto, ON"
-          }
-        },
-        "testimonial-2": {
-          "type": "testimonial",
-          "settings": {
-            "testimonial": "<p>Really went out of their way to make me feel special as a customer, highly recommend!<\/p>",
-            "author": "Rachel F."
-          }
-        },
-        "testimonial-3": {
-          "type": "testimonial",
-          "settings": {
-            "testimonial": "<p>Fantastic fabrics, great fit and no issues going through the laundry either!<\/p>",
-            "author": "Sam R.",
-            "author_info": "Brooklyn, NY"
-          }
-        },
-        "testimonial-4": {
-          "type": "testimonial",
-          "settings": {
-            "testimonial": "<p>Arrived fast and beautifully boxed. They even let me model on their site :)<\/p>",
-            "author": "Sharon S.",
-            "author_info": "New Orleans, LA"
-          }
-        },
-        "testimonial-5": {
-          "type": "testimonial",
-          "settings": {
-            "testimonial": "<p>Couldn't be happier with the service I received from this company.<\/p>",
-            "author": "Matt C.",
-            "author_info": "Montreal, QC"
+            "code": "<!-- Start of Judge.me code --> \n  <div style='clear:both'><\/div> \n  <div id='judgeme_product_reviews' class='jdgm-widget jdgm-review-widget' data-product-title='{{ product.title | escape }}' data-id='{{ product.id }}' data-auto-install='false'> \n    {{ product.metafields.judgeme.widget }} \n  <\/div> \n<!-- End of Judge.me code -->",
+            "width": "100%",
+            "alignment": "center"
           }
         }
       },
       "block_order": [
-        "testimonial-1",
-        "testimonial-2",
-        "testimonial-3",
-        "testimonial-4",
-        "testimonial-5"
+        "liquid_i8m3ND"
       ],
+      "name": "t:sections.advanced-content.presets.custom_content.name",
       "settings": {
-        "title": "Hear it from them",
-        "color_background": "#e4eaee"
-      }
-    },
-    "text-and-image-2": {
-      "type": "text-and-image",
-      "settings": {
-        "subtitle": "Soft, breezy",
-        "title": "Lightweight fabric",
-        "text": "<p>Keep cool this summer with our lightweight Egyptian cotton-polyester blend, the softest shirts on the beach.<\/p>",
-        "button_label": "",
-        "image_width": "66",
-        "layout": "left"
+        "full_width": false,
+        "space_around": true,
+        "lazyload_images": true
       }
     },
     "product-recommendations": {
       "type": "product-recommendations",
       "settings": {
-        "related_count": 5,
-        "products_per_row": 5
+        "product_recommendations_heading": "You May Also Like",
+        "related_count": 4,
+        "products_per_row": 4
       }
     },
     "recently-viewed": {
       "type": "recently-viewed",
-      "settings": {}
-    },
-    "countdown": {
-      "type": "countdown",
-      "blocks": {
-        "content": {
-          "type": "content",
-          "settings": {
-            "heading": "mega summer sale",
-            "heading_size": "h1",
-            "text": "<p>30% off of all summer dresses<\/p>",
-            "content_alignment": "center"
-          }
-        },
-        "timer": {
-          "type": "timer",
-          "settings": {
-            "year": "2023",
-            "text": ""
-          }
-        },
-        "button": {
-          "type": "button",
-          "settings": {
-            "button": "Shop Now"
-          }
-        }
-      },
-      "block_order": [
-        "content",
-        "timer",
-        "button"
-      ],
       "settings": {
-        "layout": "hero",
-        "text_color": "#ffffff",
-        "background_color": "#f9e8e0",
-        "overlay_color": "#000000",
-        "overlay_opacity": 30
+        "recent_count": 4
+      }
+    },
+    "contact_form_bfaeEq": {
+      "type": "contact-form",
+      "name": "t:sections.contact-form.presets.contact_form.name",
+      "settings": {
+        "title": "For Further Query",
+        "text": "<p><strong>Send us a note and we'll get back to you as quickly as possible.<\/strong><\/p>",
+        "show_phone": true,
+        "narrow_column": false
       }
     },
     "collection-return": {
       "type": "collection-return",
-      "settings": {}
-    },
-    "apps": {
-      "type": "apps",
       "disabled": true,
       "settings": {}
     }
@@ -246,14 +183,10 @@
   "order": [
     "main",
     "sub",
-    "background-image-text",
-    "text-and-image",
-    "testimonials",
-    "text-and-image-2",
+    "advanced_content_3FJbdp",
     "product-recommendations",
     "recently-viewed",
-    "countdown",
-    "collection-return",
-    "apps"
+    "contact_form_bfaeEq",
+    "collection-return"
   ]
 }

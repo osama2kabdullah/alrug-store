@@ -8,18 +8,32 @@
         "announcement-0": {
           "type": "announcement",
           "settings": {
-            "text": "Free shipping",
-            "link_text": "On all orders over $100"
+            "text": "+1 (800) 994-8440",
+            "link_text": "",
+            "link": ""
           }
         },
         "announcement-1": {
           "type": "announcement",
-          "settings": {}
+          "settings": {
+            "text": "Free Shipping on all orders",
+            "link_text": "",
+            "link": ""
+          }
+        },
+        "announcement_39Jn8w": {
+          "type": "announcement",
+          "settings": {
+            "text": "100% Handmade Carpets",
+            "link_text": "",
+            "link": ""
+          }
         }
       },
       "block_order": [
         "announcement-0",
-        "announcement-1"
+        "announcement-1",
+        "announcement_39Jn8w"
       ],
       "settings": {
         "announcement_compact": true
@@ -40,11 +54,17 @@
         "logo"
       ],
       "settings": {
-        "main_menu_alignment": "center-split",
+        "main_menu_link_list": "mega-menu",
+        "hover_menu": true,
+        "mega_menu_images": false,
+        "main_menu_alignment": "center",
         "header_style": "sticky",
-        "sticky_collection": true,
-        "toolbar_menu": "shop-by-type",
-        "toolbar_social": true,
+        "sticky_index": false,
+        "sticky_collection": false,
+        "toolbar_menu": "",
+        "toolbar_social": false,
+        "show_locale_selector": false,
+        "show_currency_selector": false,
         "show_currency_flags": false
       }
     }
