@@ -114,7 +114,7 @@
           </div>
         {%- elsif has_dropdown -%}
           <ul class="site-nav__dropdown text-left">
-            <li></li>
+            <li style="border-right: 0px;"></li>
             {%- for childlink in link.links -%}
               {%- liquid
                 assign has_sub_dropdown = false

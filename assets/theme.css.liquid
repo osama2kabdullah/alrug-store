@@ -6477,9 +6477,8 @@ html[dir=rtl] .predictive-result__layout [data-type-products]{
   }
 
 .site-nav__dropdown{
-  background-color:var(--color-body-text);
+  background-color:var(--colorBody);
   box-shadow:0 10px 20px rgba(0,0,0,.09);
-  display:grid;
   left:0;
   margin:0;
   min-width:100%;
@@ -6488,8 +6487,20 @@ html[dir=rtl] .predictive-result__layout [data-type-products]{
   transform:translate3d(0, -12px, 0);
   visibility:hidden;
   z-index:5;
-  grid-template-columns: auto auto;
-  column-gap: 1px;
+}
+
+.site-nav__dropdown {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.site-nav__dropdown > * {
+  border-right: 1px solid var(--color-body-text);
+  background: var(--color-body);
+}
+
+.site-nav__dropdown > :not(:nth-child(2n)) {
+  border-right: none;
 }
 
 .site-nav__dropdown > li:first-child,
