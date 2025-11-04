@@ -1,5 +1,5 @@
 <div class="index-section page-width">
-  <div class="contact-page-wrapper page-width{% if section.settings.narrow_column %} page-width--narrow{% endif %}">
+  <div class="{% if template.suffix == 'contact' %}contact-page-wrapper{% endif %} page-width{% if section.settings.narrow_column %} page-width--narrow{% endif %}">
     {%- if section.settings.title != blank -%}
       <div class="section-header">
         <h2 class="section-header__title">
@@ -84,58 +84,61 @@
       {%- endform -%}
     </div>
 
-    <div class="detail_section">
-      
-      <table class="contact-info-table">
-        <tbody>
+    {% if template.suffix == 'contact' %}
+      <div class="detail_section">
+        
+        <table class="contact-info-table">
+          <tbody>
+  
+            <tr>
+              <td class="icon">
+                {{- 'icon.location.svg' | inline_asset_content -}}
+              </td>
+              <td class="text">
+                3658 San Fernando Rd. Glendale, CA 91204, United States
+              </td>
+            </tr>
+  
+            <tr>
+              <td class="icon">
+                {{- 'icon.custom-phone.svg' | inline_asset_content -}}
+              </td>
+              <td class="text">
+                <a href="tel:+1.800.994.8440">
+                  +1 (800) 994-8440
+                </a>
+              </td>
+            </tr>
+  
+            <tr>
+              <td class="icon">
+                {{- 'icon.custom-mail.svg' | inline_asset_content -}}
+              </td>
+              <td class="text">
+                <a href="mailto:info@alrug.com">
+                  info@alrug.com
+                </a>
+              </td>
+            </tr>
+  
+            <tr>
+              <td></td>
+            </tr>
+  
+            <tr>
+              <td colspan="2"><h3>Follow us:</h3></td>
+            </tr>
+            <tr>
+              <td colspan="2">
+                {% render 'social-icons' %}
+              </td>
+            </tr>
+  
+          </tbody>
+        </table>
+      </div>
+    {% endif %}
 
-          <tr>
-            <td class="icon">
-              {{- 'icon.location.svg' | inline_asset_content -}}
-            </td>
-            <td class="text">
-              3658 San Fernando Rd. Glendale, CA 91204, United States
-            </td>
-          </tr>
-
-          <tr>
-            <td class="icon">
-              {{- 'icon.custom-phone.svg' | inline_asset_content -}}
-            </td>
-            <td class="text">
-              <a href="tel:+1.800.994.8440">
-                +1 (800) 994-8440
-              </a>
-            </td>
-          </tr>
-
-          <tr>
-            <td class="icon">
-              {{- 'icon.custom-mail.svg' | inline_asset_content -}}
-            </td>
-            <td class="text">
-              <a href="mailto:info@alrug.com">
-                info@alrug.com
-              </a>
-            </td>
-          </tr>
-
-          <tr>
-            <td></td>
-          </tr>
-
-          <tr>
-            <td colspan="2"><h3>Follow us:</h3></td>
-          </tr>
-          <tr>
-            <td colspan="2">
-              {% render 'social-icons' %}
-            </td>
-          </tr>
-
-        </tbody>
-      </table>
-    </div>
   </div>
 </div>
 
