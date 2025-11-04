@@ -164,6 +164,34 @@
   "type": "@app"
 },
 {
+  "type": "custom_tab",
+  "name": "Cutom Tab",
+  "limit": 1,
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "enable_specifications_tab",
+      "label": "Enable Specifications tab"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_description_tab",
+      "label": "Enable Description tab"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_shipping_tab",
+      "label": "Enable Shipping tab"
+    },
+    {
+      "type": "richtext",
+      "id": "shipping_content",
+      "label": "Shipping tab content",
+      "default": "<p>Enter your shipping information here.</p>"
+    }
+  ]
+},
+{
   "type": "price",
   "name": "t:product_block.price.name",
   "limit": 1

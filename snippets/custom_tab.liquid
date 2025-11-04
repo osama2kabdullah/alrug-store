@@ -1,0 +1,262 @@
+{%- unless isModal -%}
+  <div class="product info detailed">
+    <div class="product data items">
+      <nav>
+        <div class="nav nav-tabs item title" id="nav-tab" role="tablist">
+          {% if block.settings.enable_specifications_tab %}
+            <a
+              class="nav-item nav-link active switch"
+              id="nav-home-tab"
+              data-toggle="tab"
+              href="#nav-home"
+              role="tab"
+              aria-controls="nav-home"
+              aria-selected="true"
+              >Specifications</a
+            >
+          {% endif %}
+          {% if block.settings.enable_description_tab %}
+            <a
+              class="nav-item nav-link switch"
+              id="nav-profile-tab"
+              data-toggle="tab"
+              href="#nav-profile"
+              role="tab"
+              aria-controls="nav-profile"
+              aria-selected="false"
+              >Description</a
+            >
+          {% endif %}
+          {% if block.settings.enable_shipping_tab %}
+            <a
+              class="nav-item nav-link switch"
+              id="nav-contact-tab"
+              data-toggle="tab"
+              href="#nav-contact"
+              role="tab"
+              aria-controls="nav-contact"
+              aria-selected="false"
+              >Shipping</a
+            >
+          {% endif %}
+          <a class="nav-item nav-link switch"
+            id="nav-form-tab"
+            data-toggle="tab"
+            href="#nav-form"
+            role="tab"
+            aria-controls="nav-form"
+            aria-selected="false"
+            >For Further Query</a
+          >
+        </div>
+      </nav>
+      <div class="tab-content item content" id="nav-tabContent">
+        {% if block.settings.enable_specifications_tab %}
+          <div class="tab-pane fade  active in" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+            <div class="additional-attributes-wrapper">
+              <table class="data table additional-attributes table-striped" id="product-attribute-specs-table">
+                <caption class="table-caption">
+                  More Information
+                </caption>
+                <tbody class="col-md-6 col-sm-12" style="border-top: none;">
+                  {% assign count = 0 %}
+                  {% for field in product.metafields.global %}
+                    {% assign count = count | plus: 1 %}
+                    <tr>
+                      {% assign field_new = field | first | capitalize %}
+                      {% if field_new == 'Sku' %}
+                        <th class="col label" scope="row">{{ field_new | upcase }}</th>
+                      {% else %}
+                        <th class="col label" scope="row">{{ field_new | replace: '_', ' ' }}</th>
+                      {% endif %}
+  
+                      <td class="col data" data-th="{{ field_new | first }}">{{ field | last }}</td>
+                    </tr>
+                    {% if count == 7 %}
+                      </tbody>
+                      <tbody class="col-md-6 col-sm-12" style="border-top: none;">
+                    {% endif %}
+                  {% endfor %}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        {% endif %}
+        {% if block.settings.enable_description_tab %}
+          <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+            <div class="product attribute description">
+              {{ product.description }}
+            </div>
+          </div>
+        {% endif %}
+        {% if block.settings.enable_shipping_tab %}
+          <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
+            <div class="product attribute reviews cust">
+              {{ block.settings.shipping_content }}
+              <ul>
+                <li>
+                  * We provide FREE Local and International Shipping via DHL / UPS with a delivery time of 3 to 5 days
+                  from our California, US warehouse or from Lahore, Pakistan subject to availability.
+                </li>
+                <!--
+                  li>* Rugs are shipped from the US warehouse in California or directly from Lahore, Pakistan depending upon the location of the ordered rug. </li
+                -->
+                <li>
+                  * Customers are liable to any import or customs duties on arrival of the rug in their country. Please
+                  refer to our <a href="faq/">FAQ section</a> for further details.
+                </li>
+                <li>
+                  * You may return your unused rug(s) in its original condition and packaging within 14 days of receipt.
+                  &nbsp;
+                </li>
+                <li>
+                  * You will be responsible for all return shipping costs with the same courier you received the rug(s)
+                  with.&nbsp;
+                </li>
+                <li>* US and Canadian customers can send return rug(s) to our US address in California.&nbsp;</li>
+                <li>
+                  * In case of a return, you are liable to pay 10% re-stocking fee for internal company expenses such as
+                  handling, accounting, banking and other associated expenses.&nbsp;
+                </li>
+                <li>
+                  * We operate on very low margins, hence we do not encourage customers to adopt a "buy to try"
+                  approach.&nbsp;
+                </li>
+                <li>
+                  * If you receive a damaged item, ALRUG will assist you in receiving a replacement or refund as quickly
+                  as possible - at no cost to you.&nbsp;
+                </li>
+              </ul>
+            </div>
+          </div>
+        {% endif %}
+        <div class="tab-pane fade" id="nav-form" role="tabpanel" aria-labelledby="nav-form-tab">
+          <div class="product attribute reviews cust">
+            the form
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{%- else -%}
+  <div class="product info detailed">
+    <div class="product data items">
+      <nav>
+        <div class="nav nav-tabs item title" id="nav-tab" role="tablist">
+          <a
+            class="nav-item nav-link active switch"
+            id="nav-home-tab"
+            data-toggle="tab"
+            href="#nav-home"
+            role="tab"
+            aria-controls="nav-home"
+            aria-selected="true"
+            >Specifications</a
+          >
+        </div>
+      </nav>
+      <div class="tab-content item content" id="nav-tabContent">
+        <div class="tab-pane fade  active in" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+          <div class="additional-attributes-wrapper">
+            <table class="data table additional-attributes table-striped" id="product-attribute-specs-table">
+              <caption class="table-caption">
+                More Information
+              </caption>
+              <tbody>
+                {% for field in product.metafields.global %}
+                  <tr>
+                    {% assign field_new = field | first | capitalize %}
+                    {% if field_new == 'base_color' %}
+                      <th class="col label" scope="row">Color</th>
+                    {% else %}
+                      <th class="col label" scope="row">{{ field_new | replace: '_', ' ' }}</th>
+                    {% endif %}
+
+                    <td class="col data" data-th="{{ field_new | first }}">{{ field | last }}</td>
+                  </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{%- endunless -%}
+
+<style>
+  /* TAB HEADERS */
+  .product.info.detailed .nav-tabs {
+    display: flex;
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 15px;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+
+  .product.info.detailed .nav-tabs .nav-link {
+    padding: 12px 20px;
+    background: #f4f4f4;
+    color: #555;
+    text-decoration: none;
+    border-radius: 4px 4px 0 0;
+    font-size: 15px;
+    font-weight: 500;
+    transition: .25s ease;
+    cursor: pointer;
+  }
+
+  .product.info.detailed .nav-tabs .nav-link:hover {
+    background: #e8e8e8;
+    color: #000;
+  }
+
+  .product.info.detailed .nav-tabs .nav-link.active {
+    background: #fff;
+    color: #000;
+    border: 1px solid #ddd;
+    border-bottom: none;
+  }
+
+  /* CONTENT CONTAINER */
+  .product.info.detailed .tab-content {
+    border: 1px solid #ddd;
+    border-radius: 0 4px 4px 4px;
+    padding: 20px;
+    background: #fff;
+  }
+
+  /* HIDE PANES BY DEFAULT */
+  .tab-pane {
+    display: none;
+  }
+
+  .tab-pane.active {
+    display: block;
+  }
+
+  /* TABLE STYLING */
+
+  .table-caption {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 10px;
+  }
+</style>
+
+<script>
+  document.querySelectorAll('.nav-tabs .nav-link').forEach(tab => {
+    tab.addEventListener('click', function (e) {
+      e.preventDefault();
+
+      // Remove active states
+      document.querySelectorAll('.nav-link').forEach(a => a.classList.remove('active'));
+      document.querySelectorAll('.tab-pane').forEach(p => p.classList.remove('active'));
+
+      // Add active to selected tab
+      this.classList.add('active');
+      const targetID = this.getAttribute('href');
+      document.querySelector(targetID).classList.add('active');
+    });
+  });
+</script>

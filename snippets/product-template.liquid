@@ -400,6 +400,10 @@
                     <div class="product-block" {{ block.shopify_attributes }}>
                       {{ block.settings.code }}
                     </div>
+                  {%- when 'custom_tab' -%}
+                    <div class="product-block" {{ block.shopify_attributes }}>
+                      {% render 'custom_tab', section: section, block: block, isModal: isModal %}
+                    </div>
                 {%- endcase -%}
               {%- else -%}
                 <div data-blocks-holder
