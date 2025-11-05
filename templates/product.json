@@ -30,6 +30,12 @@
             "color_swatches": true
           }
         },
+        "custom_yD9dKg": {
+          "type": "custom",
+          "settings": {
+            "code": "{% assign days = 5 | times: 86400 %}\n{% assign days2 = 12 | times: 86400 %}\n\n<b>Estimated Delivery:<\/b> {{ \"now\" | date: \"%s\" | plus: days | date: \"%b %d\" }} - {{ \"now\" | date: \"%s\" | plus: days2 | date: \"%b %d\" }}"
+          }
+        },
         "sales_point": {
           "type": "sales_point",
           "settings": {
@@ -56,8 +62,18 @@
           "type": "separator",
           "settings": {}
         },
+        "custom_tab_XN6YRb": {
+          "type": "custom_tab",
+          "settings": {
+            "enable_specifications_tab": true,
+            "enable_description_tab": true,
+            "enable_shipping_tab": true,
+            "shipping_content": "<p>Enter your shipping information here.<\/p>"
+          }
+        },
         "tab_phfD4c": {
           "type": "tab",
+          "disabled": true,
           "settings": {
             "title": "Specifications",
             "content": "<p>More Information<\/p><p><strong>Carpet id<\/strong>- G24143.\t<strong>Pattern<\/strong>- Rifle + Tank.<br\/><strong>Color<\/strong>- Green.\t\t<strong>Shape<\/strong>-Rectangle.<br\/><strong>Condition<\/strong>- Perfect.\t<strong>Size(cm)<\/strong>- 61 x 86 cm.<br\/><strong>Design<\/strong>- War.\t\t\t<strong>Size(ft)<\/strong>- 2' 0\" x 2' 10\" ft.<br\/><strong>Origin<\/strong>- Afghanistan.\t<strong>Standard<\/strong> <strong>size<\/strong>- 2 x 3 ft.<br\/>\t\t\t\t        <strong>Style<\/strong>- Tribal &                        Traditional.<br\/>\t\t\t\t       <strong>Thickness<\/strong>- Approx 0.35 inch \/ 8 mm.<br\/>\t\t\t\t       <strong>Weave<\/strong>- Hand Knotted. <br\/><strong>Known as<\/strong>-Military Rugs, Historical Area Rugs, Afghan Story Rugs, Artisan War Rugs.<br\/><strong>Material<\/strong>- Wool on Cotton.<\/p>",
@@ -66,6 +82,7 @@
         },
         "tab_Xire8k": {
           "type": "tab",
+          "disabled": true,
           "settings": {
             "title": "Description",
             "content": "<p><strong>A Beautiful and versatile Oriental rug to decorate your home. This War rug is durable and a good investment. It is in perfect condition. The traditional hand-knotted rug is made up of Wool on Cotton, and measures 2' 0\" x 2' 10\". It is a rectangle shape rug. The primary color is green. The collection has the variety of War carpets and runners. It is currently in stock. Available in geometric pattern and floral design. Free delivery from 4-6 business days.<br\/><br\/><\/strong><\/p>",
@@ -74,6 +91,7 @@
         },
         "tab": {
           "type": "tab",
+          "disabled": true,
           "settings": {
             "title": "Shipping information",
             "content": "<ul><li><strong>* We provide FREE Local and International Shipping via DHL \/ UPS with a delivery time of 3 to 5 days from our California, US warehouse or from Lahore, Pakistan subject to availability.<\/strong><\/li><li><strong>* Customers are liable to any import or customs duties on arrival of the rug in their country. Please refer to our <\/strong><a href=\"https:\/\/alrug.myshopify.com\/products\/faq\/\"><strong>FAQ section<\/strong><\/a><strong> for further details.<\/strong><\/li><li><strong>* You may return your unused rug(s) in its original condition and packaging within 14 days of receipt.  <\/strong><\/li><li><strong>* You will be responsible for all return shipping costs with the same courier you received the rug(s) with. <\/strong><\/li><li><strong>* US and Canadian customers can send return rug(s) to our US address in California. <\/strong><\/li><li><strong>* In case of a return, you are liable to pay 10% re-stocking fee for internal company expenses such as handling, accounting, banking and other associated expenses. <\/strong><\/li><li><strong>* We operate on very low margins, hence we do not encourage customers to adopt a \"buy to try\" approach. <\/strong><\/li><li><strong>* If you receive a damaged item, ALRUG will assist you in receiving a replacement or refund as quickly as possible - at no cost to you. <\/strong><\/li><\/ul>",
@@ -82,6 +100,7 @@
         },
         "tab_p6crhJ": {
           "type": "tab",
+          "disabled": true,
           "settings": {
             "title": "For Further Query",
             "content": "<p><\/p><p><\/p>",
@@ -99,10 +118,12 @@
         "price",
         "size_chart",
         "variant_picker",
+        "custom_yD9dKg",
         "sales_point",
         "inventory_status",
         "buy_buttons",
         "separator_AgDV64",
+        "custom_tab_XN6YRb",
         "tab_phfD4c",
         "tab_Xire8k",
         "tab",
@@ -166,12 +187,13 @@
     },
     "contact_form_bfaeEq": {
       "type": "contact-form",
+      "disabled": true,
       "name": "t:sections.contact-form.presets.contact_form.name",
       "settings": {
         "title": "For Further Query",
         "text": "<p><strong>Send us a note and we'll get back to you as quickly as possible.<\/strong><\/p>",
-        "show_phone": true,
-        "narrow_column": false
+        "show_phone": false,
+        "narrow_column": true
       }
     },
     "collection-return": {
