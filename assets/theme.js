@@ -4192,7 +4192,8 @@ theme.recentlyViewed = {
     var args = {
       autoPlay: 5000,
       avoidReflow: true,
-      cellAlign: theme.config.rtl ? 'right' : 'left'
+      cellAlign: theme.config.rtl ? 'right' : 'left',
+      groupCells: true
     };
     var bar;
     var flickity;
