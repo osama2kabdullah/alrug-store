@@ -43,6 +43,8 @@
                     {{ collection.description }}
                   </div>
                 {%- endif -%}
+              {%- when 'filters' -%}
+                {% include 'collection-top-filters-form' %}
               {%- when 'subcollections' -%}
                 {%- if paginate.current_page == 1 and current_filter_size == 0 -%}
                   {%- render 'subcollections', per_row: block.settings.subcollections_per_row -%}
@@ -166,6 +168,132 @@
     {
       "type": "collection_description",
       "name": "t:sections.main-collection.blocks.collection_description.name",
+      "limit": 1
+    },
+    {
+      "type": "filters",
+      "name": "Filters",
+      "settings": [
+        {
+          "type": "header",
+          "content": "Sizes"
+        },
+        {
+          "type": "checkbox",
+          "id": "enable_sizes_filter",
+          "label": "Enable Sizes Filter",
+          "default": true
+        },
+        {
+          "type": "text",
+          "id": "sizes_filter_label",
+          "label": "Sizes Filter Label",
+          "default": "Size"
+        },
+        {
+          "type": "textarea",
+          "id": "sizes_filter_values",
+          "label": "Sizes Filter Values (line separated)",
+          "default": "XS\nS\nM\nL\nXL\nXXL",
+          "info": "Tags are case sensitive and must match your product tag exactly"
+        },
+
+        {
+          "type": "header",
+          "content": "Colors"
+        },
+        {
+          "type": "checkbox",
+          "id": "enable_colors_filter",
+          "label": "Enable Colors Filter",
+          "default": true
+        },
+        {
+          "type": "text",
+          "id": "colors_filter_label",
+          "label": "Colors Filter Label",
+          "default": "Color"
+        },
+        {
+          "type": "textarea",
+          "id": "colors_filter_values",
+          "label": "Colors Filter Values (line separated)",
+          "default": "Red\nBlue\nGreen\nBlack\nWhite\nGrey",
+          "info": "Tags are case sensitive and must match your product tag exactly"
+        },
+
+        {
+          "type": "header",
+          "content": "Shapes"
+        },
+        {
+          "type": "checkbox",
+          "id": "enable_shapes_filter",
+          "label": "Enable Shapes Filter",
+          "default": true
+        },
+        {
+          "type": "text",
+          "id": "shapes_filter_label",
+          "label": "Shapes Filter Label",
+          "default": "Shape"
+        },
+        {
+          "type": "textarea",
+          "id": "shapes_filter_values",
+          "label": "Shapes Filter Values (line separated)",
+          "default": "Round\nSquare\nRectangle\nOval\nTriangle",
+          "info": "Tags are case sensitive and must match your product tag exactly"
+        },
+
+        {
+          "type": "header",
+          "content": "Rooms"
+        },
+        {
+          "type": "checkbox",
+          "id": "enable_rooms_filter",
+          "label": "Enable Rooms Filter",
+          "default": true
+        },
+        {
+          "type": "text",
+          "id": "rooms_filter_label",
+          "label": "Rooms Filter Label",
+          "default": "Room"
+        },
+        {
+          "type": "textarea",
+          "id": "rooms_filter_values",
+          "label": "Rooms Filter Values (line separated)",
+          "default": "Bedroom\nLiving Room\nKitchen\nBathroom\nOffice",
+          "info": "Tags are case sensitive and must match your product tag exactly"
+        },
+
+        {
+          "type": "header",
+          "content": "Styles"
+        },
+        {
+          "type": "checkbox",
+          "id": "enable_styles_filter",
+          "label": "Enable Styles Filter",
+          "default": true
+        },
+        {
+          "type": "text",
+          "id": "styles_filter_label",
+          "label": "Styles Filter Label",
+          "default": "Style"
+        },
+        {
+          "type": "textarea",
+          "id": "styles_filter_values",
+          "label": "Styles Filter Values (line separated)",
+          "default": "Modern\nContemporary\nClassic\nMinimalist\nIndustrial",
+          "info": "Tags are case sensitive and must match your product tag exactly"
+        }
+      ],
       "limit": 1
     },
     {

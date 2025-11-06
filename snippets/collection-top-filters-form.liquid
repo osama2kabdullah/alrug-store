@@ -1,0 +1,267 @@
+<ul class="site-nav site-navigation">
+  {% if block.settings.enable_sizes_filter %}
+    <li class="site-nav__item site-nav__expanded-item site-nav--has-dropdown">
+      <details
+        data-hover="false"
+        id="site-nav-item--1"
+        class="site-nav__details"
+      >
+        <summary
+          aria-expanded="false"
+          aria-controls="site-nav-item--1"
+          class="site-nav__link site-nav__link--underline site-nav__link--has-dropdown"
+        >
+          {{ block.settings.sizes_filter_label }}
+          <svg
+            aria-hidden="true"
+            focusable="false"
+            role="presentation"
+            class="icon icon--wide icon-chevron-down"
+            viewBox="0 0 28 16"
+          >
+            <path d="m1.57 1.59 12.76 12.77L27.1 1.59" stroke-width="2" stroke="#000" fill="none"/>
+          </svg>
+        </summary>
+        <ul class="site-nav__dropdown text-left">
+
+          {%- assign split_tag_list = block.settings.sizes_filter_values | newline_to_br | split: '<br />' -%}
+          {%- assign tags_to_display = split_tag_list -%}
+          {%- assign tags_to_loop = collection.tags -%}
+          {%- if collection.handle == 'all' and current_tags == blank -%}
+            {%- assign tags_to_loop = collection.all_tags -%}
+          {%- endif -%}
+          {%- for tag in tags_to_display -%}
+            {%- assign tag_name = tag | strip -%}
+            {%- assign show_tag = false -%}
+            {%- if tags_to_loop contains tag_name -%}
+              {%- assign show_tag = true -%}
+            {%- endif -%}
+            {%- if show_tag -%}
+              <li>
+                <a
+                  href="{{ collection.url | append: '/' | append: tag_name | url_escape }}"
+                  class="{%- if current_tags contains tag_name -%}{%- endif -%} site-nav__dropdown-link site-nav__dropdown-link--second-level"
+                >
+                  {{ tag_name }}
+                </a>
+              </li>
+            {%- endif -%}
+          {% endfor %}
+
+        </ul>
+      </details>
+    </li>
+  {% endif %}
+  {% if block.settings.enable_colors_filter %}
+    <li class="site-nav__item site-nav__expanded-item site-nav--has-dropdown">
+      <details
+        data-hover="false"
+        id="site-nav-item--1"
+        class="site-nav__details"
+      >
+        <summary
+          aria-expanded="false"
+          aria-controls="site-nav-item--1"
+          class="site-nav__link site-nav__link--underline site-nav__link--has-dropdown"
+        >
+          {{ block.settings.colors_filter_label }}
+          <svg
+            aria-hidden="true"
+            focusable="false"
+            role="presentation"
+            class="icon icon--wide icon-chevron-down"
+            viewBox="0 0 28 16"
+          >
+            <path d="m1.57 1.59 12.76 12.77L27.1 1.59" stroke-width="2" stroke="#000" fill="none"/>
+          </svg>
+        </summary>
+        <ul class="site-nav__dropdown text-left">
+
+          {%- assign split_tag_list = block.settings.colors_filter_values | newline_to_br | split: '<br />' -%}
+          {%- assign tags_to_display = split_tag_list -%}
+          {%- assign tags_to_loop = collection.tags -%}
+          {%- if collection.handle == 'all' and current_tags == blank -%}
+            {%- assign tags_to_loop = collection.all_tags -%}
+          {%- endif -%}
+          {%- for tag in tags_to_display -%}
+            {%- assign tag_name = tag | strip -%}
+            {%- assign show_tag = false -%}
+            {%- if tags_to_loop contains tag_name -%}
+              {%- assign show_tag = true -%}
+            {%- endif -%}
+            {%- if show_tag -%}
+              <li>
+                <a
+                  href="{{ collection.url | append: '/' | append: tag_name | url_escape }}"
+                  class="{%- if current_tags contains tag_name -%}{%- endif -%} site-nav__dropdown-link site-nav__dropdown-link--second-level"
+                >
+                  {{ tag_name }}
+                </a>
+              </li>
+            {%- endif -%}
+          {% endfor %}
+
+        </ul>
+      </details>
+    </li>
+  {% endif %}
+  {% if block.settings.enable_shapes_filter %}
+    <li class="site-nav__item site-nav__expanded-item site-nav--has-dropdown">
+      <details
+        data-hover="false"
+        id="site-nav-item--1"
+        class="site-nav__details"
+      >
+        <summary
+          aria-expanded="false"
+          aria-controls="site-nav-item--1"
+          class="site-nav__link site-nav__link--underline site-nav__link--has-dropdown"
+        >
+          {{ block.settings.shapes_filter_label }}
+          <svg
+            aria-hidden="true"
+            focusable="false"
+            role="presentation"
+            class="icon icon--wide icon-chevron-down"
+            viewBox="0 0 28 16"
+          >
+            <path d="m1.57 1.59 12.76 12.77L27.1 1.59" stroke-width="2" stroke="#000" fill="none"/>
+          </svg>
+        </summary>
+        <ul class="site-nav__dropdown text-left">
+
+          {%- assign split_tag_list = block.settings.shapes_filter_values | newline_to_br | split: '<br />' -%}
+          {%- assign tags_to_display = split_tag_list -%}
+          {%- assign tags_to_loop = collection.tags -%}
+          {%- if collection.handle == 'all' and current_tags == blank -%}
+            {%- assign tags_to_loop = collection.all_tags -%}
+          {%- endif -%}
+          {%- for tag in tags_to_display -%}
+            {%- assign tag_name = tag | strip -%}
+            {%- assign show_tag = false -%}
+            {%- if tags_to_loop contains tag_name -%}
+              {%- assign show_tag = true -%}
+            {%- endif -%}
+            {%- if show_tag -%}
+              <li>
+                <a
+                  href="{{ collection.url | append: '/' | append: tag_name | url_escape }}"
+                  class="{%- if current_tags contains tag_name -%}{%- endif -%} site-nav__dropdown-link site-nav__dropdown-link--second-level"
+                >
+                  {{ tag_name }}
+                </a>
+              </li>
+            {%- endif -%}
+          {% endfor %}
+
+        </ul>
+      </details>
+    </li>
+  {% endif %}
+  {% if block.settings.enable_rooms_filter %}
+    <li class="site-nav__item site-nav__expanded-item site-nav--has-dropdown">
+      <details
+        data-hover="false"
+        id="site-nav-item--1"
+        class="site-nav__details"
+      >
+        <summary
+          aria-expanded="false"
+          aria-controls="site-nav-item--1"
+          class="site-nav__link site-nav__link--underline site-nav__link--has-dropdown"
+        >
+          {{ block.settings.rooms_filter_label }}
+          <svg
+            aria-hidden="true"
+            focusable="false"
+            role="presentation"
+            class="icon icon--wide icon-chevron-down"
+            viewBox="0 0 28 16"
+          >
+            <path d="m1.57 1.59 12.76 12.77L27.1 1.59" stroke-width="2" stroke="#000" fill="none"/>
+          </svg>
+        </summary>
+        <ul class="site-nav__dropdown text-left">
+
+          {%- assign split_tag_list = block.settings.rooms_filter_values | newline_to_br | split: '<br />' -%}
+          {%- assign tags_to_display = split_tag_list -%}
+          {%- assign tags_to_loop = collection.tags -%}
+          {%- if collection.handle == 'all' and current_tags == blank -%}
+            {%- assign tags_to_loop = collection.all_tags -%}
+          {%- endif -%}
+          {%- for tag in tags_to_display -%}
+            {%- assign tag_name = tag | strip -%}
+            {%- assign show_tag = false -%}
+            {%- if tags_to_loop contains tag_name -%}
+              {%- assign show_tag = true -%}
+            {%- endif -%}
+            {%- if show_tag -%}
+              <li>
+                <a
+                  href="{{ collection.url | append: '/' | append: tag_name | url_escape }}"
+                  class="{%- if current_tags contains tag_name -%}{%- endif -%} site-nav__dropdown-link site-nav__dropdown-link--second-level"
+                >
+                  {{ tag_name }}
+                </a>
+              </li>
+            {%- endif -%}
+          {% endfor %}
+
+        </ul>
+      </details>
+    </li>
+  {% endif %}
+  {% if block.settings.enable_styles_filter %}
+    <li class="site-nav__item site-nav__expanded-item site-nav--has-dropdown">
+      <details
+        data-hover="false"
+        id="site-nav-item--1"
+        class="site-nav__details"
+      >
+        <summary
+          aria-expanded="false"
+          aria-controls="site-nav-item--1"
+          class="site-nav__link site-nav__link--underline site-nav__link--has-dropdown"
+        >
+          {{ block.settings.styles_filter_label }}
+          <svg
+            aria-hidden="true"
+            focusable="false"
+            role="presentation"
+            class="icon icon--wide icon-chevron-down"
+            viewBox="0 0 28 16"
+          >
+            <path d="m1.57 1.59 12.76 12.77L27.1 1.59" stroke-width="2" stroke="#000" fill="none"/>
+          </svg>
+        </summary>
+        <ul class="site-nav__dropdown text-left">
+
+          {%- assign split_tag_list = block.settings.styles_filter_values | newline_to_br | split: '<br />' -%}
+          {%- assign tags_to_display = split_tag_list -%}
+          {%- assign tags_to_loop = collection.tags -%}
+          {%- if collection.handle == 'all' and current_tags == blank -%}
+            {%- assign tags_to_loop = collection.all_tags -%}
+          {%- endif -%}
+          {%- for tag in tags_to_display -%}
+            {%- assign tag_name = tag | strip -%}
+            {%- assign show_tag = false -%}
+            {%- if tags_to_loop contains tag_name -%}
+              {%- assign show_tag = true -%}
+            {%- endif -%}
+            {%- if show_tag -%}
+              <li>
+                <a
+                  href="{{ collection.url | append: '/' | append: tag_name | url_escape }}"
+                  class="{%- if current_tags contains tag_name -%}{%- endif -%} site-nav__dropdown-link site-nav__dropdown-link--second-level"
+                >
+                  {{ tag_name }}
+                </a>
+              </li>
+            {%- endif -%}
+          {% endfor %}
+
+        </ul>
+      </details>
+    </li>
+  {% endif %}
+</ul> 
