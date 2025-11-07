@@ -54,6 +54,13 @@
     {%- endif -%}
 
   </div>
+  {% unless isEmpty %}
+    {%- if section.settings.button_text != blank and section.settings.button_link != blank -%}
+      <div class="section-footer" style="text-align: end;">
+        <a href="{{ section.settings.button_link }}" class="btn btn--secondary btn--small section-header__link">{{ section.settings.button_text }}</a>
+      </div>
+    {%- endif -%}
+  {% endunless %}
 </div>
 
 {%- if section.settings.divider -%}</div>{%- endif -%}
@@ -90,6 +97,22 @@
       "id": "enable_gutter",
       "label": "t:sections.featured-collections.settings.enable_gutter.label",
       "default": true
+    },
+    {
+      "type": "header",
+      "content": "Button"
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button Text",
+      "default": "View all"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button Link",
+      "default": "/collections"
     }
   ],
   "presets": [
@@ -122,9 +145,19 @@
           "label": "t:sections.featured-collections.blocks.collection.settings.collection.label"
         },
         {
+          "type": "image_picker",
+          "id": "custom_image",
+          "label": "Image Override"
+        },
+        {
           "type": "text",
           "id": "title",
           "label": "t:sections.featured-collections.blocks.collection.settings.title.label"
+        },
+        {
+          "type": "text",
+          "id": "sub_title",
+          "label": "Sub Title"
         },
         {
           "type": "select",

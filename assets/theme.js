@@ -8351,3 +8351,42 @@ theme.recentlyViewed = {
   });
 
 })();
+
+(function () {
+  const CLASS_TAB = 'tab-btn';
+  const CLASS_CONTENT = 'tab-content';
+  
+  function handleTabClick(e) {
+    const tab = e.target.closest(`.${CLASS_TAB}`);    
+    if (!tab) return;
+
+    const section = tab.closest('.universal-tabs');
+    if (!section) return;
+
+    e.preventDefault();
+
+    const targetSelector = tab.getAttribute('data-target') || tab.getAttribute('href');    
+    if (!targetSelector) return;
+
+    const pane = section.querySelector(targetSelector) || section.querySelector(targetSelector+'-modal');
+    if (!pane) return;
+
+    // deactivate existing tabs
+    section.querySelectorAll(`.${CLASS_TAB}.active`).forEach(t => t.classList.remove('active'));
+    section.querySelectorAll(`.${CLASS_CONTENT}.active, .${CLASS_CONTENT}.show`)
+      .forEach(p => p.classList.remove('active', 'show'));
+
+    // activate clicked tab
+    tab.classList.add('active');
+    pane.classList.add('active', 'show');
+  }
+
+  // ✅ ONE GLOBAL CLICK LISTENER
+  document.addEventListener('click', handleTabClick);
+
+  // ✅ RE-INIT ON SHOPIFY SECTION LOAD
+  document.addEventListener('shopify:section:load', () => {
+    document.addEventListener('click', handleTabClick);
+  });
+
+})();

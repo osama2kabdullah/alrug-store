@@ -64,55 +64,29 @@
         "collection_QbFLQj": {
           "type": "collection",
           "settings": {
-            "collection": "",
-            "title": "",
-            "subtitle": "We’ve got the look you’re looking for — from monochrome",
-            "focal_point": "center center"
+            "collection": "new-arrivals",
+            "title": ""
           }
         },
         "collection_qBdC4r": {
           "type": "collection",
           "settings": {
-            "collection": "",
-            "title": "",
-            "subtitle": "We’ve got the look you’re looking for — from monochrome",
-            "focal_point": "center center"
+            "collection": "modern-contemporary-rugs",
+            "title": "Modern & Contemporary"
           }
         },
         "collection_xJWtjx": {
           "type": "collection",
           "settings": {
-            "collection": "",
-            "title": "",
-            "subtitle": "We’ve got the look you’re looking for — from monochrome",
-            "focal_point": "center center"
+            "collection": "pakistani-rugs",
+            "title": "Pakistani Rugs"
           }
         },
         "collection_zanVDR": {
           "type": "collection",
           "settings": {
-            "collection": "",
-            "title": "",
-            "subtitle": "We’ve got the look you’re looking for — from monochrome",
-            "focal_point": "center center"
-          }
-        },
-        "collection_44KtzN": {
-          "type": "collection",
-          "settings": {
-            "collection": "",
-            "title": "",
-            "subtitle": "We’ve got the look you’re looking for — from monochrome",
-            "focal_point": "center center"
-          }
-        },
-        "collection_jBcaRU": {
-          "type": "collection",
-          "settings": {
-            "collection": "",
-            "title": "",
-            "subtitle": "We’ve got the look you’re looking for — from monochrome",
-            "focal_point": "center center"
+            "collection": "tribal-rug",
+            "title": "Tribal Rugs"
           }
         }
       },
@@ -120,20 +94,12 @@
         "collection_QbFLQj",
         "collection_qBdC4r",
         "collection_xJWtjx",
-        "collection_zanVDR",
-        "collection_44KtzN",
-        "collection_jBcaRU"
+        "collection_zanVDR"
       ],
-      "name": "Cutom Collection tabs",
+      "name": "Custom Collection tabs",
       "settings": {
-        "title": "Collection list",
-        "subtitle": "We’ve got the look you’re looking for — from monochrome",
-        "divider": false,
-        "per_row": 4,
-        "button_label": "",
-        "button_link": "",
-        "enable_gutter": true,
-        "custom_class": ""
+        "title": "What's New",
+        "subtitle": ""
       }
     },
     "featured_collection_z66fxj": {
@@ -147,6 +113,74 @@
         "mobile_scrollable": true,
         "view_all": true,
         "divider": false
+      }
+    },
+    "custom_tabs_collection_WETMw6": {
+      "type": "custom-tabs-collection",
+      "blocks": {
+        "collection_Mkj9ix": {
+          "type": "collection",
+          "settings": {
+            "collection": "black",
+            "title": ""
+          }
+        },
+        "collection_K7knzY": {
+          "type": "collection",
+          "settings": {
+            "collection": "beige",
+            "title": ""
+          }
+        },
+        "collection_4VCqtF": {
+          "type": "collection",
+          "settings": {
+            "collection": "blue",
+            "title": ""
+          }
+        },
+        "collection_L3GRyP": {
+          "type": "collection",
+          "settings": {
+            "collection": "gray",
+            "title": ""
+          }
+        },
+        "collection_zGh6NW": {
+          "type": "collection",
+          "settings": {
+            "collection": "brown",
+            "title": ""
+          }
+        },
+        "collection_PgURzF": {
+          "type": "collection",
+          "settings": {
+            "collection": "red",
+            "title": ""
+          }
+        },
+        "collection_nEKi3p": {
+          "type": "collection",
+          "settings": {
+            "collection": "all-rugs",
+            "title": "All Colors"
+          }
+        }
+      },
+      "block_order": [
+        "collection_Mkj9ix",
+        "collection_K7knzY",
+        "collection_4VCqtF",
+        "collection_L3GRyP",
+        "collection_zGh6NW",
+        "collection_PgURzF",
+        "collection_nEKi3p"
+      ],
+      "name": "Tabbed Collections",
+      "settings": {
+        "title": "shop by color",
+        "subtitle": ""
       }
     },
     "testimonials_a94P9J": {
@@ -359,6 +393,7 @@
     "advanced_content_4pGbMW",
     "custom_tabs_collection_g3VbEK",
     "featured_collection_z66fxj",
+    "custom_tabs_collection_WETMw6",
     "testimonials_a94P9J",
     "logo_list_7U4Lwf",
     "advanced_content_CkMaWg",

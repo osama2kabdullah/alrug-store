@@ -13208,3 +13208,67 @@ html[dir=rtl] .product-single__meta .rte{
     width: 100%;
   }
 }
+
+
+.extra-copy {
+    display: inline-block;
+    width: 100%;
+    font-size: 18px;
+    border-top: 1px solid #e4e4e4;
+    padding: 15px 0;
+}
+
+.extra-copy .left-question {
+    float: left;
+}
+.extra-copy .right-number {
+    float: right;
+    font-weight: 700;
+}
+@media only screen and (max-width: 450px) {
+    .extra-copy {
+        font-size: 14px;
+    }
+}
+
+.collection-tabs-section .tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  justify-content: center;
+  margin-bottom: 30px;
+  list-style: none;
+  padding: 0;
+}
+
+.collection-tabs-section .collection-tabs-section .section-header__link {
+  float: right;
+}
+
+.collection-tabs-section .tab-item {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-weight: 500;
+  color: #555;
+  transition: all 0.3s ease;
+}
+
+.collection-tabs-section .tab-item.active {
+  background: #f8c300;
+  color: #000;
+}
+
+.collection-tabs-section .tab-contents {
+  margin-top: 20px;
+}
+
+.collection-tabs-section .tab-content {
+  display: none;
+}
+
+.collection-tabs-section .tab-content.active {
+  display: block;
+}

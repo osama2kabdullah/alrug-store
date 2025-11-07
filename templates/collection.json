@@ -16,6 +16,26 @@
           "type": "collection_description",
           "settings": {}
         },
+        "filters_hjjFYb": {
+          "type": "filters",
+          "settings": {
+            "enable_sizes_filter": true,
+            "sizes_filter_label": "Size",
+            "sizes_filter_values": "2 x 3\n3 x 5\n4 x 6\n5 x 8\n6 x 9\n7 x 10\n8 x 10\n9 x 12\n10 x 14\n12 x 15\nRunner",
+            "enable_colors_filter": true,
+            "colors_filter_label": "Color",
+            "colors_filter_values": "Red\nBlue\nGreen\nBlack\nWhite\nGrey",
+            "enable_shapes_filter": true,
+            "shapes_filter_label": "Shape",
+            "shapes_filter_values": "Round\nSquare\nRectangle\nOval\nTriangle",
+            "enable_rooms_filter": true,
+            "rooms_filter_label": "Room",
+            "rooms_filter_values": "Bedroom\nLiving Room\nKitchen\nBathroom\nOffice",
+            "enable_styles_filter": true,
+            "styles_filter_label": "Style",
+            "styles_filter_values": "Modern\nContemporary\nClassic\nMinimalist\nIndustrial"
+          }
+        },
         "product_grid": {
           "type": "product_grid",
           "settings": {
@@ -28,14 +48,15 @@
       },
       "block_order": [
         "collection_description",
+        "filters_hjjFYb",
         "product_grid"
       ],
       "settings": {
-        "enable_sidebar": true,
-        "collapsed": true,
-        "filter_style": "drawer",
-        "enable_color_swatches": true,
-        "enable_swatch_labels": true,
+        "enable_sidebar": false,
+        "collapsed": false,
+        "filter_style": "sidebar",
+        "enable_color_swatches": false,
+        "enable_swatch_labels": false,
         "enable_sort": false
       }
     }

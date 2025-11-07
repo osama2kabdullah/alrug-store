@@ -10,6 +10,10 @@
     assign collection_image = collection.products.first.featured_media.preview_image
   endif
 
+  if block.settings.custom_image != blank
+    assign collection_image = block.settings.custom_image
+  endif
+
   if block.settings.title != blank
     assign title_output = block.settings.title
   else
@@ -60,6 +64,8 @@
         {{ title_output }}
       </span>
     </span>
+    <br>
+    <p style="text-align: center;">{{ block.settings.sub_title }}</p>
 
   </a>
 </div>

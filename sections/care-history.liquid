@@ -1,0 +1,149 @@
+<div class="product info detailed-custom">
+  <div class="product info universal-tabs items">
+    <div class="nav nav-tabs tab-buttons item title all-tabs" id="nav-tab" role="tablist">
+      {% for block in section.blocks %}
+        <a
+          class="nav-item tab-btn nav-link {% if forloop.first %}active{% endif %}"
+          id="tab-{{ block.id }}"
+          href="#content-{{ block.id }}"
+          role="tab"
+          aria-controls="content-{{ block.id }}"
+          aria-selected="{{ forloop.first }}"
+        >
+          {{ block.settings.tab_title }}
+        </a>
+      {% endfor %}
+    </div>
+
+    <div class="tab-content item content data" id="nav-tabContent">
+      {% for block in section.blocks %}
+        <div
+          class="tab-content tab-pane fade {% if forloop.first %}show active{% endif %}"
+          id="content-{{ block.id }}"
+          role="tabpanel"
+          aria-labelledby="tab-{{ block.id }}"
+        >
+          {{ block.settings.tab_content }}
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+<style>
+/* --- Care / History Tabs Style --- */
+.product.info.detailed-custom {
+  text-align: center;
+  margin: 40px 0;
+}
+.product.info.detailed-custom .nav.nav-tabs.item.title.all-tabs {
+  display: inline-flex;
+  border: none;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.product.info.detailed-custom .nav.nav-tabs .nav-link {
+  border: 1px solid #333;
+  border-right: none;
+  background-color: #fff;
+  color: #333;
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  font-size: 16px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 12px 40px;
+  transition: all 0.3s ease;
+}
+.product.info.detailed-custom .nav.nav-tabs .nav-link:last-child {
+  border-right: 1px solid #333;
+}
+.product.info.detailed-custom .nav.nav-tabs .nav-link:hover {
+  background-color: #f5f5f5;
+  color: #000;
+}
+.product.info.detailed-custom .nav.nav-tabs .nav-link.active {
+  background-color: #333;
+  color: #fff;
+}
+.product.info.detailed-custom .nav-tabs {
+  border-bottom: none;
+}
+.product.info.detailed-custom .tab-content.item.content.data {
+  text-align: left;
+  max-width: 900px;
+  margin: 0 auto;
+  font-size: 15px;
+  line-height: 1.8;
+  color: #111;
+}
+.product.info.detailed-custom .tab-content p {
+  margin-bottom: 1em;
+}
+/* Responsive */
+@media (max-width: 768px) {
+  .product.info.detailed-custom
+  .nav.nav-tabs.item.title.all-tabs {
+    flex-direction: column;
+    width: 100%;
+  }
+  .product.info.detailed-custom
+  .nav.nav-tabs .nav-link {
+    border-right: 1px solid #333;
+    width: 100%;
+  }
+}
+</style>
+
+{% schema %}
+{
+  "name": "Care / History Tabs",
+  "class": "index-section",
+  "settings": [],
+  "blocks": [
+    {
+      "type": "tab",
+      "name": "Tab",
+      "settings": [
+        {
+          "type": "text",
+          "id": "tab_title",
+          "label": "Tab title",
+          "default": "CARE"
+        },
+        {
+          "type": "richtext",
+          "id": "tab_content",
+          "label": "Tab content",
+          "default": "<p>Enter your tab content here.</p>"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Care / History Tabs",
+      "category": "Custom",
+      "blocks": [
+        {
+          "type": "tab",
+          "settings": {
+            "tab_title": "CARE",
+            "tab_content": "<p>Rotate your rugs frequently to equalize sunlight exposure...</p>"
+          }
+        },
+        {
+          "type": "tab",
+          "settings": {
+            "tab_title": "HISTORY",
+            "tab_content": "<p>Among the finest handmade oriental rugs ever made...</p>"
+          }
+        }
+      ]
+    }
+  ],
+  "disabled_on": {
+    "groups": ["footer", "header", "custom.popups"]
+  }
+}
+{% endschema %}
