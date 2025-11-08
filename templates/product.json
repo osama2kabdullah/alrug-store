@@ -112,30 +112,19 @@
     },
     "sub": {
       "type": "product-full-width",
-      "settings": {
-        "max_width": true
-      }
-    },
-    "advanced_content_3FJbdp": {
-      "type": "advanced-content",
       "blocks": {
-        "liquid_i8m3ND": {
-          "type": "liquid",
+        "custom_aYtKLV": {
+          "type": "custom",
           "settings": {
-            "code": "<!-- Start of Judge.me code --> \n  <div style='clear:both'><\/div> \n  <div id='judgeme_product_reviews' class='jdgm-widget jdgm-review-widget' data-product-title='{{ product.title | escape }}' data-id='{{ product.id }}' data-auto-install='false'> \n    {{ product.metafields.judgeme.widget }} \n  <\/div> \n<!-- End of Judge.me code -->",
-            "width": "100%",
-            "alignment": "center"
+            "code": "<!-- Start of Judge.me code --> \n  <div style='clear:both'><\/div> \n  <div id='judgeme_product_reviews' class='jdgm-widget jdgm-review-widget' data-product-title='{{ product.title | escape }}' data-id='{{ product.id }}' data-auto-install='false'> \n    {{ product.metafields.judgeme.widget }} \n  <\/div> \n<!-- End of Judge.me code -->"
           }
         }
       },
       "block_order": [
-        "liquid_i8m3ND"
+        "custom_aYtKLV"
       ],
-      "name": "t:sections.advanced-content.presets.custom_content.name",
       "settings": {
-        "full_width": false,
-        "space_around": true,
-        "lazyload_images": true
+        "max_width": true
       }
     },
     "care_history_P8YdfB": {
@@ -197,7 +186,6 @@
   "order": [
     "main",
     "sub",
-    "advanced_content_3FJbdp",
     "care_history_P8YdfB",
     "product-recommendations",
     "recently-viewed",

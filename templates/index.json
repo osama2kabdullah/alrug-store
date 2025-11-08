@@ -102,17 +102,54 @@
         "subtitle": ""
       }
     },
-    "featured_collection_z66fxj": {
-      "type": "featured-collection",
-      "name": "t:sections.featured-collection.presets.featured_collection.name",
+    "featured_collections_e4WLwh": {
+      "type": "featured-collections",
+      "blocks": {
+        "collection_qM6hDa": {
+          "type": "collection",
+          "settings": {
+            "collection": "baluch-rug",
+            "title": "Baluchi",
+            "focal_point": "center center"
+          }
+        },
+        "collection_Xr9NeM": {
+          "type": "collection",
+          "settings": {
+            "collection": "gabbeh-rugs",
+            "title": "Gabbeh",
+            "focal_point": "center center"
+          }
+        },
+        "collection_HE7WnY": {
+          "type": "collection",
+          "settings": {
+            "collection": "khal-mohammadi-rug",
+            "title": "Khal Mohammadi",
+            "focal_point": "center center"
+          }
+        },
+        "collection_KDQECT": {
+          "type": "collection",
+          "settings": {
+            "collection": "oushak-rugs",
+            "title": "",
+            "focal_point": "center center"
+          }
+        }
+      },
+      "block_order": [
+        "collection_qM6hDa",
+        "collection_Xr9NeM",
+        "collection_HE7WnY",
+        "collection_KDQECT"
+      ],
+      "name": "t:sections.featured-collections.presets.collection_list.name",
       "settings": {
         "title": "shop by design",
-        "home_featured_products": "all-rugs",
+        "divider": false,
         "per_row": 4,
-        "rows": 1,
-        "mobile_scrollable": true,
-        "view_all": true,
-        "divider": false
+        "enable_gutter": true
       }
     },
     "custom_tabs_collection_WETMw6": {
@@ -392,7 +429,7 @@
     "slideshow",
     "advanced_content_4pGbMW",
     "custom_tabs_collection_g3VbEK",
-    "featured_collection_z66fxj",
+    "featured_collections_e4WLwh",
     "custom_tabs_collection_WETMw6",
     "testimonials_a94P9J",
     "logo_list_7U4Lwf",
