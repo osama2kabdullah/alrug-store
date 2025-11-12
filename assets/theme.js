@@ -4090,10 +4090,17 @@ theme.recentlyViewed = {
     }
   
     open() {
+      document.querySelectorAll('.site-nav__item details').forEach((detail) => {
+        detail.style.display = 'none';
+      });
+      
       this.predictiveSearchResults.style.display = 'block';
     }
-  
+    
     close() {
+      document.querySelectorAll('.site-nav__item details').forEach((detail) => {
+        detail.style.display = 'block';
+      });
       this.predictiveSearchResults.style.display = 'none';
       this.predictiveSearchResults.innerHTML = '';
       this.classList.remove('is-active');
@@ -4735,6 +4742,7 @@ theme.recentlyViewed = {
               <div class="grid-product__meta">
                 <div class="grid-product__title">${product.title}</div>
                 ${priceMarkup}
+                <div class="yotpo-widget-instance" data-yotpo-instance-id="1243205" data-yotpo-product-id="${ product.id }" data-yotpo-cart-product-id="${ product.id }" data-yotpo-section-id="product"></div>
                 ${vendorMarkup}
               </div>
             </a>
@@ -4744,7 +4752,9 @@ theme.recentlyViewed = {
   
       output += markup;
     });
-  
+    
+    // jdgm.reloadWidgets();
+
     return output;
   }
   
@@ -6330,6 +6340,10 @@ theme.recentlyViewed = {
       filterSidebar: '.collapsible-content--sidebar',
       activeTagList: '.tag-list--active-tags',
       tags: '.tag-list input',
+      neo_tags: '.filter-bar__dropdown a',
+      neo_activeTags: '.filter-bar__dropdown a.active',
+      neo_removeTags: '.remove.filter-bar__link',
+      neo_tagsForm: 'form.filter-bar',
       activeTags: '.tag-list a',
       tagsForm: '.filter-form',
       filters: '.collection-filter',
@@ -6429,6 +6443,18 @@ theme.recentlyViewed = {
       ====================*/
       initFilters: function() {
         var tags = document.querySelectorAll(selectors.tags);
+        var neo_tags = document.querySelectorAll(selectors.neo_tags);
+        var neo_removeTags = document.querySelectorAll(selectors.neo_removeTags);
+
+        if (neo_tags.length) {
+          this.bindBackButton();
+          neo_tags.forEach(tag => {
+            tag.addEventListener('click', this.link_submit.bind(this));
+          });
+          neo_removeTags.forEach(tag => {
+            tag.addEventListener('click', this.link_submit.bind(this));
+          });
+        }
   
         if (!tags.length) {
           return;
@@ -6458,6 +6484,31 @@ theme.recentlyViewed = {
           // onChange passes in formData
           onChange: this.renderFromFormData.bind(this),
         }));
+      },
+
+      link_submit: function(evt) {
+        evt.preventDefault();
+        var el = evt.currentTarget;
+        const url = el.href;
+        const path = new URL(url).pathname;
+        this.updateScroll(true);
+        this.startLoading();        
+        const formEl = evt.target.closest('form');
+        const formData = new FormData(formEl);
+        const searchParams = new URLSearchParams(formData);
+
+        this.ajaxRenderer.renderPage(path, searchParams, true).then(() => {
+            theme.sections.reinit('collection-grid');
+            this.updateScroll(false);
+            this.initPriceRange();
+            theme.reinitProductGridItem();
+  
+            document.dispatchEvent(new CustomEvent('collection:reloaded'));
+  
+            isAnimating = false;
+          });
+        window.history.pushState({}, '', path);
+
       },
   
       tagClick: function(evt) {
@@ -6574,6 +6625,7 @@ theme.recentlyViewed = {
         }
   
         document.getElementById(section.nodeId).innerHTML = newContentEl.innerHTML;
+        yotpoWidgetsContainer.initWidgets(document.getElementById(section.nodeId));
       },
   
       openCollapsible: function(el) {
@@ -8125,6 +8177,8 @@ theme.recentlyViewed = {
         var productMarkup = theme.buildProductGridItem(allProducts.slice(0, limit), this.gridItemWidth, this.rowOf, this.imageSizes);
   
         this.outputContainer.innerHTML = productMarkup;
+
+        yotpoWidgetsContainer.initWidgets(this.outputContainer);
   
         if (AOS) {
           AOS.refreshHard();

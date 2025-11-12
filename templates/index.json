@@ -99,7 +99,8 @@
       "name": "Custom Collection tabs",
       "settings": {
         "title": "What's New",
-        "subtitle": ""
+        "subtitle": "",
+        "show_view_all": true
       }
     },
     "featured_collections_e4WLwh": {
@@ -110,6 +111,7 @@
           "settings": {
             "collection": "baluch-rug",
             "title": "Baluchi",
+            "sub_title": "Minimal & sophisticated",
             "focal_point": "center center"
           }
         },
@@ -118,6 +120,7 @@
           "settings": {
             "collection": "gabbeh-rugs",
             "title": "Gabbeh",
+            "sub_title": "Soft, cozy, & welcoming",
             "focal_point": "center center"
           }
         },
@@ -126,6 +129,7 @@
           "settings": {
             "collection": "khal-mohammadi-rug",
             "title": "Khal Mohammadi",
+            "sub_title": "For a natural look",
             "focal_point": "center center"
           }
         },
@@ -134,6 +138,7 @@
           "settings": {
             "collection": "oushak-rugs",
             "title": "",
+            "sub_title": "Soft, cozy, & welcoming",
             "focal_point": "center center"
           }
         }
@@ -149,7 +154,91 @@
         "title": "shop by design",
         "divider": false,
         "per_row": 4,
-        "enable_gutter": true
+        "enable_gutter": true,
+        "button_text": "View all",
+        "button_link": "shopify:\/\/collections"
+      }
+    },
+    "featured_collections_hP8wkC": {
+      "type": "featured-collections",
+      "blocks": {
+        "collection_naFnDn": {
+          "type": "collection",
+          "settings": {
+            "collection": "3-x-5",
+            "custom_image": "shopify:\/\/shop_images\/MainNav-3x5.png",
+            "title": "Small Rugs",
+            "sub_title": "",
+            "focal_point": "center center"
+          }
+        },
+        "collection_xGA3Vx": {
+          "type": "collection",
+          "settings": {
+            "collection": "5-x-8",
+            "custom_image": "shopify:\/\/shop_images\/MainNav-5x7.png",
+            "title": "Medium Rugs",
+            "sub_title": "",
+            "focal_point": "center center"
+          }
+        },
+        "collection_B4HRW7": {
+          "type": "collection",
+          "settings": {
+            "collection": "7-x-10",
+            "custom_image": "shopify:\/\/shop_images\/MainNav-6x9.png",
+            "title": "Large Rugs",
+            "sub_title": "",
+            "focal_point": "center center"
+          }
+        },
+        "collection_f6nqA4": {
+          "type": "collection",
+          "settings": {
+            "collection": "runners-rugs",
+            "custom_image": "shopify:\/\/shop_images\/MainNav-RunnerLarge.png",
+            "title": "Runner Rugs",
+            "sub_title": "",
+            "focal_point": "center center"
+          }
+        },
+        "collection_fWBetp": {
+          "type": "collection",
+          "settings": {
+            "collection": "round",
+            "custom_image": "shopify:\/\/shop_images\/MainNav-Round.png",
+            "title": "Round Rugs",
+            "sub_title": "",
+            "focal_point": "center center"
+          }
+        },
+        "collection_QLLJ8Q": {
+          "type": "collection",
+          "settings": {
+            "collection": "12-x-15",
+            "custom_image": "shopify:\/\/shop_images\/extra_large_rugs_79447e89-6e9e-4b34-8d69-501b6fae3ecf.png",
+            "title": "Extra Large Rugs",
+            "sub_title": "",
+            "focal_point": "center center"
+          }
+        }
+      },
+      "block_order": [
+        "collection_naFnDn",
+        "collection_xGA3Vx",
+        "collection_B4HRW7",
+        "collection_f6nqA4",
+        "collection_fWBetp",
+        "collection_QLLJ8Q"
+      ],
+      "name": "t:sections.featured-collections.presets.collection_list.name",
+      "settings": {
+        "title": "shop by size",
+        "divider": false,
+        "per_row": 6,
+        "enable_gutter": true,
+        "button_text": "View all",
+        "button_link": "shopify:\/\/collections"
       }
     },
     "custom_tabs_collection_WETMw6": {
@@ -217,7 +306,8 @@
       "name": "Tabbed Collections",
       "settings": {
         "title": "shop by color",
-        "subtitle": ""
+        "subtitle": "",
+        "show_view_all": true
       }
     },
     "testimonials_a94P9J": {
@@ -430,6 +520,7 @@
     "advanced_content_4pGbMW",
     "custom_tabs_collection_g3VbEK",
     "featured_collections_e4WLwh",
+    "featured_collections_hP8wkC",
     "custom_tabs_collection_WETMw6",
     "testimonials_a94P9J",
     "logo_list_7U4Lwf",

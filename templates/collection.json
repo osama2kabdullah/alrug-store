@@ -24,16 +24,16 @@
             "sizes_filter_values": "2 x 3\n3 x 5\n4 x 6\n5 x 8\n6 x 9\n7 x 10\n8 x 10\n9 x 12\n10 x 14\n12 x 15\nRunner",
             "enable_colors_filter": true,
             "colors_filter_label": "Color",
-            "colors_filter_values": "Red\nBlue\nGreen\nBlack\nWhite\nGrey",
+            "colors_filter_values": "Burgundy \nHeather grey \nGreen\nBeige\nBlack\nBlue\nBrown\nGold\nGreen\nGrey\nOrange\nPink\nRed\nWhite\nMulti-Color\nMulti",
             "enable_shapes_filter": true,
             "shapes_filter_label": "Shape",
-            "shapes_filter_values": "Round\nSquare\nRectangle\nOval\nTriangle",
+            "shapes_filter_values": "Runner\nRound\nSquare\nrectangle",
             "enable_rooms_filter": true,
             "rooms_filter_label": "Room",
-            "rooms_filter_values": "Bedroom\nLiving Room\nKitchen\nBathroom\nOffice",
+            "rooms_filter_values": "bedroom\nliving-room\ndining-room\nkitchen\noffice-study",
             "enable_styles_filter": true,
             "styles_filter_label": "Style",
-            "styles_filter_values": "Modern\nContemporary\nClassic\nMinimalist\nIndustrial"
+            "styles_filter_values": "Ardibil\nBakhtiar\nBaluchi\nBarjasta\nBidjar\nBokhara\nButterfly\nCaucasian\nDesigner\nFil Pa\nGabbeh\nGombud\nHunting\nIkat\nIsfahan\nJaldar\nKhal Mohammadi\nKafkazi\nKargai\nKashan\nKazak \nKhotan \nKilim \nKirman\nMahal \nMaliki \nMamluk \nMashwani \nOushak \nOverdyed \nPatchwork \nPictorial \nPrayer \nSerapi \nShawl \nShirvan \nSoumak\nSultanabad \nSuzani \nTabriz \nTree of Life \nVintage\nZahir Shahi\nZiegler"
           }
         },
         "product_grid": {

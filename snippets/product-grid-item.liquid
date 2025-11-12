@@ -216,7 +216,7 @@ Arguments
                 </span>
               {%- endif -%}
             {%- endif -%}
-
+              
             {%- assign product_variant = product.selected_or_first_available_variant -%}
             {%- if product_variant.unit_price_measurement -%}
               <div class="product__unit-price">
@@ -233,7 +233,9 @@ Arguments
               </div>
             {%- endif -%}
           </div>
-
+          
+          <div class="yotpo-widget-instance" data-yotpo-instance-id="1243205" data-yotpo-product-id="{{product.id}}" data-yotpo-cart-product-id="{{item.product.id}}" data-yotpo-section-id="product"></div>
+          
           {%- if settings.enable_swatches and type == 'horizontal' -%}
             {%- liquid
               assign swatch_trigger = 'products.general.color_swatch_trigger' | t | downcase

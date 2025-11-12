@@ -35,7 +35,7 @@
     "type_navigation_size": 18,
     "type_navigation_capitalize": true,
     "type_product_capitalize": true,
-    "type_collection_font": "heading",
+    "type_collection_font": "body",
     "type_collection_size": 18,
     "button_style": "square",
     "icon_weight": "2px",

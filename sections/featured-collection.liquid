@@ -166,3 +166,22 @@
   }
 }
 {% endschema %}
+/* Condense gaps between color tabs */
+.color-tabs {
+  display: flex;
+  justify-content: center;
+  gap: 10px; /* Adjust this to control spacing between tabs */
+  flex-wrap: wrap; /* Keeps layout responsive */
+}
+
+.color-tabs button,
+.color-tabs a {
+  margin: 0;
+  padding: 8px 16px; /* Adjust for tighter or looser fit */
+}
+
+/* Optional: Reduce top/bottom spacing */
+.color-tabs-container {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
