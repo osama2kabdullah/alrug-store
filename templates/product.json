@@ -3,9 +3,11 @@
     "main": {
       "type": "main-product",
       "blocks": {
-        "judge_me_reviews_preview_badge_73Ni4P": {
-          "type": "shopify:\/\/apps\/judge-me-reviews\/blocks\/preview_badge\/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
-          "settings": {}
+        "custom_yJbNPM": {
+          "type": "custom",
+          "settings": {
+            "code": "<div class=\"yotpo-widget-instance\" data-yotpo-instance-id=\"1243205\" data-yotpo-product-id=\"{{product.id}}\" data-yotpo-cart-product-id=\"{{item.product.id}}\" data-yotpo-section-id=\"{{template.name}}\"><\/div>"
+          }
         },
         "separator_JJfAyL": {
           "type": "separator",
@@ -83,7 +85,7 @@
         }
       },
       "block_order": [
-        "judge_me_reviews_preview_badge_73Ni4P",
+        "custom_yJbNPM",
         "separator_JJfAyL",
         "price",
         "size_chart",
@@ -116,7 +118,7 @@
         "custom_aYtKLV": {
           "type": "custom",
           "settings": {
-            "code": "<!-- Start of Judge.me code --> \n  <div style='clear:both'><\/div> \n  <div id='judgeme_product_reviews' class='jdgm-widget jdgm-review-widget' data-product-title='{{ product.title | escape }}' data-id='{{ product.id }}' data-auto-install='false'> \n    {{ product.metafields.judgeme.widget }} \n  <\/div> \n<!-- End of Judge.me code -->"
+            "code": "<div class=\"yotpo-widget-instance\" data-yotpo-instance-id=\"1243206\" data-yotpo-product-id=\"{{product.id}}\" data-yotpo-name=\"{{ product.title | escape }}\" data-yotpo-url=\"{{ shop.url }}{{ product.url }}\" data-yotpo-image-url=\"{{ product.featured_image | product_img_url: \"large\" | prepend: \"https:\" | replace: '?', '%3F' | replace: '&','%26'}}\" data-yotpo-price=\"{{ product.price | divided_by: 100.00 }}\" data-yotpo-currency=\"{{ shop.currency }}\" data-yotpo-description=\"{{ product.description | escape }}\"><\/div>"
           }
         }
       },
@@ -124,7 +126,7 @@
         "custom_aYtKLV"
       ],
       "settings": {
-        "max_width": true
+        "max_width": false
       }
     },
     "care_history_P8YdfB": {
