@@ -156,8 +156,45 @@
       ],
       "settings": {
         "full_width": false,
-        "space_around": true
+        "space_around": false
       }
+    },
+    "17633212670e83bd6d": {
+      "type": "_blocks",
+      "blocks": {
+        "ai_gen_block_e282b53_UyEp88": {
+          "type": "ai_gen_block_e282b53",
+          "settings": {
+            "link_text": "See customer reviews",
+            "reviews_link": "shopify:\/\/pages\/new-testimonials-1",
+            "show_icon": true,
+            "icon_style": "star",
+            "icon_size": 20,
+            "font_size": 16,
+            "font_weight": "500",
+            "text_uppercase": false,
+            "letter_spacing": 0,
+            "background_color": "#ffffff",
+            "text_color": "#000000",
+            "border_color": "#e8e8e1",
+            "hover_background_color": "#ffce29",
+            "hover_text_color": "#000000",
+            "hover_border_color": "#ffce29",
+            "alignment": "center",
+            "padding_vertical": 12,
+            "padding_horizontal": 24,
+            "border_radius": 4,
+            "border_width": 1,
+            "section_padding_top": 0,
+            "section_padding_bottom": 0
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "ai_gen_block_e282b53_UyEp88"
+      ],
+      "settings": {}
     },
     "care_history_P8YdfB": {
       "type": "care-history",
@@ -219,6 +256,7 @@
     "main",
     "sub",
     "17632956382492df44",
+    "17633212670e83bd6d",
     "care_history_P8YdfB",
     "product-recommendations",
     "recently-viewed",
