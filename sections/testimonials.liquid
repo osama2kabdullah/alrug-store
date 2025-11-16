@@ -1,239 +1,91 @@
-{%- style -%}
-  .testimonials-{{ section.id }} {
-    background-color: {{ section.settings.color_background }};
-    color: {{ section.settings.color_text }};
+<style>
+  .custom-testimonials-page .page-content {
+      padding-top: 0px;
   }
-}
-{%- endstyle -%}
 
-<div
-  class="testimonials-section testimonials-{{ section.id }}{% if section.settings.color_background == settings.color_body_bg %} testimonials-section--with-divider{% endif %} text-{{ section.settings.align_text }}"
-  data-section-id="{{ section.id }}"
-  data-section-type="testimonials"
-  data-aos>
-  {%- if section.settings.title != blank -%}
-    <div class="page-width">
-      <div class="section-header">
-        <h2>{{ section.settings.title | escape }}</h2>
-      </div>
-    </div>
-  {%- endif -%}
+  .custom-testimonials-page .reviews {
+      display: grid;
+      gap: 20px;
+  }
 
-  {%- if section.blocks.size > 0 -%}
-    <div class="slideshow-wrapper">
-      <div
-        class="testimonials-slider"
-        id="Testimonials-{{ section.id }}"
-        data-dots="true"
-        data-count="{{ section.blocks.size }}">
-        {%- for block in section.blocks -%}
-          <div
-            class="testimonials-slide testimonials-slide--{{ block.id }}"
-            data-index="{{ forloop.index0 }}"
-            data-aos="row-of-{{ section.blocks.size }}"
-            {{ block.shopify_attributes }}>
-            <blockquote class="testimonials-slider__text">
-              {%- if block.settings.icon == 'quote' -%}
-                <span class="quote-icon"><svg aria-hidden="true" focusable="false" role="presentation" class="icon icon-quote" viewBox="0 0 41 35"><path d="M10.208 17.711h6.124v16.332H0V21.684C0 8.184 5.444.956 16.332 0v6.125c-4.083 1.14-6.124 4.414-6.124 9.82v1.766Zm24.498 0h6.124v16.332H24.498V21.684C24.498 8.184 29.942.956 40.83 0v6.125c-4.083 1.14-6.124 4.414-6.124 9.82v1.766Z" fill-rule="evenodd"/></svg></span>
-              {%- elsif block.settings.icon == '5-stars' -%}
-                <span class="testimonial-stars">★★★★★</span>
-              {%- elsif block.settings.icon == '4-stars' -%}
-                <span class="testimonial-stars">★★★★</span>
-              {%- elsif block.settings.icon == '3-stars' -%}
-                <span class="testimonial-stars">★★★</span>
-              {%- elsif block.settings.icon == '2-stars' -%}
-                <span class="testimonial-stars">★★</span>
-              {%- elsif block.settings.icon == '1-star' -%}
-                <span class="testimonial-stars">★</span>
-              {%- endif -%}
+  .custom-testimonials-page .review h4{
+      font-size: large;
+      letter-spacing: normal;
+      font-family: var(--typeBasePrimary), var(--typeBaseFallback);
+      padding-top: 10px;
+  }
 
-              {%- if block.settings.testimonial != blank -%}
-                <div class="rte-setting text-spacing">{{ block.settings.testimonial }}</div>
-              {%- endif -%}
+  .custom-testimonials-page .review {
+      display: grid;
+      grid-template-columns: 200px auto;
+      padding-top: 20px;
+      gap: 15px;
+      border-top: 1px solid #e1e1e1;
+  }
 
-              {%- if block.settings.image != blank -%}
-                <div class="testimonial-image{% if section.settings.round_images %} testimonial-image--round{% endif %}">
-                  <div class="image-wrap text-spacing"
-                    {% if section.settings.round_images == false %}
-                      style="height: 0; padding-bottom: {{ 100 | divided_by: block.settings.image.aspect_ratio }}%;"
-                    {% endif %}
-                  >
-                    {%- liquid
-                      if section.settings.round_images
-                        assign sizeVariable = '65px'
-                      else
-                        assign sizeVariable = '142px'
-                      endif
+  .custom-testimonials-page .stars {
+      color: #f8b400;
+      font-size: 30px;
+      letter-spacing: 2px;
+  }
 
-                      assign fallback = sizeVariable
-                    -%}
-                    {%- render 'image-element',
-                      img: block.settings.image,
-                      sizeVariable: sizeVariable,
-                      fallback: fallback,
-                      widths: '180, 360, 540, 720',
-                    -%}
-                  </div>
-                </div>
-              {%- endif -%}
+  .custom-testimonials-page .pagination {
+      display: inline-flex;
+      list-style: none;
+      padding: 0;
+      margin: 30px 0;
+      gap: 6px;
+  }
 
-              {%- if block.settings.author != blank -%}
-                <cite>{{ block.settings.author | escape }}</cite>
-              {%- endif -%}
-              {%- if block.settings.author_info != blank -%}
-                <div class="testimonials__info">{{ block.settings.author_info | escape }}</div>
-              {%- endif -%}
-            </blockquote>
-          </div>
-        {%- endfor -%}
-      </div>
-    </div>
-  {%- endif -%}
+  .custom-testimonials-page .page-item .page-link {
+      display: block;
+      padding: 8px 14px;
+      font-size: 15px;
+      color: #444;
+      background: #f7f7f7;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      text-decoration: none;
+      transition: all 0.25s ease;
+  }
+
+  .custom-testimonials-page .page-item .page-link:hover {
+      background: #eaeaea;
+      border-color: #bbb;
+      color: #000;
+  }
+
+  .custom-testimonials-page .page-item.active .page-link {
+      background: #000;
+      border-color: #000;
+      color: #fff;
+      cursor: default;
+  }
+
+  .custom-testimonials-page .page-item.disabled .page-link {
+      opacity: 0.6;
+      cursor: not-allowed;
+      pointer-events: none;
+  }
+
+  /* Responsive */
+  @media (max-width: 720px) {
+      .custom-testimonials-page .review {
+          grid-template-columns: 1fr;
+      }
+  }
+</style>
+
+<div class="page-width page-width--narrow page-content">
+  <div class="rte rte--nomargin">
+    {{ page.content }}
+  </div>
 </div>
 
 {% schema %}
 {
-  "name": "t:sections.testimonials.name",
-  "class": "index-section",
-  "max_blocks": 9,
-  "settings": [
-    {
-      "type": "text",
-      "id": "title",
-      "label": "t:sections.testimonials.settings.title.label",
-      "default": "Testimonials"
-    },
-    {
-      "type": "select",
-      "id": "align_text",
-      "label": "t:sections.testimonials.settings.align_text.label",
-      "default": "center",
-      "options": [
-        {
-          "value": "left",
-          "label": "t:sections.testimonials.settings.align_text.options.left.label"
-        },
-        {
-          "value": "center",
-          "label": "t:sections.testimonials.settings.align_text.options.center.label"
-        },
-        {
-          "value": "right",
-          "label": "t:sections.testimonials.settings.align_text.options.right.label"
-        }
-      ]
-    },
-    {
-      "type": "checkbox",
-      "id": "round_images",
-      "label": "t:sections.testimonials.settings.round_images.label",
-      "info": "t:sections.testimonials.settings.round_images.info",
-      "default": true
-    },
-    {
-      "type": "color",
-      "id": "color_background",
-      "label": "t:sections.testimonials.settings.color_background.label",
-      "default": "#f9f9f9"
-    },
-    {
-      "type": "color",
-      "id": "color_text",
-      "label": "t:sections.testimonials.settings.color_text.label",
-      "default": "#1c1d1d"
-    }
-  ],
-  "blocks": [
-    {
-      "type": "testimonial",
-      "name": "t:sections.testimonials.blocks.testimonial.name",
-      "settings": [
-        {
-          "type": "select",
-          "id": "icon",
-          "label": "t:sections.testimonials.blocks.testimonial.settings.icon.label",
-          "default": "5-stars",
-          "options": [
-            {
-              "value": "none",
-              "label": "t:sections.testimonials.blocks.testimonial.settings.icon.options.none.label"
-            },
-            {
-              "value": "quote",
-              "label": "t:sections.testimonials.blocks.testimonial.settings.icon.options.quote.label"
-            },
-            {
-              "value": "5-stars",
-              "label": "t:sections.testimonials.blocks.testimonial.settings.icon.options.5-stars.label"
-            },
-            {
-              "value": "4-stars",
-              "label": "t:sections.testimonials.blocks.testimonial.settings.icon.options.4-stars.label"
-            },
-            {
-              "value": "3-stars",
-              "label": "t:sections.testimonials.blocks.testimonial.settings.icon.options.3-stars.label"
-            },
-            {
-              "value": "2-stars",
-              "label": "t:sections.testimonials.blocks.testimonial.settings.icon.options.2-stars.label"
-            },
-            {
-              "value": "1-star",
-              "label": "t:sections.testimonials.blocks.testimonial.settings.icon.options.1-star.label"
-            }
-          ]
-        },
-        {
-          "type": "richtext",
-          "id": "testimonial",
-          "label": "t:sections.testimonials.blocks.testimonial.settings.testimonial.label",
-          "default": "<p>Add customer reviews and testimonials to showcase your store’s happy customers.</p>"
-        },
-        {
-          "type": "image_picker",
-          "id": "image",
-          "label": "t:sections.testimonials.blocks.testimonial.settings.image.label"
-        },
-        {
-          "type": "text",
-          "id": "author",
-          "label": "t:sections.testimonials.blocks.testimonial.settings.author.label",
-          "default": "Author's name"
-        },
-        {
-          "type": "text",
-          "id": "author_info",
-          "label": "t:sections.testimonials.blocks.testimonial.settings.author_info.label",
-          "default": "Los Angeles, CA"
-        }
-      ]
-    }
-  ],
-  "presets": [
-    {
-      "name": "t:sections.testimonials.presets.testimonials.name",
-      "blocks": [
-        {
-          "type": "testimonial"
-        },
-        {
-          "type": "testimonial"
-        },
-        {
-          "type": "testimonial"
-        },
-        {
-          "type": "testimonial"
-        },
-        {
-          "type": "testimonial"
-        }
-      ]
-    }
-  ],
-  "disabled_on": {
-    "groups": ["footer", "header", "custom.popups"]
-  }
+  "name": "Custom Testimonials Page",
+  "tag": "section",
+  "class": "custom-testimonials-page"
 }
 {% endschema %}
