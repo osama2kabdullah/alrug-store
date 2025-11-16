@@ -57,26 +57,55 @@
               <caption class="table-caption">
                 More Information
               </caption>
-              <tbody class="col-md-6 col-sm-12" style="border-top: none;">
-                {% assign count = 0 %}
+              
+              <tbody class="hide-on-mobile" >
                 {% for field in product.metafields.global %}
-                  {% assign count = count | plus: 1 %}
-                  <tr>
-                    {% assign field_new = field | first | capitalize %}
-                    {% if field_new == 'Sku' %}
-                      <th class="col label" scope="row">{{ field_new | upcase }}</th>
-                    {% else %}
-                      <th class="col label" scope="row">{{ field_new | replace: '_', ' ' }}</th>
-                    {% endif %}
+                  {% assign label = field[0] | capitalize | replace: '_', ' ' %}
+                  {% assign value = field[1] %}
 
-                    <td class="col data" data-th="{{ field_new | first }}">{{ field | last }}</td>
-                  </tr>
-                  {% if count == 7 %}
-                    </tbody>
-                    <tbody class="col-md-6 col-sm-12" style="border-top: none;">
+                  {% assign mod = forloop.index0 | modulo: 2 %}
+
+                  {% if mod == 0 %}
+                    <tr>
+                  {% endif %}
+
+                  <th scope="row">
+                    {% if label == 'Sku' %}
+                      {{ label | upcase }}
+                    {% else %}
+                      {{ label }}
+                    {% endif %}
+                  </th>
+                  <td>{{ value }}</td>
+
+                  {% if mod == 1 %}
+                    </tr>
+                  {% endif %}
+
+                  {% if forloop.last and mod == 0 %}
+                    <th></th>
+                    <td></td>
+                    </tr>
                   {% endif %}
                 {% endfor %}
               </tbody>
+              <tbody class="hide-on-desktop" >
+                {% for field in product.metafields.global %}
+                  {% assign label = field[0] | capitalize | replace: '_', ' ' %}
+                  {% assign value = field[1] %}
+                  <tr class="attribute-pair">
+                    <th scope="row">
+                      {% if label == 'Sku' %}
+                        {{ label | upcase }}
+                      {% else %}
+                        {{ label }}
+                      {% endif %}
+                    </th>
+                    <td>{{ value }}</td>
+                  </tr>
+                {% endfor %}
+              </tbody>
+
             </table>
           </div>
         </div>
@@ -262,6 +291,18 @@
   }
 
   /* TABLE STYLING */
+  .product.info.detailed .data.table.additional-attributes.table-striped .hide-on-desktop {
+    display: none;
+  }
+  @media (max-width: 768px) {
+    .product.info.detailed .data.table.additional-attributes.table-striped .hide-on-mobile {
+      display: none;
+    }
+
+    .product.info.detailed .data.table.additional-attributes.table-striped .hide-on-desktop {
+      display: table-row-group;
+    }
+  }
 
   .table-caption {
     font-size: 16px;

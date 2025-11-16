@@ -1907,6 +1907,7 @@ theme.recentlyViewed = {
           if (count > 0) {
             bubbles.forEach(b => {
               b.classList.add('cart-link__bubble--visible');
+              b.innerText = count;
             });
           } else {
             bubbles.forEach(b => {
