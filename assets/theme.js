@@ -4732,7 +4732,22 @@ theme.recentlyViewed = {
   
       if (theme.settings.predictiveSearchPrice) priceMarkup = `<div class="grid-product__price">${theme.strings.productFrom}${theme.Currency.formatMoney(product.price_min, theme.moneyFormat)}</div>`;
       if (theme.settings.predictiveSearchVendor) vendorMarkup = `<div class="grid-product__vendor">${product.vendor}</div>`;
-  
+  // for star rating
+                // <div class="yotpo-widget-instance" data-yotpo-instance-id="1243205" data-yotpo-product-id="${ product.id }" data-yotpo-cart-product-id="${ product.id }" data-yotpo-section-id="product"></div>
+let starsHTML = "";
+for (let i = 0; i < 5; i++) {
+    const fillColor = i < 5 ? "#FFD700" : "#ccc"; // Gold or Gray
+
+    starsHTML += `
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+        fill="${fillColor}" class="star bi bi-star-fill" viewBox="0 0 16 16">
+        <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 
+        6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 
+        0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 
+        4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+      </svg>
+    `;
+  }
       var markup = `
         <div class="grid__item grid-product ${gridWidth} aos-animate" data-aos="row-of-${rowOf}">
           <div class="grid-product__content">
@@ -4743,7 +4758,8 @@ theme.recentlyViewed = {
               <div class="grid-product__meta">
                 <div class="grid-product__title">${product.title}</div>
                 ${priceMarkup}
-                <div class="yotpo-widget-instance" data-yotpo-instance-id="1243205" data-yotpo-product-id="${ product.id }" data-yotpo-cart-product-id="${ product.id }" data-yotpo-section-id="product"></div>
+                <div class="star-rating">${starsHTML}
+                </div>
                 ${vendorMarkup}
               </div>
             </a>
@@ -6626,7 +6642,7 @@ theme.recentlyViewed = {
         }
   
         document.getElementById(section.nodeId).innerHTML = newContentEl.innerHTML;
-        yotpoWidgetsContainer.initWidgets(document.getElementById(section.nodeId));
+        // yotpoWidgetsContainer.initWidgets(document.getElementById(section.nodeId));
       },
   
       openCollapsible: function(el) {
@@ -8179,7 +8195,7 @@ theme.recentlyViewed = {
   
         this.outputContainer.innerHTML = productMarkup;
 
-        yotpoWidgetsContainer.initWidgets(this.outputContainer);
+        // yotpoWidgetsContainer.initWidgets(this.outputContainer);
   
         if (AOS) {
           AOS.refreshHard();

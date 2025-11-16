@@ -4,6 +4,9 @@
   {%- if section.settings.title != blank -%}
     <div class="section-header">
       <h2 class="section-header__title">{{ section.settings.title }}</h2>
+     <div> 
+      {{ section.settings.subheading }}
+    </div>
     </div>
   {%- endif -%}
 
@@ -76,6 +79,11 @@
       "id": "title",
       "label": "t:sections.featured-collections.settings.title.label",
       "default": "Collection list"
+    },
+    {
+      "type": "richtext",
+      "id": "subheading", 
+      "label": "subheading"
     },
     {
       "type": "checkbox",
