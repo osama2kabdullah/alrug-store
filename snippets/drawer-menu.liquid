@@ -76,8 +76,9 @@
                       {%- if childlink.links != blank -%}
                         {%- assign has_sub_dropdown = true -%}
                       {%- endif -%}
+                      {% assign collection_image = collections[childlink.object.handle].image %}
 
-                      <li class="mobile-nav__item">
+                      <li class="mobile-nav__item {% unless collection_image.id %}{%if forloop.last%}no-collection-image{%endif%}{% endunless %}">
                         <div class="mobile-nav__child-item">
                           {%- if childlink.url == '#' and has_sub_dropdown -%}
                             <button type="button"
@@ -91,6 +92,12 @@
                               class="mobile-nav__link"
                               id="Sublabel-{{ grand_child_list_handle }}"
                               {% if childlink.active %}data-active="true"{% endif %}>
+                              {% if collection_image.id %}
+                                {%- render 'image-element',
+                                  img: collection_image,
+                                  widths: '80',
+                                -%}
+                              {% endif %}
                               {{ childlink.title | escape }}
                             </a>
                           {%- endif -%}

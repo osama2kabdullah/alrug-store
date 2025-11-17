@@ -22,7 +22,7 @@
       endif
     -%}
 
-    <li class="site-nav__item site-nav__expanded-item{% if has_dropdown %} site-nav--has-dropdown{% endif %}{% if is_megamenu %} site-nav--is-megamenu{% endif %}">
+    <li class="site-nav__item site-nav__expanded-item site-nav--is-megamenu">
       {% if is_megamenu or has_dropdown %}
         <details
           data-hover="{{ hover_menu }}"
@@ -113,36 +113,57 @@
             </div>
           </div>
         {%- elsif has_dropdown -%}
-          <ul class="site-nav__dropdown text-left">
-            <li style="border-right: 0px;"></li>
-            {%- for childlink in link.links -%}
-              {%- liquid
-                assign has_sub_dropdown = false
-                if childlink.links != blank
-                  assign has_sub_dropdown = true
-                endif
-              -%}
-
-              <li class="{% if has_sub_dropdown %} site-nav__deep-dropdown-trigger{% endif %}">
-                <a href="{{ childlink.url }}" class="site-nav__dropdown-link site-nav__dropdown-link--second-level{% if has_sub_dropdown %} site-nav__dropdown-link--has-children{% endif %}">
-                  {{ childlink.title | escape }}
+          {% comment %} 
+            old design (theme default)
+            <ul class="site-nav__dropdown text-left">
+              <li style="border-right: 0px;"></li>
+              {%- for childlink in link.links -%}
+                {%- liquid
+                  assign has_sub_dropdown = false
+                  if childlink.links != blank
+                    assign has_sub_dropdown = true
+                  endif
+                -%}
+  
+                <li class="{% if has_sub_dropdown %} site-nav__deep-dropdown-trigger{% endif %}">
+                  <a href="{{ childlink.url }}" class="site-nav__dropdown-link site-nav__dropdown-link--second-level{% if has_sub_dropdown %} site-nav__dropdown-link--has-children{% endif %}">
+                    {{ childlink.title | escape }}
+                    {%- if has_sub_dropdown -%}
+                      <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon--wide icon-chevron-down" viewBox="0 0 28 16"><path d="m1.57 1.59 12.76 12.77L27.1 1.59" stroke-width="2" stroke="#000" fill="none"/></svg>
+                    {%- endif -%}
+                  </a>
                   {%- if has_sub_dropdown -%}
-                    <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon--wide icon-chevron-down" viewBox="0 0 28 16"><path d="m1.57 1.59 12.76 12.77L27.1 1.59" stroke-width="2" stroke="#000" fill="none"/></svg>
+                    <ul class="site-nav__deep-dropdown">
+                      {%- for grandchildlink in childlink.links -%}
+                        <li>
+                          <a href="{{ grandchildlink.url }}" class="site-nav__dropdown-link">{{ grandchildlink.title | escape }}</a>
+                        </li>
+                      {%- endfor -%}
+                    </ul>
                   {%- endif -%}
-                </a>
-                {%- if has_sub_dropdown -%}
-                  <ul class="site-nav__deep-dropdown">
-                    {%- for grandchildlink in childlink.links -%}
-                      <li>
-                        <a href="{{ grandchildlink.url }}" class="site-nav__dropdown-link">{{ grandchildlink.title | escape }}</a>
-                      </li>
-                    {%- endfor -%}
-                  </ul>
-                {%- endif -%}
-              </li>
-            {%- endfor -%}
-            <li></li>
-          </ul>
+                </li>
+              {%- endfor -%}
+              <li></li>
+            </ul>
+          {% endcomment %}
+          <div class="site-nav__dropdown megamenu text-left">
+            <div class="page-width page-width--narrow site-nav__dropdown-wrapper">
+              {%- for childlink in link.links -%}      
+                {% assign collection_image = collections[childlink.object.handle].image %}
+                <div class="site-nav__dropdown-box {% unless collection_image.id %}{%if forloop.last%}no-collection-image{%endif%}{% endunless %}">
+                  <a href="{{ childlink.url }}" class="{% unless collection_image.id %}{%if forloop.last%}btn btn--secondary btn--small section-header__link{%endif%}{% endunless %} site-nav__dropdown-link site-nav__dropdown-link--second-level">
+                    {% if collection_image.id %}
+                      {%- render 'image-element',
+                        img: collection_image,
+                        widths: '80',
+                      -%}
+                    {% endif %}
+                    {{ childlink.title | escape }}
+                  </a>
+                </div>
+              {%- endfor -%}
+            </div>
+          </div>
         {%- endif -%}
       {% if is_megamenu or has_dropdown %}
         </details>
