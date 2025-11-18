@@ -412,77 +412,13 @@
         "divider": true
       }
     },
-    "rich_text_VUDxgL": {
-      "type": "rich-text",
-      "blocks": {
-        "page_g97wfD": {
-          "type": "page",
-          "settings": {
-            "page_text": ""
-          }
-        }
-      },
-      "block_order": [
-        "page_g97wfD"
-      ],
-      "name": "t:sections.rich-text.presets.rich_text.name",
+    "page_content_z3Cgty": {
+      "type": "page-content",
+      "name": "Page content",
       "settings": {
-        "align_text": "left",
-        "narrow_column": false,
-        "divider": false
-      }
-    },
-    "text_columns_yq3njB": {
-      "type": "text-columns",
-      "blocks": {
-        "text_block_GD6Nqz": {
-          "type": "text_block",
-          "settings": {
-            "enable_image": true,
-            "image_mask": "none",
-            "image_width": 650,
-            "title": "Example title",
-            "text": "<p>Use this section to explain a set of product features, to link to a series of pages, or to answer common questions about your products. Add images for emphasis.<\/p>",
-            "button_label": "Optional button",
-            "button_link": ""
-          }
-        },
-        "text_block_m4eLNc": {
-          "type": "text_block",
-          "settings": {
-            "enable_image": true,
-            "image_mask": "none",
-            "image_width": 650,
-            "title": "Example title",
-            "text": "<p>Use this section to explain a set of product features, to link to a series of pages, or to answer common questions about your products. Add images for emphasis.<\/p>",
-            "button_label": "Optional button",
-            "button_link": ""
-          }
-        },
-        "text_block_d34c8y": {
-          "type": "text_block",
-          "settings": {
-            "enable_image": true,
-            "image_mask": "none",
-            "image_width": 650,
-            "title": "Example title",
-            "text": "<p>Use this section to explain a set of product features, to link to a series of pages, or to answer common questions about your products. Add images for emphasis.<\/p>",
-            "button_label": "Optional button",
-            "button_link": ""
-          }
-        }
-      },
-      "block_order": [
-        "text_block_GD6Nqz",
-        "text_block_m4eLNc",
-        "text_block_d34c8y"
-      ],
-      "disabled": true,
-      "name": "t:sections.text-columns.presets.text_columns_with_images.name",
-      "settings": {
-        "title": "Don’t Just Take Our Word for It",
-        "align_text": "center",
-        "divider": false
+        "page": "alrug-website-introduction",
+        "see_more": true,
+        "word_count": 200
       }
     }
   },
@@ -495,7 +431,6 @@
     "custom_tabs_collection_WETMw6",
     "testimonials_a94P9J",
     "logo_list_7U4Lwf",
-    "rich_text_VUDxgL",
-    "text_columns_yq3njB"
+    "page_content_z3Cgty"
   ]
 }
