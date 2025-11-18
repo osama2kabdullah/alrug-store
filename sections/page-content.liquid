@@ -1,0 +1,141 @@
+{% assign content_html = page.content %}
+{% assign word_limit = section.settings.word_count | default: 200 %}
+
+{% comment %} Strip HTML to determine actual word count for truncation logic {% endcomment %}
+{% assign full_content_stripped = content_html | strip_html %}
+{% assign word_count = full_content_stripped | split: ' ' | size %}
+
+{% assign should_truncate = false %}
+{% if word_count > word_limit %}
+  {% assign should_truncate = true %}
+{% endif %}
+
+<div data-read-more-container>
+
+  {% if should_truncate %}
+    {% comment %} Show truncated content initially {% endcomment %}
+    <div data-read-more-snippet>
+      {{ content_html | truncatewords: word_limit, '...' }}
+    </div>
+
+    {% comment %} Full content is hidden by default {% endcomment %}
+    <div data-read-more-full hidden>
+      {{ content_html }}
+    </div>
+  {% else %}
+    {% comment %} Content is short or truncation is disabled, show full content {% endcomment %}
+    <div>
+      {{ content_html }}
+    </div>
+  {% endif %}
+
+</div>
+
+{% comment %} Button is only rendered if truncation is needed {% endcomment %}
+{% if should_truncate %}
+  <button type="button" data-read-more-toggle aria-expanded="false">
+    See more
+  </button>
+{% endif %}
+
+<script>
+  /**
+  * JavaScript: Universal Read More/See Less Toggle
+  * * This function searches the document for elements with the required data attributes
+  * and initializes the toggle functionality for each instance found.
+  * * Required HTML Structure (set by Liquid):
+  * 1. A toggle button with attribute: `data-read-more-toggle`
+  * 2. The main content container sibling to the button: `data-read-more-container`
+  * 3. Inside the container, the two versions of content:
+  * - Truncated content: `data-read-more-snippet`
+  * - Full content: `data-read-more-full` (must be rendered with `hidden` attribute initially)
+  */
+  function initReadMoreToggles() {
+    // Find all buttons that should act as toggles
+    const toggleButtons = document.querySelectorAll('[data-read-more-toggle]');
+
+    toggleButtons.forEach(button => {
+      // The button should immediately follow the content container in the DOM
+      const container = button.previousElementSibling; 
+
+      // Safety check to ensure the container is the correct element
+      if (container && container.hasAttribute('data-read-more-container')) {
+        const snippet = container.querySelector('[data-read-more-snippet]');
+        const fullText = container.querySelector('[data-read-more-full]');
+        
+        // Initial state is always 'truncated' (snippet visible)
+        let isTruncated = true; 
+        
+        const toggleContent = () => {
+          if (isTruncated) {
+            // Change state to 'See less'
+            if (snippet) snippet.hidden = true;
+            if (fullText) fullText.hidden = false;
+            button.textContent = 'See less';
+            button.setAttribute('aria-expanded', 'true');
+          } else {
+            // Change state back to 'See more'
+            if (snippet) snippet.hidden = false;
+            if (fullText) fullText.hidden = true;
+            button.textContent = 'See more';
+            button.setAttribute('aria-expanded', 'false');
+          }
+          // Flip the state flag
+          isTruncated = !isTruncated;
+        };
+
+        // Set up the click listener for the specific button
+        button.addEventListener('click', toggleContent);
+        
+        // Initial setup: ensure snippet is visible and full text is hidden
+        // (This is mainly for themes that load content dynamically)
+        if (snippet && fullText) {
+          snippet.hidden = false; // Ensure snippet is visible on page load
+          fullText.hidden = true; // Ensure full text remains hidden
+        }
+      }
+    });
+  }
+
+  // Run the initialization function when the page is fully loaded
+  document.addEventListener('DOMContentLoaded', initReadMoreToggles);
+
+  // Optional: If you need to re-run this after dynamically loading content (like with AJAX), 
+  // you can just call initReadMoreToggles() again.
+</script>
+
+{% schema %}
+{
+  "name": "Page content",
+  "class": "index-section",
+  "settings": [
+    {
+      "type": "page",
+      "id": "page",
+      "label": "Page"
+    },
+    {
+      "type": "checkbox",
+      "id": "see_more",
+      "label": "Enable 'See more' button",
+      "default": true,
+      "info": "Only affects pages with content longer than the word count."
+    },
+    {
+      "type": "range",
+      "id": "word_count",
+      "min": 50,
+      "max": 500,
+      "step": 10,
+      "label": "Word count",
+      "info": "Word count before truncation",
+      "default": 200
+    }
+  ],
+  "presets": [
+    {
+      "name": "Page content"
+    }
+  ]
+}
+{% endschema %}

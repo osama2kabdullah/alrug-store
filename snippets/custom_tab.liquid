@@ -51,7 +51,7 @@
     </nav>
     <div class="item content" id="nav-tabContent">
       {% if block.settings.enable_specifications_tab %}
-        <div class="tab-pane fade tab-content active in" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+        <div class="tab-pane fade tab-content table-info active in" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
           <div class="additional-attributes-wrapper">
             <table class="data table additional-attributes table-striped" id="product-attribute-specs-table">
               <caption class="table-caption">
@@ -278,7 +278,13 @@
     border: 1px solid #ddd;
     border-radius: 0 4px 4px 4px;
     padding: 20px;
-    background: #fff;
+    text-align: left;
+  }
+
+  .product.info.detailed .table-info.tab-content {
+    border: none;
+    border-radius: 0;
+    padding: 0px;
   }
 
   /* HIDE PANES BY DEFAULT */
@@ -291,6 +297,10 @@
   }
 
   /* TABLE STYLING */
+  .product.info.detailed .data.table.additional-attributes.table-striped tbody tr:nth-child(odd) th,
+  .product.info.detailed .data.table.additional-attributes.table-striped tbody tr:nth-child(odd) td {
+      background-color: #f5f5f5;
+  }
   .product.info.detailed .data.table.additional-attributes.table-striped .hide-on-desktop {
     display: none;
   }
