@@ -8461,3 +8461,42 @@ for (let i = 0; i < 5; i++) {
   });
 
 })();
+
+function initReadMoreToggles() {
+  const toggleButtons = document.querySelectorAll('[data-read-more-toggle]');
+
+  toggleButtons.forEach(button => {
+    const container = button.closest('[data-read-more-container]');
+
+    if (container) {
+      const snippet = container.querySelector('[data-read-more-snippet]');
+      const fullText = container.querySelector('[data-read-more-full]');
+      
+      let isTruncated = true; 
+      
+      const toggleContent = () => {
+        if (isTruncated) {
+          if (snippet) snippet.hidden = true;
+          if (fullText) fullText.hidden = false;
+          button.textContent = 'See less';
+          button.setAttribute('aria-expanded', 'true');
+        } else {
+          if (snippet) snippet.hidden = false;
+          if (fullText) fullText.hidden = true;
+          button.textContent = 'See more';
+          button.setAttribute('aria-expanded', 'false');
+        }
+        isTruncated = !isTruncated;
+      };
+
+      button.addEventListener('click', toggleContent);
+      
+      if (snippet && fullText) {
+        snippet.hidden = false;
+        fullText.hidden = true;
+      }
+    }
+  });
+}
+document.addEventListener('DOMContentLoaded', initReadMoreToggles);
+document.addEventListener('shopify:section:load', initReadMoreToggles);
