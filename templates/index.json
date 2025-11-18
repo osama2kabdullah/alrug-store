@@ -217,7 +217,7 @@
           "type": "collection",
           "settings": {
             "collection": "12-x-15",
-            "custom_image": "shopify:\/\/shop_images\/extra_large_rugs_79447e89-6e9e-4b34-8d69-501b6fae3ecf.png",
+            "custom_image": "shopify:\/\/shop_images\/Gemini_Generated_Image_gf55ukgf55ukgf55.png",
             "title": "Extra Large Rugs",
             "sub_title": "",
             "focal_point": "center center"
@@ -314,58 +314,8 @@
     },
     "testimonials_a94P9J": {
       "type": "testimonials",
-      "blocks": {
-        "testimonial_jaHQP9": {
-          "type": "testimonial",
-          "settings": {
-            "icon": "5-stars",
-            "testimonial": "<p>This is the second rug that my family has ordered from Alrug. Both of them have been Bokharas, and their quality is much greater than what I had previously bought at rug stores here in the States. They are both beautiful and jewel-like, of the quality of antique rugs that I have searched out in the past.<\/p>",
-            "author": "ED SCHWARTZREICH",
-            "author_info": ""
-          }
-        },
-        "testimonial_C8DdiB": {
-          "type": "testimonial",
-          "settings": {
-            "icon": "5-stars",
-            "testimonial": "<p>I am overwhelmed by the rug I recently purchased from Alrug Australia. The quality of the weave is so detailed, the wool so soft and colours amazing. Delivery from Alrug's Pakistan warehouse to Western Australia where I live only took 5 days with detailed tracking.<\/p>",
-            "author": "JEANETTE WOLSTANHOLME",
-            "author_info": ""
-          }
-        },
-        "testimonial_diiXwx": {
-          "type": "testimonial",
-          "settings": {
-            "icon": "5-stars",
-            "testimonial": "<p>This morning our beautiful Kilim arrived. The rug is finely woven and replicates the colors on your website perfectly. I am also very pleased with the suppleness and texture, and it fits into our eclectic décor with ease. Throughout the transaction, your communications have been outstanding, prompt and informative and it was a pleasure to do business with you. Many thanks for a beautiful product.<\/p>",
-            "author": "LYNNE, BALMAIN",
-            "author_info": ""
-          }
-        },
-        "testimonial_Dwtigq": {
-          "type": "testimonial",
-          "settings": {
-            "icon": "5-stars",
-            "testimonial": "<p>Thanks so much for your note. The rug arrived a couple of days ago. I'm extremely happy with it, and I'm looking over your Catalog in order to order one or two more of them. Thanks so much for your concern.<\/p>",
-            "author": "SOMTOW SUCHARITKUL",
-            "author_info": ""
-          }
-        }
-      },
-      "block_order": [
-        "testimonial_jaHQP9",
-        "testimonial_C8DdiB",
-        "testimonial_diiXwx",
-        "testimonial_Dwtigq"
-      ],
       "name": "t:sections.testimonials.presets.testimonials.name",
-      "settings": {
-        "title": "what our clients say about us",
-        "align_text": "center",
-        "round_images": true,
-        "color_background": "#f9f9f9",
-        "color_text": "#1c1d1d"
-      }
+      "settings": {}
     },
     "logo_list_7U4Lwf": {
       "type": "logo-list",

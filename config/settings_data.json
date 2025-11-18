@@ -22,7 +22,7 @@
     "color_image_overlay_text_shadow": 20,
     "type_header_font_family": "serif",
     "type_header_spacing": "0",
-    "type_header_base_size": 38,
+    "type_header_base_size": 30,
     "type_header_line_height": 1,
     "type_header_capitalize": true,
     "type_headers_align_text": true,
