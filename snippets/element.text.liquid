@@ -70,6 +70,7 @@
           assign price_parts = formatted_price | split: '.'
           assign main_price = price_parts[0]
           assign decimal_price = price_parts[1]
+          
           assign formatted_price = '<span>' | append: main_price | append: '</span><sup>' | append: decimal_price | append: '</sup>'
         elsif shop.money_format contains '{{amount_with_comma_separator}}' or shop.money_format contains '{{ amount_with_comma_separator }}'
           assign price_parts = formatted_price | split: ','

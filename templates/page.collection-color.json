@@ -2,10 +2,89 @@
   "sections": {
     "main": {
       "type": "main-page",
+      "disabled": true,
       "settings": {}
+    },
+    "featured_collections_VwmLdb": {
+      "type": "featured-collections",
+      "blocks": {
+        "collection_tLgfee": {
+          "type": "collection",
+          "settings": {
+            "collection": "black",
+            "title": "",
+            "sub_title": "",
+            "focal_point": "center center"
+          }
+        },
+        "collection_d8Gj43": {
+          "type": "collection",
+          "settings": {
+            "collection": "brown",
+            "title": "",
+            "sub_title": "",
+            "focal_point": "center center"
+          }
+        },
+        "collection_XDGdGN": {
+          "type": "collection",
+          "settings": {
+            "collection": "green",
+            "title": "",
+            "sub_title": "",
+            "focal_point": "center center"
+          }
+        },
+        "collection_nq8XDU": {
+          "type": "collection",
+          "settings": {
+            "collection": "gray",
+            "title": "",
+            "sub_title": "",
+            "focal_point": "center center"
+          }
+        },
+        "collection_VDp9GV": {
+          "type": "collection",
+          "settings": {
+            "collection": "pink",
+            "title": "",
+            "sub_title": "",
+            "focal_point": "center center"
+          }
+        },
+        "collection_8DXExn": {
+          "type": "collection",
+          "settings": {
+            "collection": "red",
+            "title": "",
+            "sub_title": "",
+            "focal_point": "center center"
+          }
+        }
+      },
+      "block_order": [
+        "collection_tLgfee",
+        "collection_d8Gj43",
+        "collection_XDGdGN",
+        "collection_nq8XDU",
+        "collection_VDp9GV",
+        "collection_8DXExn"
+      ],
+      "name": "t:sections.featured-collections.presets.collection_list.name",
+      "settings": {
+        "title": "Rugs by Color",
+        "subheading": "",
+        "divider": false,
+        "per_row": 4,
+        "enable_gutter": true,
+        "button_text": "",
+        "button_link": "shopify:\/\/collections"
+      }
     }
   },
   "order": [
-    "main"
+    "main",
+    "featured_collections_VwmLdb"
   ]
 }
