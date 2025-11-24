@@ -1,0 +1,394 @@
+{% assign ai_gen_id = section.id | replace: '_', '' | downcase %}
+
+{% style %}
+  .ai-tabs-section-{{ ai_gen_id }} {
+    margin-top: {{ section.settings.spacing_top }}px;
+    margin-bottom: {{ section.settings.spacing_bottom }}px;
+  }
+
+  .ai-tabs-nav-{{ ai_gen_id }} {
+    display: flex;
+    justify-content: center;
+    gap: 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+  }
+
+  .ai-tab-button-{{ ai_gen_id }} {
+    padding: 12px 24px;
+    background: transparent;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-bottom: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-bottom: -1px;
+  }
+
+  .ai-tab-button-{{ ai_gen_id }}:hover {
+    background: rgba(0, 0, 0, 0.05);
+  }
+
+  .ai-tab-button-{{ ai_gen_id }}.active {
+    background: #000000;
+    color: #ffffff;
+  }
+
+  .ai-tab-content-{{ ai_gen_id }} {
+    display: none;
+  }
+
+  .ai-tab-content-{{ ai_gen_id }}.active {
+    display: block;
+  }
+
+  .ai-tab-content-inner-{{ ai_gen_id }} {
+    position: relative;
+  }
+
+  .ai-tab-content-inner-{{ ai_gen_id }}.collapsed {
+    overflow: hidden;
+  }
+
+  .ai-tab-content-inner-{{ ai_gen_id }}.collapsed-by-lines {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .ai-read-more-button-{{ ai_gen_id }} {
+    margin-top: 15px;
+    padding: 10px 20px;
+    background: transparent;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  .ai-read-more-button-{{ ai_gen_id }}:hover {
+    background: rgba(0, 0, 0, 0.05);
+  }
+
+  @media screen and (max-width: 749px) {
+    .ai-tab-button-{{ ai_gen_id }} {
+      padding: 10px 16px;
+      font-size: 14px;
+    }
+  }
+{% endstyle %}
+
+<div class="page-width{% if section.settings.narrow %} page-width--narrow{% endif %}">
+  <div class="ai-tabs-section-{{ ai_gen_id }}">
+    <div class="ai-tabs-nav-{{ ai_gen_id }}">
+      {% for block in section.blocks %}
+        <button
+          class="ai-tab-button-{{ ai_gen_id }}{% if forloop.first %} active{% endif %}"
+          data-tab-id="{{ block.id }}"
+          type="button"
+        >
+          {{ block.settings.tab_title }}
+        </button>
+      {% endfor %}
+    </div>
+
+    <div class="ai-tabs-content-wrapper-{{ ai_gen_id }}">
+      {% for block in section.blocks %}
+        <div
+          class="ai-tab-content-{{ ai_gen_id }}{% if forloop.first %} active{% endif %}"
+          data-tab-content-id="{{ block.id }}"
+          {{ block.shopify_attributes }}
+        >
+          <div
+            class="ai-tab-content-inner-{{ ai_gen_id }}"
+            data-collapse-type="{{ section.settings.collapse_type }}"
+            data-collapse-value="{{ section.settings.collapse_value }}"
+          >
+            {% if block.type == 'page_content' %}
+              {% if block.settings.page != blank %}
+                {{ block.settings.page.content }}
+              {% else %}
+                <p style="color: #999; font-style: italic;">Select a page to display its content</p>
+              {% endif %}
+            {% elsif block.type == 'rich_text' %}
+              {% if block.settings.content != blank %}
+                {{ block.settings.content }}
+              {% else %}
+                <p style="color: #999; font-style: italic;">Add content to this tab</p>
+              {% endif %}
+            {% endif %}
+          </div>
+          <button
+            class="ai-read-more-button-{{ ai_gen_id }}"
+            data-read-more-btn
+            style="display: none;"
+            type="button"
+          >
+            Read more
+          </button>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+<script>
+  (function() {
+    class TabSection{{ ai_gen_id }} extends HTMLElement {
+      constructor() {
+        super();
+        this.tabButtons = document.querySelectorAll('.ai-tab-button-{{ ai_gen_id }}');
+        this.tabContents = document.querySelectorAll('.ai-tab-content-{{ ai_gen_id }}');
+        this.init();
+      }
+
+      init() {
+        this.tabButtons.forEach(button => {
+          button.addEventListener('click', () => this.switchTab(button));
+        });
+
+        this.tabContents.forEach(content => {
+          this.initializeCollapse(content);
+        });
+      }
+
+      switchTab(clickedButton) {
+        const tabId = clickedButton.getAttribute('data-tab-id');
+
+        this.tabButtons.forEach(btn => btn.classList.remove('active'));
+        clickedButton.classList.add('active');
+
+        this.tabContents.forEach(content => {
+          if (content.getAttribute('data-tab-content-id') === tabId) {
+            content.classList.add('active');
+            this.resetCollapse(content);
+          } else {
+            content.classList.remove('active');
+          }
+        });
+      }
+
+      initializeCollapse(tabContent) {
+        const inner = tabContent.querySelector('.ai-tab-content-inner-{{ ai_gen_id }}');
+        const button = tabContent.querySelector('[data-read-more-btn]');
+        const collapseType = inner.getAttribute('data-collapse-type');
+        const collapseValue = parseInt(inner.getAttribute('data-collapse-value'));
+
+        if (!collapseType || collapseValue <= 0) {
+          button.style.display = 'none';
+          return;
+        }
+
+        const needsCollapse = this.checkIfNeedsCollapse(inner, collapseType, collapseValue);
+
+        if (needsCollapse) {
+          this.applyCollapse(inner, collapseType, collapseValue);
+          button.style.display = 'block';
+          button.textContent = 'Read more';
+
+          button.addEventListener('click', () => {
+            if (inner.classList.contains('collapsed') || inner.classList.contains('collapsed-by-lines')) {
+              this.expandContent(inner, button);
+            } else {
+              this.collapseContent(inner, button, collapseType, collapseValue);
+            }
+          });
+        } else {
+          button.style.display = 'none';
+        }
+      }
+
+      checkIfNeedsCollapse(element, type, value) {
+        if (type === 'lines') {
+          const lineHeight = parseFloat(getComputedStyle(element).lineHeight);
+          const maxHeight = lineHeight * value;
+          return element.scrollHeight > maxHeight;
+        } else if (type === 'words') {
+          const text = element.textContent || element.innerText;
+          const wordCount = text.trim().split(/\s+/).length;
+          return wordCount > value;
+        }
+        return false;
+      }
+
+      applyCollapse(element, type, value) {
+        if (type === 'lines') {
+          element.classList.add('collapsed-by-lines');
+          element.style.webkitLineClamp = value;
+        } else if (type === 'words') {
+          element.classList.add('collapsed');
+          const text = element.textContent || element.innerText;
+          const words = text.trim().split(/\s+/);
+          const truncatedText = words.slice(0, value).join(' ') + '...';
+          element.setAttribute('data-full-content', element.innerHTML);
+          element.textContent = truncatedText;
+        }
+      }
+
+      expandContent(element, button) {
+        if (element.classList.contains('collapsed-by-lines')) {
+          element.classList.remove('collapsed-by-lines');
+          element.style.webkitLineClamp = 'unset';
+        } else if (element.classList.contains('collapsed')) {
+          const fullContent = element.getAttribute('data-full-content');
+          element.innerHTML = fullContent;
+          element.classList.remove('collapsed');
+        }
+        button.textContent = 'Read less';
+      }
+
+      collapseContent(element, button, type, value) {
+        this.applyCollapse(element, type, value);
+        button.textContent = 'Read more';
+      }
+
+      resetCollapse(tabContent) {
+        const inner = tabContent.querySelector('.ai-tab-content-inner-{{ ai_gen_id }}');
+        const button = tabContent.querySelector('[data-read-more-btn]');
+        const collapseType = inner.getAttribute('data-collapse-type');
+        const collapseValue = parseInt(inner.getAttribute('data-collapse-value'));
+
+        if (inner.classList.contains('collapsed') || inner.classList.contains('collapsed-by-lines')) {
+          this.expandContent(inner, button);
+          setTimeout(() => {
+            this.collapseContent(inner, button, collapseType, collapseValue);
+          }, 10);
+        }
+      }
+    }
+
+    if (!customElements.get('tab-section-{{ ai_gen_id }}')) {
+      customElements.define('tab-section-{{ ai_gen_id }}', TabSection{{ ai_gen_id }});
+    }
+
+    new TabSection{{ ai_gen_id }}();
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "Tab section",
+  "tag": "section",
+  "class": "index-section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "checkbox",
+      "id": "narrow",
+      "label": "Narrow layout",
+      "default": false
+    },
+    {
+      "type": "header",
+      "content": "Collapse settings"
+    },
+    {
+      "type": "select",
+      "id": "collapse_type",
+      "label": "Collapse by",
+      "options": [
+        {
+          "value": "none",
+          "label": "No collapse"
+        },
+        {
+          "value": "lines",
+          "label": "Number of lines"
+        },
+        {
+          "value": "words",
+          "label": "Number of words"
+        }
+      ],
+      "default": "none"
+    },
+    {
+      "type": "range",
+      "id": "collapse_value",
+      "min": 10,
+      "max": 200,
+      "step": 10,
+      "label": "Collapse value",
+      "default": 100
+    },
+    {
+      "type": "header",
+      "content": "Spacing"
+    },
+    {
+      "type": "range",
+      "id": "spacing_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Top spacing",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "spacing_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Bottom spacing",
+      "default": 36
+    }
+  ],
+  "blocks": [
+    {
+      "type": "page_content",
+      "name": "Page content",
+      "limit": 10,
+      "settings": [
+        {
+          "type": "text",
+          "id": "tab_title",
+          "label": "Tab title",
+          "default": "Page tab"
+        },
+        {
+          "type": "page",
+          "id": "page",
+          "label": "Page"
+        }
+      ]
+    },
+    {
+      "type": "rich_text",
+      "name": "Rich text",
+      "limit": 10,
+      "settings": [
+        {
+          "type": "text",
+          "id": "tab_title",
+          "label": "Tab title",
+          "default": "Custom tab"
+        },
+        {
+          "type": "richtext",
+          "id": "content",
+          "label": "Content",
+          "default": "<p>Add your custom content here</p>"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Tab section",
+      "blocks": [
+        {
+          "type": "rich_text"
+        },
+        {
+          "type": "page_content"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

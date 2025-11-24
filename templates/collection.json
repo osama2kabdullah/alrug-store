@@ -17,8 +17,8 @@
           "settings": {
             "limit_type": "lines",
             "limit_value": 3,
-            "see_more_text": "See more",
-            "see_less_text": "See less"
+            "see_more_text": "read more",
+            "see_less_text": "read less"
           },
           "blocks": {}
         }

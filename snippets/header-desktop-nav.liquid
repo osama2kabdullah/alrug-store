@@ -24,19 +24,19 @@
 
     <li class="site-nav__item site-nav__expanded-item site-nav--is-megamenu">
       {% if is_megamenu or has_dropdown %}
-        <details
+        <div
           data-hover="{{ hover_menu }}"
           id="site-nav-item--{{ forloop.index }}"
           class="site-nav__details"
         >
-          <summary
+          <div
             data-link="{{ link.url }}"
             aria-expanded="false"
             aria-controls="site-nav-item--{{ forloop.index }}"
-            class="site-nav__link site-nav__link--underline{% if has_dropdown %} site-nav__link--has-dropdown{% endif %}"
+            class="summary site-nav__link site-nav__link--underline{% if has_dropdown %} site-nav__link--has-dropdown{% endif %}"
           >
             {{ link.title }} <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon--wide icon-chevron-down" viewBox="0 0 28 16"><path d="m1.57 1.59 12.76 12.77L27.1 1.59" stroke-width="2" stroke="#000" fill="none"/></svg>
-          </summary>
+          </div>
       {% else %}
         <a
           href="{{ link.url }}"
@@ -147,7 +147,8 @@
             </ul>
           {% endcomment %}
           <div class="site-nav__dropdown megamenu text-left">
-            <div class="page-width page-width--narrow site-nav__dropdown-wrapper">
+            {% assign link_label = link.handle %}
+            <div class="page-width page-width--narrow site-nav__dropdown-wrapper {{ link_label }}">
               {%- for childlink in link.links -%}      
                 {% assign collection_image = collections[childlink.object.handle].image %}
                 <div class="site-nav__dropdown-box {% unless collection_image.id %}{%if forloop.last%}no-collection-image{%endif%}{% endunless %}">
@@ -166,7 +167,7 @@
           </div>
         {%- endif -%}
       {% if is_megamenu or has_dropdown %}
-        </details>
+        </div>
       {% endif %}
     </li>
   {%- endfor -%}

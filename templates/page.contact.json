@@ -20,7 +20,7 @@
         "liquid_dqmkFa": {
           "type": "liquid",
           "settings": {
-            "code": "<style>\n.contact_map {\nheight: 400px;\n}\n@media only screen and (max-width:768px){\n.contact_map {\npadding: 0px;\n}\n}\n<\/style>\n\n<div class=\"contact_map page-width\"><iframe src=\"https:\/\/www.google.com\/maps\/embed?pb=!1m18!1m12!1m3!1d3302.935004854611!2d-118.25509078529869!3d34.12241362147746!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80c2c12671f212e9%3A0x3ffc8f04f0fd7706!2sALRUG!5e0!3m2!1sen!2s!4v1583304395305!5m2!1sen!2s\" width=\"100%\" height=\"100%\" frameborder=\"0\" style=\"border:0;\" allowfullscreen=\"\"><\/iframe><\/div>",
+            "code": "<style>\n.contact_map {\nheight: 400px;\n}\n@media only screen and (max-width:768px){\n.contact_map {\npadding: 0px;\n}\n}\n<\/style>\n\n<div class=\"contact_map\"><iframe src=\"https:\/\/www.google.com\/maps\/embed?pb=!1m18!1m12!1m3!1d3302.935004854611!2d-118.25509078529869!3d34.12241362147746!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80c2c12671f212e9%3A0x3ffc8f04f0fd7706!2sALRUG!5e0!3m2!1sen!2s!4v1583304395305!5m2!1sen!2s\" width=\"100%\" height=\"100%\" frameborder=\"0\" style=\"border:0;\" allowfullscreen=\"\"><\/iframe><\/div>",
             "width": "100%",
             "alignment": "center"
           }

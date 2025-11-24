@@ -156,8 +156,8 @@
         "divider": false,
         "per_row": 4,
         "enable_gutter": true,
-        "button_text": "View all",
-        "button_link": "shopify:\/\/collections"
+        "button_text": "view all",
+        "button_link": "shopify:\/\/pages\/rugs-by-design"
       }
     },
     "featured_collections_hP8wkC": {
@@ -240,7 +240,7 @@
         "per_row": 6,
         "enable_gutter": true,
         "button_text": "View all",
-        "button_link": "shopify:\/\/collections"
+        "button_link": "shopify:\/\/pages\/rugs-by-size"
       }
     },
     "custom_tabs_collection_WETMw6": {
@@ -415,20 +415,21 @@
     "176392410343a0eb46": {
       "type": "_blocks",
       "blocks": {
-        "ai_gen_block_dc1ac3f_H6xkXt": {
-          "type": "ai_gen_block_dc1ac3f",
+        "ai_gen_block_ad318a5_UEWXUp": {
+          "type": "ai_gen_block_ad318a5",
           "settings": {
             "page": "alrug-website-introduction",
-            "narrow_width": true,
-            "collapsed_height": 300,
-            "see_more_text": "See more",
-            "see_less_text": "See less"
+            "enable_narrow": true,
+            "limit_type": "words",
+            "limit_value": 190,
+            "see_more_text": "Read more",
+            "see_less_text": "REad less"
           },
           "blocks": {}
         }
       },
       "block_order": [
-        "ai_gen_block_dc1ac3f_H6xkXt"
+        "ai_gen_block_ad318a5_UEWXUp"
       ],
       "settings": {}
     }

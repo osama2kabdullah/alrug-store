@@ -4492,15 +4492,15 @@ theme.recentlyViewed = {
       const navDetails = document.querySelectorAll(selectors.navDetails);
   
       navDetails.forEach((navDetail) => {
-        const summary = navDetail.querySelector('summary');
+        const summary = navDetail.querySelector('.summary');
   
         // if the navDetail is open, then close it when the user clicks outside of it
         document.addEventListener('click', (evt) => {
-          if (navDetail.hasAttribute('open') && !navDetail.contains(evt.target)) {
-            navDetail.removeAttribute('open');
+          if (navDetail.classList.contains('open') && !navDetail.contains(evt.target)) {
+            navDetail.classList.remove('open');
             summary.setAttribute('aria-expanded', 'false');
           } else {
-            if (navDetail.hasAttribute('open')) {
+            if (navDetail.classList.contains('open')) {
               summary.setAttribute('aria-expanded', 'false');
             } else {
               summary.setAttribute('aria-expanded', 'true');
@@ -6811,10 +6811,10 @@ for (let i = 0; i < 5; i++) {
       },
   
       hoverMenu: function() {
-        const detailsEl = document.querySelectorAll('[data-section-type="header"] details[data-hover="true"]');
+        const detailsEl = document.querySelectorAll('[data-section-type="header"] .site-nav__details[data-hover="true"]');
   
         detailsEl.forEach((detail) => {
-          const summary = detail.querySelector('summary');
+          const summary = detail.querySelector('.summary');
           const summaryLink = summary.dataset.link;
   
           summary.addEventListener('click', e => {
@@ -6824,36 +6824,36 @@ for (let i = 0; i < 5; i++) {
   
           // if detail has :focus-within
           detail.addEventListener('focusin', () => {
-            if (!detail.hasAttribute('open')) {
-  
+            if (!detail.classList.contains('open')) {
+
               // close all other details
               detailsEl.forEach((detail) => {
-                detail.removeAttribute('open');
+                detail.classList.remove('open');
                 detail.setAttribute('aria-expanded', 'false');
               });
-  
-              detail.setAttribute('open', '');
+
+              detail.classList.add('open');
               detail.setAttribute('aria-expanded', 'true');
             }
           });
-  
+
           detail.addEventListener('focusout', () => {
-            if (detail.hasAttribute('open') && !detail.matches(':focus-within')) {
-              detail.removeAttribute('open');
+            if (detail.classList.contains('open') && !detail.matches(':focus-within')) {
+              detail.classList.remove('open');
               detail.setAttribute('aria-expanded', 'false');
             }
           });
-  
+
           detail.addEventListener('mouseover', () => {
-            if (!detail.hasAttribute('open')) {
-              detail.setAttribute('open', '');
+            if (!detail.classList.contains('open')) {
+              detail.classList.add('open');
               detail.setAttribute('aria-expanded', 'true');
             }
           });
-  
+
           detail.addEventListener('mouseleave', () => {
-            if (detail.hasAttribute('open')) {
-              detail.removeAttribute('open');
+            if (detail.classList.contains('open')) {
+              detail.classList.remove('open');
               detail.setAttribute('aria-expanded', 'false');
             }
           });
@@ -8500,3 +8500,80 @@ function initReadMoreToggles() {
 }
 document.addEventListener('DOMContentLoaded', initReadMoreToggles);
 document.addEventListener('shopify:section:load', initReadMoreToggles);
+
+(function(){
+  class CollapsiblePanel extends HTMLElement {
+    constructor() {
+      super();
+      this._onToggle = this._onToggle.bind(this);
+    }
+
+    connectedCallback() {
+      this.body = this.querySelector('.panel-body');
+      this.fade = this.querySelector('.panel-fade');
+      this.toggle = this.querySelector('.panel-toggle');
+      this.expandLabelEl = this.querySelector('.label-expand');
+      this.collapseLabelEl = this.querySelector('.label-collapse');
+
+      const collapsedPx = parseInt(getComputedStyle(this).getPropertyValue('--collapsed-height')) || 160;
+      this._collapsedHeight = collapsedPx;
+
+      this._expandText = this.dataset.expandLabel || 'Show more';
+      this._collapseText = this.dataset.collapseLabel || 'Show less';
+
+      this.expandLabelEl.textContent = this._expandText;
+      this.collapseLabelEl.textContent = this._collapseText;
+
+      // hide toggle if content is shorter than collapsed height
+      if (this.body.scrollHeight <= this._collapsedHeight) {
+        this.toggle.style.display = 'none';
+        this.fade.style.display = 'none';
+        this.body.style.maxHeight = 'none';
+        return; // nothing else needed
+      }
+      this._collapse();  // initial
+
+      this.toggle.addEventListener('click', this._onToggle);
+    }
+
+    disconnectedCallback() {
+      this.toggle.removeEventListener('click', this._onToggle);
+    }
+
+    _collapse() {
+      this.classList.add('is-collapsed');
+      this.classList.remove('is-expanded');
+
+      this.body.style.maxHeight = this._collapsedHeight + 'px';
+      this.fade.style.display = 'block';
+
+      this.toggle.setAttribute('aria-expanded', 'false');
+      this.expandLabelEl.style.display = 'inline';
+      this.collapseLabelEl.style.display = 'none';
+    }
+
+    _expand() {
+      this.classList.remove('is-collapsed');
+      this.classList.add('is-expanded');
+
+      this.body.style.maxHeight = this.body.scrollHeight + 'px';
+      this.fade.style.display = 'none';
+
+      this.toggle.setAttribute('aria-expanded', 'true');
+      this.expandLabelEl.style.display = 'none';
+      this.collapseLabelEl.style.display = 'inline';
+    }
+
+    _onToggle() {
+      if (this.classList.contains('is-collapsed')) {
+        this._expand();
+      } else {
+        this._collapse();
+      }
+    }
+  }
+
+  if (!customElements.get('collapsible-panel')) {
+    customElements.define('collapsible-panel', CollapsiblePanel);
+  }
+})();
