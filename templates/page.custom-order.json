@@ -1,0 +1,26 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {}
+    },
+    "contact_form_gPPjgD": {
+      "type": "contact-form",
+      "custom_css": [
+        ".section-header {text-align: left;}"
+      ],
+      "name": "t:sections.contact-form.presets.contact_form.name",
+      "settings": {
+        "title": "{{ page.title }}",
+        "text": "<p>.<\/p>{{ page.content }}",
+        "show_phone": false,
+        "narrow_column": true
+      }
+    }
+  },
+  "order": [
+    "main",
+    "contact_form_gPPjgD"
+  ]
+}

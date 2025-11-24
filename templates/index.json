@@ -412,14 +412,25 @@
         "divider": true
       }
     },
-    "page_content_z3Cgty": {
-      "type": "page-content",
-      "name": "Page content",
-      "settings": {
-        "page": "alrug-website-introduction",
-        "see_more": true,
-        "word_count": 200
-      }
+    "176392410343a0eb46": {
+      "type": "_blocks",
+      "blocks": {
+        "ai_gen_block_dc1ac3f_H6xkXt": {
+          "type": "ai_gen_block_dc1ac3f",
+          "settings": {
+            "page": "alrug-website-introduction",
+            "narrow_width": true,
+            "collapsed_height": 300,
+            "see_more_text": "See more",
+            "see_less_text": "See less"
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "ai_gen_block_dc1ac3f_H6xkXt"
+      ],
+      "settings": {}
     }
   },
   "order": [
@@ -431,6 +442,6 @@
     "custom_tabs_collection_WETMw6",
     "testimonials_a94P9J",
     "logo_list_7U4Lwf",
-    "page_content_z3Cgty"
+    "176392410343a0eb46"
   ]
 }
