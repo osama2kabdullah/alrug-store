@@ -199,27 +199,31 @@
     "care_history_P8YdfB": {
       "type": "care-history",
       "blocks": {
-        "tab_GH4xYJ": {
-          "type": "tab",
+        "page_tab_EPDgjP": {
+          "type": "page_tab",
           "settings": {
             "tab_title": "CARE",
-            "tab_content": "<p><strong>Rotate<\/strong> your rugs frequently to equalize the damaging effects of the sunlight. Continual direct exposure to sunlight will damage a rug over time, use window shades, shutters, or heavy curtains to safeguard your investment.<\/p><p>Protect your rugs from <strong>Fumes<\/strong> and <strong>Dampness<\/strong> from furnaces, stoves, chimneys and auto exhaust can mix with humidity in the atmosphere to form an acid that fades and deteriorates the appearance of wool. Over time, dampness will rot the threads and destroy the fibers of a rug. Keep them in a dry environment.<\/p><p><strong>Wear and tear<\/strong> If a rug is cut or torn, have a competent person repair the damage as soon as possible. Holes can expand very quickly and ruin an otherwise repairable carpet. With ordinary use, the selvage edges tend to fray as they are not as compressed as the rug pile. Worn edges can easily be re-darned. Fringes can be replaced. Worn or damaged areas in the middle of a rug can be re-knotted. Even large holes can be restored.<\/p><p><strong>Moths<\/strong> can cause extensive damage to Oriental rugs; however, a carpet in normal use is rarely in danger from moths. Frequent rotation and regular exposure to light and air usually keeps moths at bay. Eliminate these pests and safeguard against their return by spraying the front and back of a carpet every six months with moth spray.<\/p><p><strong>Padding<\/strong> an Oriental rug the life can be doubled with the use of good-quality padding. Padding protects the rug, especially in heavily-trafficked areas. The best padding is made of hair or fiber with a rubberized surface to prevent moving and wrinkling. Avoid synthetic pad that takes on the appearance of rubber as it turns to an abrasive powder after several years.<\/p><p><strong>Cleaning<\/strong> The beauty and life of Oriental rugs are vitally dependent on their cleanliness. Lack of maintenance will contribute to loss in the potential investment.<\/p><p><strong>Sweeping<\/strong> the rug with a broom at least once a week removes loose soil and brings out it's natural sheen<\/p><p><strong>Beating<\/strong> is one of the best methods for cleaning a rug. It should be beaten several times on each side, always in dry weather.<\/p><p><strong>Vacuuming<\/strong> Try to use a low suction level and a new bag. Never vacuum against the nap, as this presses dirt back into the rug. (Run your hand across the pile from fringe to fringe to determine the direction of the nap.) Do not vacuum the fringes. The suction of a powerful vacuum cleaner can tear the fringe.<\/p><p><strong>Washing<\/strong> Oriental rugs should be washed every three to five years, depending on their use and the amount of traffic they endure. Using steam-cleaning or chemicals on an Oriental rug removes the natural oils from the wool. The pile becomes brittle, and the carpet wears out sooner. Do not, unless absolutely necessary, submerge an Oriental rug in water. Surface cleaning is usually all that is required.<\/p><p><strong>Crushed pile<\/strong> Revive carpet pile that has been crushed by heavy furniture by brushing the indented area with a soft brush. Moisten with a spray bottle, and brush again.<\/p><p><strong>Storage<\/strong> If a rug must be stored, it must be inspected regularly. To store a rug, wrap it in fabric. An Oriental rug needs to breathe. It can rot or mildew in plastic. A rug can be rolled up and stored in a chest with some paradichlorobenzene crystals, which make the wool inedible to moths. DO NOT lay carpets flat on top of one another for any length of time. A rug stored in a damp or humid area will mildew, which discolors and weakens the fibers. A hot or poorly ventilated storage area will dry out the base of the rug, making it brittle, destroying strength and durability. If you act immediately, you can prevent virtually any spill from becoming a stain.<\/p>"
+            "tab_content": "product-care"
           }
         },
-        "tab_7NtGML": {
-          "type": "tab",
+        "page_tab_qwbrQR": {
+          "type": "page_tab",
           "settings": {
-            "tab_title": "HISTORY",
-            "tab_content": "<p>Among the finest handmade oriental rugs ever made, Isfahan rugs are the summum of the Persian carpet. In an enchanted city, renowned for its taste and finesse, these carpets are of great delicacy and utmost intricacy. The city of Isfahan holds place of pride in the Persian rug industry because of its rich history and reputation dating back to the 16th century. Most Isfahan carpets are finely detailed in wool and silk, often on a base of pure silk. Patterns include pictorial and tree-of-life schemes, as well as the Shah Abbas field with its floral vines.<br\/><br\/><\/p>"
+            "tab_title": "History",
+            "tab_content": "product-history"
           }
         }
       },
       "block_order": [
-        "tab_GH4xYJ",
-        "tab_7NtGML"
+        "page_tab_EPDgjP",
+        "page_tab_qwbrQR"
       ],
       "name": "care-history",
-      "settings": {}
+      "settings": {
+        "collapsed_height": 240,
+        "expand_label": "Read more",
+        "collapse_label": "Read less"
+      }
     },
     "product-recommendations": {
       "type": "product-recommendations",
