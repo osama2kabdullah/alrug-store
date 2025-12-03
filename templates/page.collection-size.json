@@ -8,24 +8,6 @@
     "featured_collections_JGT4fB": {
       "type": "featured-collections",
       "blocks": {
-        "collection_tffXQj": {
-          "type": "collection",
-          "settings": {
-            "collection": "10-x-14",
-            "title": "",
-            "sub_title": "",
-            "focal_point": "center center"
-          }
-        },
-        "collection_EypJR9": {
-          "type": "collection",
-          "settings": {
-            "collection": "12-x-15",
-            "title": "",
-            "sub_title": "",
-            "focal_point": "center center"
-          }
-        },
         "collection_EDb7kA": {
           "type": "collection",
           "settings": {
@@ -61,15 +43,63 @@
             "sub_title": "",
             "focal_point": "center center"
           }
+        },
+        "collection_XHqrqw": {
+          "type": "collection",
+          "settings": {
+            "collection": "7-x-10",
+            "title": "",
+            "sub_title": "",
+            "focal_point": "center center"
+          }
+        },
+        "collection_PjqAnc": {
+          "type": "collection",
+          "settings": {
+            "collection": "8-x-10",
+            "title": "",
+            "sub_title": "",
+            "focal_point": "center center"
+          }
+        },
+        "collection_qC3VAg": {
+          "type": "collection",
+          "settings": {
+            "collection": "9-x-12",
+            "title": "",
+            "sub_title": "",
+            "focal_point": "center center"
+          }
+        },
+        "collection_tffXQj": {
+          "type": "collection",
+          "settings": {
+            "collection": "10-x-14",
+            "title": "",
+            "sub_title": "",
+            "focal_point": "center center"
+          }
+        },
+        "collection_EypJR9": {
+          "type": "collection",
+          "settings": {
+            "collection": "12-x-15",
+            "title": "",
+            "sub_title": "",
+            "focal_point": "center center"
+          }
         }
       },
       "block_order": [
-        "collection_tffXQj",
-        "collection_EypJR9",
         "collection_EDb7kA",
         "collection_yCwF9g",
         "collection_DCkCgK",
-        "collection_TTC6FE"
+        "collection_TTC6FE",
+        "collection_XHqrqw",
+        "collection_PjqAnc",
+        "collection_qC3VAg",
+        "collection_tffXQj",
+        "collection_EypJR9"
       ],
       "name": "t:sections.featured-collections.presets.collection_list.name",
       "settings": {

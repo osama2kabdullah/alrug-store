@@ -152,12 +152,12 @@
       "name": "t:sections.featured-collections.presets.collection_list.name",
       "settings": {
         "title": "shop by design",
-        "subheading": "<p>We’ve got the look you’re looking for — from monochrome<\/p>",
+        "subheading": "<p>We’ve got the look you’re looking for <\/p>",
         "divider": false,
         "per_row": 4,
         "enable_gutter": true,
         "button_text": "view all",
-        "button_link": "shopify:\/\/pages\/rugs-by-design"
+        "button_link": "shopify:\/\/pages\/rugs-by-style"
       }
     },
     "featured_collections_hP8wkC": {
